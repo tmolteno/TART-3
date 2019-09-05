@@ -252,4 +252,28 @@ Wire Wire Line
 	2200 6650 2350 6650
 Wire Wire Line
 	2350 6650 2350 6750
+$Comp
+L Mechanical:MountingHole_Pad H?
+U 1 1 5D70E3CC
+P 950 4750
+F 0 "H?" H 1050 4799 50  0000 L CNN
+F 1 "MountingHole_Pad" H 1050 4708 50  0000 L CNN
+F 2 "" H 950 4750 50  0001 C CNN
+F 3 "~" H 950 4750 50  0001 C CNN
+	1    950  4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole_Pad H?
+U 1 1 5D70EDF1
+P 1250 4750
+F 0 "H?" H 1350 4799 50  0000 L CNN
+F 1 "MountingHole_Pad" H 1350 4708 50  0000 L CNN
+F 2 "" H 1250 4750 50  0001 C CNN
+F 3 "~" H 1250 4750 50  0001 C CNN
+	1    1250 4750
+	1    0    0    -1  
+$EndComp
+NoConn ~ 950  4850
+NoConn ~ 1250 4850
 $EndSCHEMATC
