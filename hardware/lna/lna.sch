@@ -70,8 +70,6 @@ F 3 "~" H 5500 3200 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	7600 3850 6900 3850
-Wire Wire Line
 	6900 3650 6900 3850
 Wire Wire Line
 	6900 3350 6900 3200
@@ -105,21 +103,21 @@ $EndComp
 $Comp
 L lna-rescue:142-0701-801-dk_Coaxial-Connectors-RF J2
 U 1 1 5D6AD89F
-P 7800 3850
-F 0 "J2" H 7712 3818 50  0000 R CNN
-F 1 "142-0701-801" H 7712 3727 50  0000 R CNN
-F 2 "Connector_Coaxial:SMA_Amphenol_132134_Vertical" H 8000 4050 60  0001 L CNN
-F 3 "http://www.belfuse.com/resources/Johnson/drawings/dr-1420701801.pdf" H 8000 4150 60  0001 L CNN
-F 4 "J502-ND" H 8000 4250 60  0001 L CNN "Digi-Key_PN"
-F 5 "142-0701-801" H 8000 4350 60  0001 L CNN "MPN"
-F 6 "Connectors, Interconnects" H 8000 4450 60  0001 L CNN "Category"
-F 7 "Coaxial Connectors (RF)" H 8000 4550 60  0001 L CNN "Family"
-F 8 "http://www.belfuse.com/resources/Johnson/drawings/dr-1420701801.pdf" H 8000 4650 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/cinch-connectivity-solutions-johnson/142-0701-801/J502-ND/35280" H 8000 4750 60  0001 L CNN "DK_Detail_Page"
-F 10 "CONN SMA JACK STR 50OHM EDGE MNT" H 8000 4850 60  0001 L CNN "Description"
-F 11 "Cinch Connectivity Solutions Johnson" H 8000 4950 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 8000 5050 60  0001 L CNN "Status"
-	1    7800 3850
+P 8150 3850
+F 0 "J2" H 8062 3818 50  0000 R CNN
+F 1 "142-0701-801" H 8062 3727 50  0000 R CNN
+F 2 "Connector_Coaxial:SMA_Amphenol_132134_Vertical" H 8350 4050 60  0001 L CNN
+F 3 "http://www.belfuse.com/resources/Johnson/drawings/dr-1420701801.pdf" H 8350 4150 60  0001 L CNN
+F 4 "J502-ND" H 8350 4250 60  0001 L CNN "Digi-Key_PN"
+F 5 "142-0701-801" H 8350 4350 60  0001 L CNN "MPN"
+F 6 "Connectors, Interconnects" H 8350 4450 60  0001 L CNN "Category"
+F 7 "Coaxial Connectors (RF)" H 8350 4550 60  0001 L CNN "Family"
+F 8 "http://www.belfuse.com/resources/Johnson/drawings/dr-1420701801.pdf" H 8350 4650 60  0001 L CNN "DK_Datasheet_Link"
+F 9 "/product-detail/en/cinch-connectivity-solutions-johnson/142-0701-801/J502-ND/35280" H 8350 4750 60  0001 L CNN "DK_Detail_Page"
+F 10 "CONN SMA JACK STR 50OHM EDGE MNT" H 8350 4850 60  0001 L CNN "Description"
+F 11 "Cinch Connectivity Solutions Johnson" H 8350 4950 60  0001 L CNN "Manufacturer"
+F 12 "Active" H 8350 5050 60  0001 L CNN "Status"
+	1    8150 3850
 	-1   0    0    -1  
 $EndComp
 Text Notes 4100 5550 0    50   ~ 0
@@ -129,16 +127,16 @@ Wire Wire Line
 $Comp
 L power:GNDA #PWR0101
 U 1 1 5D6B5D30
-P 7800 4650
-F 0 "#PWR0101" H 7800 4400 50  0001 C CNN
-F 1 "GNDA" H 7805 4477 50  0000 C CNN
-F 2 "" H 7800 4650 50  0001 C CNN
-F 3 "" H 7800 4650 50  0001 C CNN
-	1    7800 4650
+P 8150 4650
+F 0 "#PWR0101" H 8150 4400 50  0001 C CNN
+F 1 "GNDA" H 8155 4477 50  0000 C CNN
+F 2 "" H 8150 4650 50  0001 C CNN
+F 3 "" H 8150 4650 50  0001 C CNN
+	1    8150 4650
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7800 4650 7800 4050
+	8150 4650 8150 4050
 Connection ~ 6900 3850
 Wire Wire Line
 	5650 3200 5750 3200
@@ -203,16 +201,16 @@ Wire Wire Line
 Wire Wire Line
 	6900 4150 6900 3850
 Wire Wire Line
-	4100 4200 4100 4050
+	4100 4600 4100 4050
 $Comp
 L power:GNDA #PWR0102
 U 1 1 5D6B61DB
-P 4100 4200
-F 0 "#PWR0102" H 4100 3950 50  0001 C CNN
-F 1 "GNDA" H 4105 4027 50  0000 C CNN
-F 2 "" H 4100 4200 50  0001 C CNN
-F 3 "" H 4100 4200 50  0001 C CNN
-	1    4100 4200
+P 4100 4600
+F 0 "#PWR0102" H 4100 4350 50  0001 C CNN
+F 1 "GNDA" H 4105 4427 50  0000 C CNN
+F 2 "" H 4100 4600 50  0001 C CNN
+F 3 "" H 4100 4600 50  0001 C CNN
+	1    4100 4600
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -253,27 +251,71 @@ Wire Wire Line
 Wire Wire Line
 	2350 6650 2350 6750
 $Comp
-L Mechanical:MountingHole_Pad H?
+L Mechanical:MountingHole_Pad H1
 U 1 1 5D70E3CC
 P 950 4750
-F 0 "H?" H 1050 4799 50  0000 L CNN
+F 0 "H1" H 1050 4799 50  0000 L CNN
 F 1 "MountingHole_Pad" H 1050 4708 50  0000 L CNN
-F 2 "" H 950 4750 50  0001 C CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 950 4750 50  0001 C CNN
 F 3 "~" H 950 4750 50  0001 C CNN
 	1    950  4750
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole_Pad H?
+L Mechanical:MountingHole_Pad H2
 U 1 1 5D70EDF1
 P 1250 4750
-F 0 "H?" H 1350 4799 50  0000 L CNN
+F 0 "H2" H 1350 4799 50  0000 L CNN
 F 1 "MountingHole_Pad" H 1350 4708 50  0000 L CNN
-F 2 "" H 1250 4750 50  0001 C CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 1250 4750 50  0001 C CNN
 F 3 "~" H 1250 4750 50  0001 C CNN
 	1    1250 4750
 	1    0    0    -1  
 $EndComp
 NoConn ~ 950  4850
 NoConn ~ 1250 4850
+$Comp
+L Device:LED D2
+U 1 1 5D9FB079
+P 9100 3750
+F 0 "D2" V 9047 3829 50  0000 L CNN
+F 1 "PWR" V 9138 3829 50  0000 L CNN
+F 2 "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 9100 3750 50  0001 C CNN
+F 3 "~" H 9100 3750 50  0001 C CNN
+	1    9100 3750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5D9FC178
+P 9100 3400
+F 0 "R1" H 9170 3446 50  0000 L CNN
+F 1 "1K" H 9170 3355 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 9030 3400 50  0001 C CNN
+F 3 "~" H 9100 3400 50  0001 C CNN
+	1    9100 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR0105
+U 1 1 5DA0533E
+P 9100 3950
+F 0 "#PWR0105" H 9100 3700 50  0001 C CNN
+F 1 "GNDA" H 9105 3777 50  0000 C CNN
+F 2 "" H 9100 3950 50  0001 C CNN
+F 3 "" H 9100 3950 50  0001 C CNN
+	1    9100 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9100 3950 9100 3900
+Wire Wire Line
+	9100 3600 9100 3550
+Wire Wire Line
+	6900 3850 7950 3850
+Wire Wire Line
+	6900 3200 9100 3200
+Wire Wire Line
+	9100 3200 9100 3250
+Connection ~ 6900 3200
 $EndSCHEMATC
