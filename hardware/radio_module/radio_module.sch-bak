@@ -4,7 +4,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 5
+Sheet 1 7
 Title ""
 Date ""
 Rev ""
@@ -19,31 +19,27 @@ S 1150 1200 1800 2000
 U 5DB387EA
 F0 "Radio Subsystem A" 50
 F1 "rfx/rfx.sch" 50
-F2 "2V8" I R 2950 2900 50 
-F3 "GNDA" I R 2950 3100 50 
-F4 "~CS" I R 2950 1300 50 
-F5 "SCLK" I R 2950 1400 50 
-F6 "SDATA" I R 2950 1500 50 
-F7 "ANTFLG" I R 2950 1700 50 
-F8 "I0" I R 2950 2050 50 
-F9 "I1" I R 2950 2150 50 
-F10 "LD" I R 2950 1800 50 
-F11 "Q0" I R 2950 2250 50 
-F12 "Q1" I R 2950 2350 50 
-F13 "CLKIN" I R 2950 2550 50 
+F2 "~CS" I R 2950 1300 50 
+F3 "SCLK" I R 2950 1400 50 
+F4 "SDATA" I R 2950 1500 50 
+F5 "ANTFLG" I R 2950 1700 50 
+F6 "I0" I R 2950 2050 50 
+F7 "I1" I R 2950 2150 50 
+F8 "LD" I R 2950 1800 50 
+F9 "Q0" I R 2950 2250 50 
+F10 "Q1" I R 2950 2350 50 
+F11 "CLKIN" I R 2950 2550 50 
+F12 "Ground" I R 2950 3050 50 
+F13 "2V8" I R 2950 2900 50 
 $EndSheet
 $Sheet
-S 3650 3950 1800 1000
+S 8850 5150 1800 1000
 U 5DB38808
 F0 "RF Power system" 50
 F1 "rf_power/rf_power.sch" 50
-F2 "2V8A" I L 3650 4100 50 
-F3 "2V8B" I R 5450 4100 50 
-F4 "GNDAA" I L 3650 4300 50 
-F5 "GNDAB" I R 5450 4300 50 
 $EndSheet
 $Sheet
-S 3650 5550 1800 1000
+S 3650 5550 1800 1250
 U 5DB3883C
 F0 "Intelligent module control" 50
 F1 "uC_ctrl/uC_ctrl.sch" 50
@@ -62,25 +58,25 @@ F13 "~CS_A" I R 5450 5900 50
 F14 "~CS_B" I R 5450 6000 50 
 F15 "B" I R 5450 6200 50 
 F16 "A" I R 5450 6300 50 
-F17 "~Reset" I R 5450 6400 50 
+F17 "~Reset" I R 5450 6450 50 
 $EndSheet
 $Sheet
 S 4800 1200 1800 2000
 U 5DB3893A
 F0 "Radio Subsystem B" 50
 F1 "rfx/rfx.sch" 50
-F2 "2V8" I R 6600 2850 50 
-F3 "GNDA" I R 6600 3050 50 
-F4 "~CS" I R 6600 1300 50 
-F5 "SCLK" I R 6600 1400 50 
-F6 "SDATA" I R 6600 1500 50 
-F7 "ANTFLG" I R 6600 1700 50 
-F8 "I0" I R 6600 2050 50 
-F9 "I1" I R 6600 2150 50 
-F10 "LD" I R 6600 1800 50 
-F11 "Q0" I R 6600 2250 50 
-F12 "Q1" I R 6600 2350 50 
-F13 "CLKIN" I R 6600 2550 50 
+F2 "~CS" I R 6600 1300 50 
+F3 "SCLK" I R 6600 1400 50 
+F4 "SDATA" I R 6600 1500 50 
+F5 "ANTFLG" I R 6600 1700 50 
+F6 "I0" I R 6600 2050 50 
+F7 "I1" I R 6600 2150 50 
+F8 "LD" I R 6600 1800 50 
+F9 "Q0" I R 6600 2250 50 
+F10 "Q1" I R 6600 2350 50 
+F11 "CLKIN" I R 6600 2550 50 
+F12 "Ground" I R 6600 3050 50 
+F13 "2V8" I R 6600 2900 50 
 $EndSheet
 $Comp
 L power:GND #PWR02
@@ -108,10 +104,6 @@ Wire Wire Line
 	9300 1900 9050 1900
 Wire Wire Line
 	9050 1900 9050 1500
-Wire Wire Line
-	9800 1900 10050 1900
-Wire Wire Line
-	10050 1900 10050 1500
 Wire Wire Line
 	9300 3600 9050 3600
 Wire Wire Line
@@ -146,30 +138,6 @@ Text Notes 2150 2250 2    197  Italic 39
 A
 Text Notes 5900 2250 2    197  Italic 39
 B
-Wire Wire Line
-	5450 4100 6950 4100
-Wire Wire Line
-	6950 4100 6950 2850
-Wire Wire Line
-	6950 2850 6600 2850
-Wire Wire Line
-	6600 3050 6800 3050
-Wire Wire Line
-	6800 3050 6800 4300
-Wire Wire Line
-	6800 4300 5450 4300
-Wire Wire Line
-	3650 4300 3250 4300
-Wire Wire Line
-	3250 4300 3250 3100
-Wire Wire Line
-	3250 3100 2950 3100
-Wire Wire Line
-	3650 4100 3400 4100
-Wire Wire Line
-	3400 4100 3400 2900
-Wire Wire Line
-	3400 2900 2950 2900
 Wire Wire Line
 	3650 5650 2600 5650
 Wire Wire Line
@@ -303,100 +271,48 @@ Q0_B
 Text Label 7400 2350 2    39   ~ 0
 Q1_B
 Wire Wire Line
-	9300 2000 8600 2000
+	1500 4250 850  4250
 Wire Wire Line
-	9800 2000 10550 2000
+	1500 4400 850  4400
 Wire Wire Line
-	9300 2100 8600 2100
+	1500 4600 850  4600
 Wire Wire Line
-	9800 2100 10550 2100
+	1500 4750 850  4750
 Wire Wire Line
-	9800 2200 10550 2200
-Wire Wire Line
-	9300 2200 8600 2200
-Wire Wire Line
-	9300 2300 8600 2300
-Wire Wire Line
-	9800 2300 10550 2300
-Wire Wire Line
-	9300 3300 8600 3300
-Wire Wire Line
-	9300 3400 8600 3400
-Wire Wire Line
-	9300 3500 8600 3500
-Wire Wire Line
-	9800 3500 10550 3500
-Wire Wire Line
-	9800 3400 10550 3400
+	9800 3100 10550 3100
 Wire Wire Line
 	9800 3200 10550 3200
 Wire Wire Line
-	9300 3200 8600 3200
+	9800 3400 10550 3400
 Wire Wire Line
-	9300 3100 8600 3100
-Text Label 8800 2000 2    39   ~ 0
+	10550 3300 9800 3300
+Text Label 1050 4250 2    39   ~ 0
 I0_A
-Text Label 8800 2100 2    39   ~ 0
+Text Label 1050 4400 2    39   ~ 0
 I1_A
-Text Label 8800 2200 2    39   ~ 0
+Text Label 1050 4600 2    39   ~ 0
 Q0_A
-Text Label 8800 2300 2    39   ~ 0
+Text Label 1050 4750 2    39   ~ 0
 Q1_A
-Text Label 10450 2000 2    39   ~ 0
-I0_B
-Text Label 10450 2100 2    39   ~ 0
-I1_B
-Text Label 10450 2200 2    39   ~ 0
-Q0_B
-Text Label 10450 2300 2    39   ~ 0
-Q1_B
-Text Label 8800 3100 2    39   ~ 0
-~Reset
-Text Label 8800 3200 2    39   ~ 0
+Text Label 10450 3300 2    39   ~ 0
 A
-Text Label 10450 3200 2    39   ~ 0
-B
-Text Label 8800 3300 2    39   ~ 0
-A0
-Text Label 8800 3400 2    39   ~ 0
-A1
-Text Label 8800 3500 2    39   ~ 0
-A2
-Text Label 10450 3500 2    39   ~ 0
-A3
 Text Label 10450 3400 2    39   ~ 0
+B
+Text Label 10450 3100 2    39   ~ 0
+A3
+Text Label 10450 3200 2    39   ~ 0
 A4
-NoConn ~ 9300 2500
-NoConn ~ 9300 2600
-NoConn ~ 9300 2700
-NoConn ~ 9300 2800
-NoConn ~ 9300 2900
 NoConn ~ 9300 3000
-NoConn ~ 9800 3000
-NoConn ~ 9800 2900
-NoConn ~ 9800 2800
-NoConn ~ 9800 2700
-NoConn ~ 9800 2600
-NoConn ~ 9800 2500
-NoConn ~ 9800 2400
-NoConn ~ 9800 3100
-NoConn ~ 9800 3300
 Wire Wire Line
-	5450 6400 6400 6400
-Text Label 6250 6400 2    39   ~ 0
+	5450 6450 6400 6450
+Text Label 6250 6450 2    39   ~ 0
 ~Reset
 Wire Wire Line
 	2950 2550 3850 2550
 Wire Wire Line
 	6600 2550 7600 2550
 Wire Wire Line
-	9300 2400 8600 2400
-Text Label 7400 2550 2    39   ~ 0
-CLKIN
-Text Label 8800 2400 2    39   ~ 0
-CLKIN
-Text Label 3700 2550 2    39   ~ 0
-CLKIN
+	9300 2800 8600 2800
 $Comp
 L power:PWR_FLAG #FLG?
 U 1 1 5DF11DC0
@@ -481,6 +397,223 @@ Wire Wire Line
 	1650 7200 1650 7050
 Wire Wire Line
 	2050 7200 2050 7000
+Wire Wire Line
+	10050 3500 9800 3500
+Wire Wire Line
+	10050 1500 10050 3500
+Wire Wire Line
+	9800 3000 10550 3000
+Wire Wire Line
+	9800 2900 10550 2900
+Wire Wire Line
+	9800 2800 10550 2800
+Wire Wire Line
+	9800 2700 10550 2700
+Text Label 10450 3000 2    39   ~ 0
+A2
+Text Label 10450 2900 2    39   ~ 0
+A1
+Text Label 10450 2800 2    39   ~ 0
+A0
+Text Label 10450 2700 2    39   ~ 0
+~Reset
+NoConn ~ 9300 3100
+NoConn ~ 9300 3200
+NoConn ~ 9300 3300
+NoConn ~ 9300 3400
+NoConn ~ 9300 3500
+Wire Wire Line
+	2950 2900 3850 2900
+Wire Wire Line
+	2950 3050 3850 3050
+Text GLabel 3850 2900 2    39   Input ~ 0
+2V8_A
+Text GLabel 3850 3050 2    39   Input ~ 0
+GNDA_A
+Wire Wire Line
+	6600 2900 7600 2900
+Wire Wire Line
+	6600 3050 7600 3050
+Text GLabel 7600 2900 2    39   Input ~ 0
+2V8_B
+Text GLabel 7600 3050 2    39   Input ~ 0
+GNDA_B
+Text Label 5200 4400 2    39   ~ 0
+I1_B
+Text Label 5200 4250 2    39   ~ 0
+I0_B
+Text Label 5200 4600 2    39   ~ 0
+Q0_B
+Text Label 5200 4750 2    39   ~ 0
+Q1_B
+Wire Wire Line
+	4600 4400 5450 4400
+Wire Wire Line
+	4600 4250 5450 4250
+Wire Wire Line
+	4600 4600 5450 4600
+Wire Wire Line
+	4600 4750 5450 4750
+$Sheet
+S 1500 3900 1900 1350
+U 5DB53781
+F0 "Interface_A" 50
+F1 "interface/interface.sch" 50
+F2 "I0" I L 1500 4250 50 
+F3 "I1" I L 1500 4400 50 
+F4 "Q0" I L 1500 4600 50 
+F5 "Q1" I L 1500 4750 50 
+F6 "Q0+" I R 3400 4600 50 
+F7 "Q0-" I R 3400 4700 50 
+F8 "Q1+" I R 3400 4850 50 
+F9 "Q1-" I R 3400 4950 50 
+F10 "I0+" I R 3400 4050 50 
+F11 "I0-" I R 3400 4150 50 
+F12 "I1+" I R 3400 4300 50 
+F13 "I1-" I R 3400 4400 50 
+$EndSheet
+$Sheet
+S 5450 3900 1950 1350
+U 5DB8A5A3
+F0 "Interface_B" 50
+F1 "interface/interface.sch" 50
+F2 "I0" I L 5450 4250 50 
+F3 "I1" I L 5450 4400 50 
+F4 "Q0" I L 5450 4600 50 
+F5 "Q1" I L 5450 4750 50 
+F6 "Q0+" I R 7400 4650 50 
+F7 "Q0-" I R 7400 4750 50 
+F8 "Q1+" I R 7400 4900 50 
+F9 "Q1-" I R 7400 5000 50 
+F10 "I0+" I R 7400 4050 50 
+F11 "I0-" I R 7400 4150 50 
+F12 "I1+" I R 7400 4300 50 
+F13 "I1-" I R 7400 4400 50 
+$EndSheet
+Wire Wire Line
+	3400 4050 4250 4050
+Wire Wire Line
+	3400 4150 4250 4150
+Wire Wire Line
+	3400 4300 4250 4300
+Wire Wire Line
+	3400 4400 4250 4400
+Wire Wire Line
+	3400 4600 4250 4600
+Wire Wire Line
+	3400 4700 4250 4700
+Wire Wire Line
+	3400 4850 4250 4850
+Wire Wire Line
+	3400 4950 4250 4950
+Wire Wire Line
+	7400 4050 8350 4050
+Wire Wire Line
+	7400 4150 8350 4150
+Wire Wire Line
+	7400 4300 8350 4300
+Wire Wire Line
+	7400 4400 8350 4400
+Wire Wire Line
+	7400 4650 8350 4650
+Wire Wire Line
+	7400 4750 8350 4750
+Wire Wire Line
+	7400 4900 8350 4900
+Wire Wire Line
+	7400 5000 8350 5000
+Text Label 8100 4050 2    50   ~ 0
+I0+B
+Text Label 8100 4150 2    50   ~ 0
+I0-B
+Text Label 8100 4300 2    50   ~ 0
+I1+B
+Text Label 8100 4400 2    50   ~ 0
+I1-B
+Text Label 8100 4650 2    50   ~ 0
+Q0+B
+Text Label 8100 4750 2    50   ~ 0
+Q0-B
+Text Label 8100 4900 2    50   ~ 0
+Q1+B
+Text Label 8100 5000 2    50   ~ 0
+Q1-B
+Text Label 3950 4050 2    50   ~ 0
+I0+A
+Text Label 3950 4150 2    50   ~ 0
+I0-A
+Text Label 3950 4300 2    50   ~ 0
+I1+A
+Text Label 3950 4400 2    50   ~ 0
+I1-A
+Text Label 3950 4600 2    50   ~ 0
+Q0+A
+Text Label 3950 4700 2    50   ~ 0
+Q0-A
+Text Label 3950 4850 2    50   ~ 0
+Q1+A
+Text Label 3950 4950 2    50   ~ 0
+Q1-A
+Wire Wire Line
+	9300 2000 8600 2000
+Wire Wire Line
+	9300 2100 8600 2100
+Wire Wire Line
+	9300 2200 8600 2200
+Wire Wire Line
+	9300 2300 8600 2300
+Wire Wire Line
+	9300 2400 8600 2400
+Wire Wire Line
+	9300 2500 8600 2500
+Wire Wire Line
+	9300 2600 8600 2600
+Text Label 8900 2000 2    50   ~ 0
+Q0-A
+Text Label 8900 2100 2    50   ~ 0
+Q0+A
+Text Label 8900 2200 2    50   ~ 0
+Q1+A
+Text Label 8900 2300 2    50   ~ 0
+Q1-A
+Text Label 8900 2400 2    50   ~ 0
+I1-A
+Text Label 8900 2500 2    50   ~ 0
+I1+A
+Text Label 8900 2600 2    50   ~ 0
+I0+A
+Wire Wire Line
+	9800 1900 10550 1900
+Wire Wire Line
+	9800 2000 10550 2000
+Wire Wire Line
+	9800 2100 10550 2100
+Wire Wire Line
+	9800 2200 10550 2200
+Wire Wire Line
+	9800 2300 10550 2300
+Wire Wire Line
+	9800 2400 10550 2400
+Wire Wire Line
+	9800 2500 10550 2500
+Wire Wire Line
+	9800 2600 10550 2600
+Text Label 10250 1900 2    50   ~ 0
+Q0-B
+Text Label 10250 2000 2    50   ~ 0
+Q0+B
+Text Label 10250 2100 2    50   ~ 0
+Q1+B
+Text Label 10250 2200 2    50   ~ 0
+Q1-B
+Text Label 10250 2300 2    50   ~ 0
+I0-B
+Text Label 10250 2400 2    50   ~ 0
+I0+B
+Text Label 10250 2500 2    50   ~ 0
+I1+B
+Text Label 10250 2600 2    50   ~ 0
+I1-B
 $Comp
 L pcie:conn2x18pcie U8
 U 1 1 5DF69AE1
@@ -492,4 +625,18 @@ F 3 "" H 9550 2650 39  0001 C CNN
 	1    9550 2650
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	9300 2700 8600 2700
+Text Label 8700 2700 0    50   ~ 0
+I0-A
+Wire Wire Line
+	9300 2900 8600 2900
+Text Label 8700 2900 0    50   ~ 0
+CLKIN_A
+Text Label 8700 2800 0    50   ~ 0
+CLKIN_B
+Text Label 7100 2550 0    50   ~ 0
+CLKIN_B
+Text Label 3400 2550 0    50   ~ 0
+CLKIN_A
 $EndSCHEMATC

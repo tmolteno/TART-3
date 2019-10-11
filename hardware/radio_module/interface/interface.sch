@@ -1,0 +1,255 @@
+EESchema Schematic File Version 4
+LIBS:radio_module-cache
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 7 7
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Interface:DS90LV027A U10
+U 1 1 5DB54118
+P 5600 2550
+AR Path="/5DB53781/5DB54118" Ref="U10"  Part="1" 
+AR Path="/5DB8A5A3/5DB54118" Ref="U12"  Part="1" 
+F 0 "U12" H 5600 3331 50  0000 C CNN
+F 1 "DS90LV027A" H 5600 3240 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5600 1900 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/ds90lv027a.pdf" H 5600 2950 50  0001 C CNN
+	1    5600 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Interface:DS90LV027A U9
+U 1 1 5DB54CD1
+P 5550 4800
+AR Path="/5DB53781/5DB54CD1" Ref="U9"  Part="1" 
+AR Path="/5DB8A5A3/5DB54CD1" Ref="U11"  Part="1" 
+F 0 "U11" H 5550 5581 50  0000 C CNN
+F 1 "DS90LV027A" H 5550 5490 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5550 4150 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/ds90lv027a.pdf" H 5550 5200 50  0001 C CNN
+	1    5550 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0107
+U 1 1 5DB56B5D
+P 5600 3350
+AR Path="/5DB53781/5DB56B5D" Ref="#PWR0107"  Part="1" 
+AR Path="/5DB8A5A3/5DB56B5D" Ref="#PWR0113"  Part="1" 
+F 0 "#PWR0113" H 5600 3100 50  0001 C CNN
+F 1 "GND" H 5605 3177 50  0000 C CNN
+F 2 "" H 5600 3350 50  0001 C CNN
+F 3 "" H 5600 3350 50  0001 C CNN
+	1    5600 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0108
+U 1 1 5DB5758E
+P 5550 5650
+AR Path="/5DB53781/5DB5758E" Ref="#PWR0108"  Part="1" 
+AR Path="/5DB8A5A3/5DB5758E" Ref="#PWR0114"  Part="1" 
+F 0 "#PWR0114" H 5550 5400 50  0001 C CNN
+F 1 "GND" H 5555 5477 50  0000 C CNN
+F 2 "" H 5550 5650 50  0001 C CNN
+F 3 "" H 5550 5650 50  0001 C CNN
+	1    5550 5650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 2350 4250 2350
+Wire Wire Line
+	5100 2750 4250 2750
+Wire Wire Line
+	6100 2250 7050 2250
+Wire Wire Line
+	6100 2450 7050 2450
+Wire Wire Line
+	6100 2650 7050 2650
+Wire Wire Line
+	6100 2850 7050 2850
+Wire Wire Line
+	6050 4500 7050 4500
+Wire Wire Line
+	6050 4700 7050 4700
+Wire Wire Line
+	6050 4900 7050 4900
+Wire Wire Line
+	6050 5100 7050 5100
+Wire Wire Line
+	5050 4600 4250 4600
+Wire Wire Line
+	5050 5000 4250 5000
+Wire Wire Line
+	5550 5650 5550 5400
+Wire Wire Line
+	5550 4200 5550 4000
+Wire Wire Line
+	5600 3350 5600 3150
+$Comp
+L Device:C C47
+U 1 1 5DB672DA
+P 4800 2000
+AR Path="/5DB53781/5DB672DA" Ref="C47"  Part="1" 
+AR Path="/5DB8A5A3/5DB672DA" Ref="C49"  Part="1" 
+F 0 "C49" H 4915 2046 50  0000 L CNN
+F 1 "0.1" H 4915 1955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 4838 1850 50  0001 C CNN
+F 3 "~" H 4800 2000 50  0001 C CNN
+	1    4800 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 4000 5550 4000
+Connection ~ 5550 4000
+Wire Wire Line
+	5550 4000 5550 3950
+$Comp
+L power:GND #PWR0111
+U 1 1 5DB6B2F7
+P 4800 5650
+AR Path="/5DB53781/5DB6B2F7" Ref="#PWR0111"  Part="1" 
+AR Path="/5DB8A5A3/5DB6B2F7" Ref="#PWR0117"  Part="1" 
+F 0 "#PWR0117" H 4800 5400 50  0001 C CNN
+F 1 "GND" H 4805 5477 50  0000 C CNN
+F 2 "" H 4800 5650 50  0001 C CNN
+F 3 "" H 4800 5650 50  0001 C CNN
+	1    4800 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0112
+U 1 1 5DB6BBF5
+P 4800 3350
+AR Path="/5DB53781/5DB6BBF5" Ref="#PWR0112"  Part="1" 
+AR Path="/5DB8A5A3/5DB6BBF5" Ref="#PWR0118"  Part="1" 
+F 0 "#PWR0118" H 4800 3100 50  0001 C CNN
+F 1 "GND" H 4805 3177 50  0000 C CNN
+F 2 "" H 4800 3350 50  0001 C CNN
+F 3 "" H 4800 3350 50  0001 C CNN
+	1    4800 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 5650 4800 4300
+Wire Wire Line
+	5600 1950 5600 1850
+Wire Wire Line
+	5600 1850 4800 1850
+Connection ~ 5600 1850
+Wire Wire Line
+	5600 1850 5600 1700
+Wire Wire Line
+	4800 2150 4800 3350
+Text HLabel 7050 4900 2    50   Input ~ 0
+Q0+
+Text HLabel 7050 5100 2    50   Input ~ 0
+Q0-
+Text HLabel 7050 4700 2    50   Input ~ 0
+Q1-
+Text HLabel 7050 2650 2    50   Input ~ 0
+I0+
+Text HLabel 7050 2850 2    50   Input ~ 0
+I0-
+Text HLabel 7050 2250 2    50   Input ~ 0
+I1+
+Text HLabel 7050 2450 2    50   Input ~ 0
+I1-
+Text GLabel 5600 1700 1    50   Input ~ 0
+3v3
+Text GLabel 5550 3950 1    50   Input ~ 0
+3v3
+$Comp
+L Device:R R17
+U 1 1 5DA03BBC
+P 4100 2350
+AR Path="/5DB53781/5DA03BBC" Ref="R17"  Part="1" 
+AR Path="/5DB8A5A3/5DA03BBC" Ref="R21"  Part="1" 
+F 0 "R21" V 3893 2350 50  0000 C CNN
+F 1 "220" V 3984 2350 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 4030 2350 50  0001 C CNN
+F 3 "~" H 4100 2350 50  0001 C CNN
+	1    4100 2350
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R18
+U 1 1 5DA0E956
+P 4100 2750
+AR Path="/5DB53781/5DA0E956" Ref="R18"  Part="1" 
+AR Path="/5DB8A5A3/5DA0E956" Ref="R22"  Part="1" 
+F 0 "R22" V 3893 2750 50  0000 C CNN
+F 1 "220" V 3984 2750 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 4030 2750 50  0001 C CNN
+F 3 "~" H 4100 2750 50  0001 C CNN
+	1    4100 2750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R19
+U 1 1 5DA0EC02
+P 4100 4600
+AR Path="/5DB53781/5DA0EC02" Ref="R19"  Part="1" 
+AR Path="/5DB8A5A3/5DA0EC02" Ref="R23"  Part="1" 
+F 0 "R23" V 3893 4600 50  0000 C CNN
+F 1 "220" V 3984 4600 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 4030 4600 50  0001 C CNN
+F 3 "~" H 4100 4600 50  0001 C CNN
+	1    4100 4600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R20
+U 1 1 5DA0F0B9
+P 4100 5000
+AR Path="/5DB53781/5DA0F0B9" Ref="R20"  Part="1" 
+AR Path="/5DB8A5A3/5DA0F0B9" Ref="R24"  Part="1" 
+F 0 "R24" V 3893 5000 50  0000 C CNN
+F 1 "220" V 3984 5000 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 4030 5000 50  0001 C CNN
+F 3 "~" H 4100 5000 50  0001 C CNN
+	1    4100 5000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3950 5000 3550 5000
+Wire Wire Line
+	3950 4600 3550 4600
+Wire Wire Line
+	3950 2750 3550 2750
+Wire Wire Line
+	3950 2350 3550 2350
+Text HLabel 3550 2350 0    50   Input ~ 0
+I1
+Text HLabel 3550 2750 0    50   Input ~ 0
+I0
+Text HLabel 3550 5000 0    50   Input ~ 0
+Q0
+Text HLabel 3550 4600 0    50   Input ~ 0
+Q1
+Text HLabel 7050 4500 2    50   Input ~ 0
+Q1+
+$Comp
+L Device:C C48
+U 1 1 5DB68420
+P 4800 4150
+AR Path="/5DB53781/5DB68420" Ref="C48"  Part="1" 
+AR Path="/5DB8A5A3/5DB68420" Ref="C50"  Part="1" 
+F 0 "C50" H 4915 4196 50  0000 L CNN
+F 1 "0.1" H 4915 4105 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 4838 4000 50  0001 C CNN
+F 3 "~" H 4800 4150 50  0001 C CNN
+	1    4800 4150
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
