@@ -5,7 +5,7 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
+Title "Seperate LNA"
 Date ""
 Rev ""
 Comp ""
@@ -120,7 +120,7 @@ F 12 "Active" H 8350 5050 60  0001 L CNN "Status"
 	1    8150 3850
 	-1   0    0    -1  
 $EndComp
-Text Notes 4100 5550 0    50   ~ 0
+Text Notes 1300 7400 0    50   ~ 0
 AN11420 NXP Application Note on Powering GPS\n
 Wire Wire Line
 	4600 3850 4300 3850
@@ -227,53 +227,53 @@ $EndComp
 $Comp
 L Connector:Conn_01x01_Male J3
 U 1 1 5D6F996D
-P 2000 6650
-F 0 "J3" H 2108 6831 50  0000 C CNN
-F 1 "Conn_01x01_Male" H 2108 6740 50  0000 C CNN
-F 2 "RF_Shielding:Laird_Technologies_BMI-S-101_13.66x12.70mm" H 2000 6650 50  0001 C CNN
-F 3 "~" H 2000 6650 50  0001 C CNN
-	1    2000 6650
+P 3550 7150
+F 0 "J3" H 3658 7331 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 3658 7240 50  0000 C CNN
+F 2 "RF_Shielding:Laird_Technologies_BMI-S-101_13.66x12.70mm" H 3550 7150 50  0001 C CNN
+F 3 "~" H 3550 7150 50  0001 C CNN
+	1    3550 7150
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GNDA #PWR0104
 U 1 1 5D6F2F18
-P 2350 6750
-F 0 "#PWR0104" H 2350 6500 50  0001 C CNN
-F 1 "GNDA" H 2355 6577 50  0000 C CNN
-F 2 "" H 2350 6750 50  0001 C CNN
-F 3 "" H 2350 6750 50  0001 C CNN
-	1    2350 6750
+P 3900 7250
+F 0 "#PWR0104" H 3900 7000 50  0001 C CNN
+F 1 "GNDA" H 3905 7077 50  0000 C CNN
+F 2 "" H 3900 7250 50  0001 C CNN
+F 3 "" H 3900 7250 50  0001 C CNN
+	1    3900 7250
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2200 6650 2350 6650
+	3750 7150 3900 7150
 Wire Wire Line
-	2350 6650 2350 6750
+	3900 7150 3900 7250
 $Comp
 L Mechanical:MountingHole_Pad H1
 U 1 1 5D70E3CC
-P 950 4750
-F 0 "H1" H 1050 4799 50  0000 L CNN
-F 1 "MountingHole_Pad" H 1050 4708 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 950 4750 50  0001 C CNN
-F 3 "~" H 950 4750 50  0001 C CNN
-	1    950  4750
+P 4200 7300
+F 0 "H1" H 4300 7349 50  0000 L CNN
+F 1 "MountingHole_Pad" H 4300 7258 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 4200 7300 50  0001 C CNN
+F 3 "~" H 4200 7300 50  0001 C CNN
+	1    4200 7300
 	1    0    0    -1  
 $EndComp
 $Comp
 L Mechanical:MountingHole_Pad H2
 U 1 1 5D70EDF1
-P 1250 4750
-F 0 "H2" H 1350 4799 50  0000 L CNN
-F 1 "MountingHole_Pad" H 1350 4708 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 1250 4750 50  0001 C CNN
-F 3 "~" H 1250 4750 50  0001 C CNN
-	1    1250 4750
+P 4500 7300
+F 0 "H2" H 4600 7349 50  0000 L CNN
+F 1 "MountingHole_Pad" H 4600 7258 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3_Pad_Via" H 4500 7300 50  0001 C CNN
+F 3 "~" H 4500 7300 50  0001 C CNN
+	1    4500 7300
 	1    0    0    -1  
 $EndComp
-NoConn ~ 950  4850
-NoConn ~ 1250 4850
+NoConn ~ 4200 7400
+NoConn ~ 4500 7400
 $Comp
 L Device:LED D2
 U 1 1 5D9FB079

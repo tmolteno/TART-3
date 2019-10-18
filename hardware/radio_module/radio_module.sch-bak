@@ -639,4 +639,19 @@ Text Label 7100 2550 0    50   ~ 0
 CLKIN_B
 Text Label 3400 2550 0    50   ~ 0
 CLKIN_A
+$Comp
+L Mechanical:MountingHole H1
+U 1 1 5DA919FC
+P 2550 7250
+F 0 "H1" H 2650 7296 50  0000 L CNN
+F 1 "MountingHole" H 2650 7205 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 2550 7250 50  0001 C CNN
+F 3 "~" H 2550 7250 50  0001 C CNN
+	1    2550 7250
+	1    0    0    -1  
+$EndComp
+Text Notes 2550 4750 2    197  Italic 39
+A
+Text Notes 6600 4700 2    197  Italic 39
+B
 $EndSCHEMATC
