@@ -54,11 +54,12 @@ F9 "LD_A" I L 3650 5650 50
 F10 "LD_B" I L 3650 5750 50 
 F11 "ANT_A" I L 3650 5850 50 
 F12 "ANT_B" I L 3650 5950 50 
-F13 "~CS_A" I R 5450 5900 50 
-F14 "~CS_B" I R 5450 6000 50 
+F13 "~CS_A" I R 5450 5950 50 
+F14 "~CS_B" I R 5450 6050 50 
 F15 "B" I R 5450 6200 50 
 F16 "A" I R 5450 6300 50 
 F17 "~Reset" I R 5450 6450 50 
+F18 "DI" I R 5450 5850 50 
 $EndSheet
 $Sheet
 S 4800 1200 1800 2000
@@ -179,9 +180,9 @@ Wire Wire Line
 Wire Wire Line
 	5450 5750 6400 5750
 Wire Wire Line
-	5450 5900 6400 5900
+	5450 5950 6400 5950
 Wire Wire Line
-	5450 6000 6400 6000
+	5450 6050 6400 6050
 Wire Wire Line
 	5450 6200 6400 6200
 Wire Wire Line
@@ -190,9 +191,9 @@ Text Label 6250 5650 2    39   ~ 0
 Dout
 Text Label 6250 5750 2    39   ~ 0
 Dclk
-Text Label 6250 5900 2    39   ~ 0
+Text Label 6250 5950 2    39   ~ 0
 ~CS_A
-Text Label 6250 6000 2    39   ~ 0
+Text Label 6250 6050 2    39   ~ 0
 ~CS_B
 Text Label 6250 6200 2    39   ~ 0
 B
@@ -302,7 +303,6 @@ Text Label 10450 3100 2    39   ~ 0
 A3
 Text Label 10450 3200 2    39   ~ 0
 A4
-NoConn ~ 9300 3000
 Wire Wire Line
 	5450 6450 6400 6450
 Text Label 6250 6450 2    39   ~ 0
@@ -417,8 +417,6 @@ Text Label 10450 2800 2    39   ~ 0
 A0
 Text Label 10450 2700 2    39   ~ 0
 ~Reset
-NoConn ~ 9300 3100
-NoConn ~ 9300 3200
 NoConn ~ 9300 3300
 NoConn ~ 9300 3400
 NoConn ~ 9300 3500
@@ -654,4 +652,20 @@ Text Notes 2550 4750 2    197  Italic 39
 A
 Text Notes 6600 4700 2    197  Italic 39
 B
+Wire Wire Line
+	5450 5850 6400 5850
+Text Label 6100 5850 0    39   ~ 0
+Din
+Wire Wire Line
+	9300 3100 8600 3100
+Wire Wire Line
+	9300 3200 8600 3200
+Wire Wire Line
+	9300 3000 8600 3000
+Text Label 8700 3100 0    50   ~ 0
+Din
+Text Label 8700 3200 0    50   ~ 0
+Dout
+Text Label 8700 3000 0    50   ~ 0
+Dclk
 $EndSCHEMATC
