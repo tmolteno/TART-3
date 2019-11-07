@@ -60,6 +60,8 @@ F15 "B" I R 5450 6200 50
 F16 "A" I R 5450 6300 50 
 F17 "~Reset" I R 5450 6450 50 
 F18 "DI" I R 5450 5850 50 
+F19 "RXD" I R 5450 6550 50 
+F20 "TXD" I R 5450 6650 50 
 $EndSheet
 $Sheet
 S 4800 1200 1800 2000
@@ -407,19 +409,12 @@ Wire Wire Line
 	9800 2900 10550 2900
 Wire Wire Line
 	9800 2800 10550 2800
-Wire Wire Line
-	9800 2700 10550 2700
 Text Label 10450 3000 2    39   ~ 0
 A2
 Text Label 10450 2900 2    39   ~ 0
 A1
 Text Label 10450 2800 2    39   ~ 0
 A0
-Text Label 10450 2700 2    39   ~ 0
-~Reset
-NoConn ~ 9300 3300
-NoConn ~ 9300 3400
-NoConn ~ 9300 3500
 Wire Wire Line
 	2950 2900 3850 2900
 Wire Wire Line
@@ -558,14 +553,6 @@ Wire Wire Line
 	9300 2100 8600 2100
 Wire Wire Line
 	9300 2200 8600 2200
-Wire Wire Line
-	9300 2300 8600 2300
-Wire Wire Line
-	9300 2400 8600 2400
-Wire Wire Line
-	9300 2500 8600 2500
-Wire Wire Line
-	9300 2600 8600 2600
 Text Label 8900 2000 2    50   ~ 0
 Q0-A
 Text Label 8900 2100 2    50   ~ 0
@@ -574,12 +561,6 @@ Text Label 8900 2200 2    50   ~ 0
 Q1+A
 Text Label 8900 2300 2    50   ~ 0
 Q1-A
-Text Label 8900 2400 2    50   ~ 0
-I1-A
-Text Label 8900 2500 2    50   ~ 0
-I1+A
-Text Label 8900 2600 2    50   ~ 0
-I0+A
 Wire Wire Line
 	9800 1900 10550 1900
 Wire Wire Line
@@ -624,10 +605,6 @@ F 3 "" H 9550 2650 39  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9300 2700 8600 2700
-Text Label 8700 2700 0    50   ~ 0
-I0-A
-Wire Wire Line
 	9300 2900 8600 2900
 Text Label 8700 2900 0    50   ~ 0
 CLKIN_A
@@ -668,4 +645,43 @@ Text Label 8700 3200 0    50   ~ 0
 Dout
 Text Label 8700 3000 0    50   ~ 0
 Dclk
+Wire Wire Line
+	9300 2300 8600 2300
+Wire Wire Line
+	9300 2400 8600 2400
+Wire Wire Line
+	9300 2500 8600 2500
+Wire Wire Line
+	9300 2600 8600 2600
+Wire Wire Line
+	9300 2700 8600 2700
+Text Label 8700 2400 0    50   ~ 0
+I0-A
+Text Label 8700 2500 0    50   ~ 0
+I0+A
+Text Label 8700 2600 0    50   ~ 0
+I1+A
+Text Label 8700 2700 0    50   ~ 0
+I1-A
+Wire Wire Line
+	5450 6550 6400 6550
+Wire Wire Line
+	5450 6650 6400 6650
+Text Label 6100 6550 0    39   ~ 0
+RXD
+Text Label 6100 6650 0    39   ~ 0
+TXD
+Wire Wire Line
+	9300 3300 8600 3300
+Wire Wire Line
+	9300 3400 8600 3400
+Text Label 8700 3300 0    39   ~ 0
+RXD
+Text Label 8700 3400 0    39   ~ 0
+TXD
+Wire Wire Line
+	9300 3500 8600 3500
+Text Label 8700 3500 0    39   ~ 0
+~Reset
+NoConn ~ 9800 2700
 $EndSCHEMATC
