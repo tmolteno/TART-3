@@ -1,0 +1,305 @@
+EESchema Schematic File Version 4
+LIBS:radioDev-cache
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 5 5
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Oscillator:SG-210SED X?
+U 1 1 5DEE1FC3
+P 4550 4050
+F 0 "X?" H 4894 4096 50  0000 L CNN
+F 1 "DSB321SDA" H 4894 4005 50  0000 L CNN
+F 2 "Oscillator:Oscillator_SMD_SeikoEpson_SG210-4Pin_2.5x2.0mm" H 5000 3700 50  0001 C CNN
+F 3 "https://support.epson.biz/td/api/doc_check.php?mode=dl&lang=en&Parts=SG-210SED" H 4450 4050 50  0001 C CNN
+	1    4550 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5DEE2566
+P 4550 3450
+F 0 "#PWR?" H 4550 3300 50  0001 C CNN
+F 1 "+3V3" H 4565 3623 50  0000 C CNN
+F 2 "" H 4550 3450 50  0001 C CNN
+F 3 "" H 4550 3450 50  0001 C CNN
+	1    4550 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DEE2C97
+P 4550 4550
+F 0 "#PWR?" H 4550 4300 50  0001 C CNN
+F 1 "GND" H 4555 4377 50  0000 C CNN
+F 2 "" H 4550 4550 50  0001 C CNN
+F 3 "" H 4550 4550 50  0001 C CNN
+	1    4550 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DEE2E7E
+P 4050 4550
+F 0 "#PWR?" H 4050 4300 50  0001 C CNN
+F 1 "GND" H 4055 4377 50  0000 C CNN
+F 2 "" H 4050 4550 50  0001 C CNN
+F 3 "" H 4050 4550 50  0001 C CNN
+	1    4050 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4550 4350 4550 4550
+Wire Wire Line
+	4550 3450 4550 3650
+Wire Wire Line
+	4850 4050 5800 4050
+$Comp
+L Device:C C?
+U 1 1 5DEE3315
+P 5950 4050
+F 0 "C?" V 5698 4050 50  0000 C CNN
+F 1 "1000p" V 5789 4050 50  0000 C CNN
+F 2 "" H 5988 3900 50  0001 C CNN
+F 3 "~" H 5950 4050 50  0001 C CNN
+	1    5950 4050
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5DEE35E3
+P 3750 3800
+F 0 "C?" H 3865 3846 50  0000 L CNN
+F 1 "0.01" H 3865 3755 50  0000 L CNN
+F 2 "" H 3788 3650 50  0001 C CNN
+F 3 "~" H 3750 3800 50  0001 C CNN
+	1    3750 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DEE3829
+P 3750 4550
+F 0 "#PWR?" H 3750 4300 50  0001 C CNN
+F 1 "GND" H 3755 4377 50  0000 C CNN
+F 2 "" H 3750 4550 50  0001 C CNN
+F 3 "" H 3750 4550 50  0001 C CNN
+	1    3750 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 4550 3750 3950
+Connection ~ 4550 3650
+Wire Wire Line
+	4550 3650 4550 3750
+$Comp
+L Jumper:Jumper_3_Bridged12 JP?
+U 1 1 5DEE4B8B
+P 4050 4050
+F 0 "JP?" V 4096 4117 50  0000 L CNN
+F 1 "Jumper_3_Bridged12" V 4005 4117 50  0000 L CNN
+F 2 "" H 4050 4050 50  0001 C CNN
+F 3 "~" H 4050 4050 50  0001 C CNN
+	1    4050 4050
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3750 3650 4050 3650
+Wire Wire Line
+	4050 3800 4050 3650
+Connection ~ 4050 3650
+Wire Wire Line
+	4050 3650 4550 3650
+Wire Wire Line
+	4050 4550 4050 4300
+Wire Wire Line
+	4200 4050 4250 4050
+$Comp
+L Device:Q_NPN_CBE Q?
+U 1 1 5DEE8696
+P 7350 4050
+F 0 "Q?" H 7541 4096 50  0000 L CNN
+F 1 "Q_NPN_CBE" H 7541 4005 50  0000 L CNN
+F 2 "" H 7550 4150 50  0001 C CNN
+F 3 "~" H 7350 4050 50  0001 C CNN
+	1    7350 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5DEE8AFA
+P 7000 3600
+F 0 "R?" H 7070 3646 50  0000 L CNN
+F 1 "R" H 7070 3555 50  0000 L CNN
+F 2 "" V 6930 3600 50  0001 C CNN
+F 3 "~" H 7000 3600 50  0001 C CNN
+	1    7000 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5DEE8CDD
+P 7000 4500
+F 0 "R?" H 7070 4546 50  0000 L CNN
+F 1 "R" H 7070 4455 50  0000 L CNN
+F 2 "" V 6930 4500 50  0001 C CNN
+F 3 "~" H 7000 4500 50  0001 C CNN
+	1    7000 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DEE901E
+P 7000 4800
+F 0 "#PWR?" H 7000 4550 50  0001 C CNN
+F 1 "GND" H 7005 4627 50  0000 C CNN
+F 2 "" H 7000 4800 50  0001 C CNN
+F 3 "" H 7000 4800 50  0001 C CNN
+	1    7000 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5DEE9234
+P 7000 3300
+F 0 "#PWR?" H 7000 3150 50  0001 C CNN
+F 1 "+3V3" H 7015 3473 50  0000 C CNN
+F 2 "" H 7000 3300 50  0001 C CNN
+F 3 "" H 7000 3300 50  0001 C CNN
+	1    7000 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5DEE9973
+P 7450 3600
+F 0 "R?" H 7520 3646 50  0000 L CNN
+F 1 "R" H 7520 3555 50  0000 L CNN
+F 2 "" V 7380 3600 50  0001 C CNN
+F 3 "~" H 7450 3600 50  0001 C CNN
+	1    7450 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5DEEA747
+P 7450 3300
+F 0 "#PWR?" H 7450 3150 50  0001 C CNN
+F 1 "+3V3" H 7465 3473 50  0000 C CNN
+F 2 "" H 7450 3300 50  0001 C CNN
+F 3 "" H 7450 3300 50  0001 C CNN
+	1    7450 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5DEEB87E
+P 7450 4500
+F 0 "R?" H 7520 4546 50  0000 L CNN
+F 1 "R" H 7520 4455 50  0000 L CNN
+F 2 "" V 7380 4500 50  0001 C CNN
+F 3 "~" H 7450 4500 50  0001 C CNN
+	1    7450 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DEEC8A7
+P 7450 4800
+F 0 "#PWR?" H 7450 4550 50  0001 C CNN
+F 1 "GND" H 7455 4627 50  0000 C CNN
+F 2 "" H 7450 4800 50  0001 C CNN
+F 3 "" H 7450 4800 50  0001 C CNN
+	1    7450 4800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6100 4050 7000 4050
+Wire Wire Line
+	7000 3750 7000 4050
+Connection ~ 7000 4050
+Wire Wire Line
+	7000 4050 7150 4050
+Wire Wire Line
+	7000 4350 7000 4050
+Wire Wire Line
+	7000 3450 7000 3300
+Wire Wire Line
+	7000 4650 7000 4800
+Wire Wire Line
+	7450 4800 7450 4650
+Wire Wire Line
+	7450 4350 7450 4250
+Wire Wire Line
+	7450 3850 7450 3800
+Wire Wire Line
+	7450 3450 7450 3300
+$Comp
+L Device:C C?
+U 1 1 5DEF0359
+P 7900 3800
+F 0 "C?" V 7648 3800 50  0000 C CNN
+F 1 "C" V 7739 3800 50  0000 C CNN
+F 2 "" H 7938 3650 50  0001 C CNN
+F 3 "~" H 7900 3800 50  0001 C CNN
+	1    7900 3800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7750 3800 7450 3800
+Connection ~ 7450 3800
+Wire Wire Line
+	7450 3800 7450 3750
+Wire Wire Line
+	8050 3800 8300 3800
+$Comp
+L Device:R R?
+U 1 1 5DEF2752
+P 8300 4500
+F 0 "R?" H 8370 4546 50  0000 L CNN
+F 1 "R" H 8370 4455 50  0000 L CNN
+F 2 "" V 8230 4500 50  0001 C CNN
+F 3 "~" H 8300 4500 50  0001 C CNN
+	1    8300 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5DEF2E06
+P 8300 4800
+F 0 "#PWR?" H 8300 4550 50  0001 C CNN
+F 1 "GND" H 8305 4627 50  0000 C CNN
+F 2 "" H 8300 4800 50  0001 C CNN
+F 3 "" H 8300 4800 50  0001 C CNN
+	1    8300 4800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8300 4800 8300 4650
+Wire Wire Line
+	8300 4350 8300 3800
+Connection ~ 8300 3800
+Wire Wire Line
+	8300 3800 8800 3800
+Wire Wire Line
+	8800 3800 8800 3600
+Wire Wire Line
+	8800 3600 9350 3600
+Connection ~ 8800 3800
+Wire Wire Line
+	8800 3800 9350 3800
+Text HLabel 9350 3600 2    50   Input ~ 0
+CLK_A
+Text HLabel 9350 3800 2    50   Input ~ 0
+CLK_B
+$EndSCHEMATC
