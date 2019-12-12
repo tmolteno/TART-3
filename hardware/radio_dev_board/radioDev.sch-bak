@@ -37,7 +37,6 @@ F16 "PB1" I R 3950 1400 50
 F17 "PB5" I L 2400 2100 50 
 F18 "D+" I L 2400 2450 50 
 F19 "D-" I L 2400 2550 50 
-F20 "~Reset" I L 2400 2200 50 
 $EndSheet
 $Comp
 L pcie:conn2x18pcie U2
@@ -167,10 +166,6 @@ Wire Wire Line
 Wire Wire Line
 	8150 3850 7050 3850
 Wire Wire Line
-	8150 3950 7050 3950
-Wire Wire Line
-	8150 4050 7050 4050
-Wire Wire Line
 	8150 4150 7050 4150
 Wire Wire Line
 	8650 3850 9700 3850
@@ -253,11 +248,11 @@ CLKIN_B
 Text Label 7150 3550 0    50   ~ 0
 CLKIN_A
 Text Label 7150 3650 0    50   ~ 0
-Dclk
+SCK
 Text Label 7150 3750 0    50   ~ 0
-Din
+MOSI
 Text Label 7150 3850 0    50   ~ 0
-Dout
+MISO
 Text Label 7150 3950 0    50   ~ 0
 RXD
 Text Label 7150 4050 0    50   ~ 0
@@ -558,8 +553,6 @@ Wire Wire Line
 Wire Wire Line
 	3950 2650 5000 2650
 Wire Wire Line
-	2400 2200 1550 2200
-Wire Wire Line
 	2400 2100 1550 2100
 Wire Wire Line
 	2400 2000 1550 2000
@@ -571,8 +564,6 @@ Text Label 1750 2000 0    50   ~ 0
 MISO
 Text Label 1750 2100 0    50   ~ 0
 SCK
-Text Label 1750 2200 0    50   ~ 0
-~Reset
 Text Label 9000 5900 0    50   ~ 0
 MOSI
 Text Label 7650 5800 0    50   ~ 0
@@ -643,7 +634,7 @@ F 3 "~" H 6050 7550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2450 1750 1550 1750
+	2400 1750 1550 1750
 Wire Wire Line
 	2400 1650 1550 1650
 Wire Wire Line
@@ -670,11 +661,10 @@ Text Label 1750 1550 0    50   ~ 0
 A2
 Text Label 1750 1650 0    50   ~ 0
 A3
-Text Label 1750 1750 0    50   ~ 0
+Text Label 1700 1750 0    50   ~ 0
 A4
 NoConn ~ 4500 1300
 NoConn ~ 4500 1400
-NoConn ~ 4500 1500
 NoConn ~ 4500 2100
 NoConn ~ 4500 2200
 Wire Wire Line
@@ -686,5 +676,28 @@ S 4850 4850 1350 950
 U 5E01CA25
 F0 "Radio board USB to Serial" 50
 F1 "USB_Serial.sch" 50
+F2 "RX" I R 6200 5050 50 
+F3 "TX" I R 6200 5150 50 
+F4 "~Reset" I R 6200 5350 50 
 $EndSheet
+Text Label 4100 1500 0    50   ~ 0
+~Reset
+Text Notes 4100 1600 0    50   ~ 0
+GPIO 10
+Wire Wire Line
+	7050 4150 7050 5350
+Wire Wire Line
+	6200 5350 7050 5350
+Wire Wire Line
+	6950 4050 6950 5150
+Wire Wire Line
+	6950 4050 8150 4050
+Wire Wire Line
+	6200 5150 6950 5150
+Wire Wire Line
+	6850 3950 6850 5050
+Wire Wire Line
+	6850 3950 8150 3950
+Wire Wire Line
+	6200 5050 6850 5050
 $EndSCHEMATC

@@ -37,7 +37,6 @@ F16 "PB1" I R 3950 1400 50
 F17 "PB5" I L 2400 2100 50 
 F18 "D+" I L 2400 2450 50 
 F19 "D-" I L 2400 2550 50 
-F20 "~Reset~_Local" I L 2400 2200 50 
 $EndSheet
 $Comp
 L pcie:conn2x18pcie U2
@@ -554,8 +553,6 @@ Wire Wire Line
 Wire Wire Line
 	3950 2650 5000 2650
 Wire Wire Line
-	2400 2200 1550 2200
-Wire Wire Line
 	2400 2100 1550 2100
 Wire Wire Line
 	2400 2000 1550 2000
@@ -567,8 +564,6 @@ Text Label 1750 2000 0    50   ~ 0
 MISO
 Text Label 1750 2100 0    50   ~ 0
 SCK
-Text Label 1750 2200 0    50   ~ 0
-~Reset
 Text Label 9000 5900 0    50   ~ 0
 MOSI
 Text Label 7650 5800 0    50   ~ 0
@@ -639,7 +634,7 @@ F 3 "~" H 6050 7550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2450 1750 1550 1750
+	2400 1750 1550 1750
 Wire Wire Line
 	2400 1650 1550 1650
 Wire Wire Line
