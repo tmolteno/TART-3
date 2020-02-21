@@ -15,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Interface_USB:FT232RL U3
+L radioDev-rescue:FT232RL-Interface_USB U3
 U 1 1 5D71F5F1
 P 3400 3700
 F 0 "U3" H 3400 4881 50  0000 C CNN
@@ -607,7 +607,7 @@ Text Label 5900 3000 2    50   ~ 0
 RX
 NoConn ~ 2600 4400
 $Comp
-L MCU_Microchip_ATmega:ATmega328PB-AU U4
+L radioDev-rescue:ATmega328PB-AU-MCU_Microchip_ATmega U4
 U 1 1 5D8F30F9
 P 7050 3650
 F 0 "U4" H 7050 2061 50  0000 C CNN

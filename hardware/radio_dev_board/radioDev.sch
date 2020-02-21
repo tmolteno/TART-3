@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:radioDev-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -39,7 +38,7 @@ F18 "D+" I L 2400 2450 50
 F19 "D-" I L 2400 2550 50 
 $EndSheet
 $Comp
-L pcie:conn2x18pcie U2
+L radioDev-rescue:conn2x18pcie-pcie U2
 U 1 1 5DCC86DA
 P 8400 3300
 F 0 "U2" H 8400 4251 39  0000 C CNN

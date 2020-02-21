@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:radioDev-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -15,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Interface:DS90LV028 U5
+L radioDev-rescue:DS90LV028-Interface U5
 U 1 1 5DCA47D4
 P 4650 1500
 F 0 "U5" H 4650 2281 50  0000 C CNN
@@ -26,7 +25,7 @@ F 3 "" H 4650 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Interface:DS90LV028 U6
+L radioDev-rescue:DS90LV028-Interface U6
 U 1 1 5DCA48AA
 P 4650 3250
 F 0 "U6" H 4650 4031 50  0000 C CNN
@@ -37,7 +36,7 @@ F 3 "" H 4650 3250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Interface:DS90LV028 U7
+L radioDev-rescue:DS90LV028-Interface U7
 U 1 1 5DCA5170
 P 4650 5000
 F 0 "U7" H 4650 5781 50  0000 C CNN
@@ -48,7 +47,7 @@ F 3 "" H 4650 5000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Interface:DS90LV028 U8
+L radioDev-rescue:DS90LV028-Interface U8
 U 1 1 5DCA57CE
 P 4650 6750
 F 0 "U8" H 4650 7531 50  0000 C CNN

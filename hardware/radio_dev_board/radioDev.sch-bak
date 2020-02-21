@@ -39,7 +39,7 @@ F18 "D+" I L 2400 2450 50
 F19 "D-" I L 2400 2550 50 
 $EndSheet
 $Comp
-L pcie:conn2x18pcie U2
+L radioDev-rescue:conn2x18pcie-pcie U2
 U 1 1 5DCC86DA
 P 8400 3300
 F 0 "U2" H 8400 4251 39  0000 C CNN
@@ -661,7 +661,7 @@ Text Label 1750 1550 0    50   ~ 0
 A2
 Text Label 1750 1650 0    50   ~ 0
 A3
-Text Label 1700 1750 0    50   ~ 0
+Text Label 1750 1750 0    50   ~ 0
 A4
 NoConn ~ 4500 1300
 NoConn ~ 4500 1400

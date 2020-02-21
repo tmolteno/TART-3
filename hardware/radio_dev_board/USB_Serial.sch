@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:radioDev-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -37,7 +36,7 @@ F 3 "~" H 4900 4200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Interface_USB:FT232RL U11
+L radioDev-rescue:FT232RL-Interface_USB U11
 U 1 1 5E0B10D6
 P 6300 4100
 F 0 "U11" H 6300 5281 50  0000 C CNN
@@ -393,7 +392,7 @@ Connection ~ 3600 3250
 NoConn ~ 3250 3750
 NoConn ~ 3250 3850
 $Comp
-L Connector:USB_C_Receptacle_USB2.0V1 J6
+L radioDev-rescue:USB_C_Receptacle_USB2.0V1-Connector J6
 U 1 1 5DAA54CA
 P 2650 3250
 F 0 "J6" H 2757 4117 50  0000 C CNN

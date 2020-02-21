@@ -326,11 +326,12 @@ Connection ~ 4250 3400
 NoConn ~ 3900 3900
 NoConn ~ 3900 4000
 $Comp
-L Connector:USB_C_Receptacle_USB2.0V1 J?
+L radioDev-rescue:USB_C_Receptacle_USB2.0V1-Connector J?
 U 1 1 5DCFE330
 P 3300 3400
 AR Path="/5DCC82D4/5DCFE330" Ref="J?"  Part="1" 
 AR Path="/5DCCA0EA/5DCFE330" Ref="J4"  Part="1" 
+AR Path="/5DCFE330" Ref="J4"  Part="1" 
 F 0 "J4" H 3407 4267 50  0000 C CNN
 F 1 "USB_C_Receptacle_USB2.0V1" H 3407 4176 50  0000 C CNN
 F 2 "Connector_USB:TYPE-C-31-M-12" H 3450 3400 50  0001 C CNN
