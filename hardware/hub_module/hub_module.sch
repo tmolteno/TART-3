@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 8
+Sheet 1 18
 Title ""
 Date ""
 Rev ""
@@ -14,43 +14,323 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Sheet
-S 3750 1550 1500 1050
-U 5C5B5544
-F0 "FPGA & LVDS" 50
-F1 "FPGA_Module.sch" 50
-F2 "JM1-E" I R 5250 1950 50 
-$EndSheet
-$Sheet
-S 3750 3100 1500 950 
+S 1700 5600 1500 1300
 U 5C5B5582
 F0 "Optical Tranceiver" 50
 F1 "optical.sch" 50
+F2 "RD+" I L 1700 5800 50 
+F3 "RD-" I L 1700 5700 50 
+F4 "TD+" I L 1700 5900 50 
+F5 "TD-" I L 1700 6000 50 
+F6 "SFC-IIC-SDA" I L 1700 6150 50 
+F7 "SFC-IIC-SCL" I L 1700 6250 50 
+F8 "RX-LOS" I L 1700 6500 50 
+F9 "TX-FAULT" I L 1700 6800 50 
+F10 "MOD-ABS" I L 1700 6600 50 
+F11 "TX-DISABLE" I L 1700 6700 50 
 $EndSheet
 $Sheet
-S 3750 4450 1500 950 
+S 1700 4050 1500 950 
 U 5C5B55A3
 F0 "Power Supply" 50
 F1 "power.sch" 50
 $EndSheet
 $Sheet
-S 6550 1550 1400 2200
+S 1700 1350 1500 1050
+U 5C5B5544
+F0 "FPGA JM1" 50
+F1 "FPGA_Module.sch" 50
+F2 "B" I R 3200 1500 50 
+F3 "A" I R 3200 1400 50 
+F4 "~Reset" I R 3200 1600 50 
+F5 "caa[1..16]" I R 3200 1700 50 
+F6 "cab[1..16]" I R 3200 2200 50 
+F7 "MGT-TXD0-N" I L 1700 1400 50 
+F8 "MGT-TXD0-P" I L 1700 1500 50 
+F9 "MGT-RXD0-P" I L 1700 1600 50 
+F10 "MGT-RXD0-N" I L 1700 1700 50 
+F11 "SFP-IIC-SCL" I L 1700 1800 50 
+F12 "SFP-IIC-SDA" I L 1700 1900 50 
+F13 "TX-FAULT" I L 1700 2050 50 
+F14 "TX-DISABLE" I L 1700 2150 50 
+F15 "MOD-DET" I L 1700 2250 50 
+F16 "LOS" I L 1700 2350 50 
+$EndSheet
+$Sheet
+S 7050 4050 1400 1000
+U 5F454A5F
+F0 "Radio Module Connectors 8 to 11" 50
+F1 "radio_conn3.sch" 50
+F2 "A" I R 8450 4150 50 
+F3 "B" I R 8450 4250 50 
+F4 "~Reset" I R 8450 4350 50 
+F5 "CLKC[0..7]" I R 8450 4550 50 
+F6 "ccb[1..32]" I L 7050 4750 50 
+F7 "cca[1..32]" I L 7050 4250 50 
+$EndSheet
+$Sheet
+S 7050 1350 1400 1050
 U 5C5B55DF
-F0 "Radio Module Connectors" 50
+F0 "Radio Module Connectors 0 to 3" 50
 F1 "radio_conn.sch" 50
-F2 "conn10-12" I R 7950 2150 50 
+F2 "A" I R 8450 1450 50 
+F3 "B" I R 8450 1550 50 
+F4 "~Reset" I R 8450 1650 50 
+F5 "CLKA[0..7]" I R 8450 1850 50 
+F6 "cab[1..32]" I L 7050 2100 50 
+F7 "caa[1..32]" I L 7050 1600 50 
+$EndSheet
+$Sheet
+S 4250 5850 1500 950 
+U 5F7B12E6
+F0 "Clock Generation and Distribution" 50
+F1 "clock.sch" 50
+F2 "clka[0..7]" I R 5750 5950 50 
+F3 "clkb[0..7]" I R 5750 6100 50 
+F4 "clkc[0..7]" I R 5750 6250 50 
 $EndSheet
 Wire Bus Line
-	8400 1200 5700 1200
+	8450 1850 9100 1850
 Wire Bus Line
-	5700 1200 5700 1850
-Entry Bus Bus
-	5600 1950 5700 1850
+	9100 1850 9100 6250
 Wire Bus Line
-	5250 1950 5600 1950
-Entry Bus Bus
-	8300 2150 8400 2050
+	8450 3250 9000 3250
 Wire Bus Line
-	7950 2150 8300 2150
+	9000 3250 9000 6100
 Wire Bus Line
-	8400 2050 8400 1200
+	9000 6100 5750 6100
+Wire Wire Line
+	8450 4350 8900 4350
+Wire Wire Line
+	8900 4350 8900 3000
+Wire Wire Line
+	8900 3000 8450 3000
+Wire Wire Line
+	8900 3000 8900 1650
+Wire Wire Line
+	8900 1650 8450 1650
+Connection ~ 8900 3000
+$Sheet
+S 1700 2750 1500 1050
+U 5FCF3B34
+F0 "FPGA JM2" 50
+F1 "FPGA_ModuleB.sch" 50
+F2 "cba[1..16]" I R 3200 3050 50 
+F3 "cca[1..16]" I R 3200 3250 50 
+F4 "cbb[1..16]" I R 3200 3450 50 
+F5 "ccb[1..16]" I R 3200 3650 50 
+$EndSheet
+Wire Bus Line
+	5750 5950 8900 5950
+Wire Bus Line
+	5750 6250 9100 6250
+$Sheet
+S 4600 1500 850  300 
+U 5FD1C4B9
+F0 "LVDS converters 0 to 3a" 50
+F1 "lvds1.sch" 50
+F2 "scaa[1..16]" I L 4600 1700 50 
+F3 "caa[0..32]" I R 5450 1600 50 
+$EndSheet
+$Sheet
+S 4600 2850 850  300 
+U 5FD1C4EF
+F0 "LVDS converter 4 to 7" 50
+F1 "lvds2.sch" 50
+F2 "scba[1..16]" I L 4600 3050 50 
+F3 "cba[0..32]" I R 5450 2950 50 
+$EndSheet
+$Sheet
+S 4600 4150 850  300 
+U 5FD1C518
+F0 "LVDS converters 8 to 11" 50
+F1 "lvds3.sch" 50
+F2 "scca[1..16]" I L 4600 4350 50 
+F3 "cca[0..32]" I R 5450 4250 50 
+$EndSheet
+Wire Wire Line
+	8450 4250 8850 4250
+Wire Wire Line
+	8850 4250 8850 2900
+Wire Wire Line
+	8450 2900 8850 2900
+Connection ~ 8850 2900
+Wire Wire Line
+	8850 2900 8850 1550
+Wire Wire Line
+	8450 1550 8850 1550
+Connection ~ 8850 1550
+Wire Wire Line
+	8850 1550 8850 950 
+Wire Wire Line
+	8450 4150 8800 4150
+Wire Wire Line
+	8800 4150 8800 2800
+Wire Wire Line
+	8450 1450 8800 1450
+Connection ~ 8800 1450
+Wire Wire Line
+	8800 1450 8800 1000
+Wire Wire Line
+	8450 2800 8800 2800
+Connection ~ 8800 2800
+Wire Wire Line
+	8800 2800 8800 1450
+Wire Wire Line
+	8900 1650 8900 900 
+Connection ~ 8900 1650
+Wire Bus Line
+	8900 4550 8450 4550
+Wire Bus Line
+	8900 4550 8900 5950
+$Sheet
+S 4600 2000 850  300 
+U 5EA4578B
+F0 "LVDS convertors 0 to 3b" 50
+F1 "lvds1a.sch" 50
+F2 "scab[1..16]" I L 4600 2200 50 
+F3 "cab[0..32]" I R 5450 2100 50 
+$EndSheet
+$Sheet
+S 4600 3350 850  300 
+U 5EA79B09
+F0 "LVDS convertors 4 to 7b" 50
+F1 "lvds2a.sch" 50
+F2 "scbb[1..16]" I L 4600 3550 50 
+F3 "cbb[0..32]" I R 5450 3450 50 
+$EndSheet
+$Sheet
+S 4600 4650 850  300 
+U 5EA79EA9
+F0 "LVDS convertrs 8 to 11b" 50
+F1 "lvds3a.sch" 50
+F2 "sccb[1..16]" I L 4600 4850 50 
+F3 "ccb[0..32]" I R 5450 4750 50 
+$EndSheet
+$Sheet
+S 7050 2750 1400 1050
+U 5F454A3D
+F0 "Radio Module Connectors 4 to 7" 50
+F1 "radio_conn2.sch" 50
+F2 "~Reset" I R 8450 3000 50 
+F3 "B" I R 8450 2900 50 
+F4 "A" I R 8450 2800 50 
+F5 "CLKB[0..7]" I R 8450 3250 50 
+F6 "cbb[1..32]" I L 7050 3450 50 
+F7 "cba[1..32]" I L 7050 2950 50 
+$EndSheet
+Wire Bus Line
+	7050 1600 5450 1600
+Wire Bus Line
+	7050 2100 5450 2100
+Wire Bus Line
+	7050 2950 5450 2950
+Wire Bus Line
+	7050 3450 5450 3450
+Wire Bus Line
+	7050 4250 5450 4250
+Wire Bus Line
+	7050 4750 5450 4750
+Wire Wire Line
+	3500 1000 3500 1400
+Wire Wire Line
+	3500 1400 3200 1400
+Wire Wire Line
+	3500 1000 8800 1000
+Wire Wire Line
+	3450 950  3450 1500
+Wire Wire Line
+	3450 1500 3200 1500
+Wire Wire Line
+	3450 950  8850 950 
+Wire Wire Line
+	3400 900  3400 1600
+Wire Wire Line
+	3400 1600 3200 1600
+Wire Wire Line
+	3400 900  8900 900 
+Wire Bus Line
+	4600 1700 3200 1700
+Wire Bus Line
+	4600 2200 3200 2200
+Wire Bus Line
+	4600 3050 3200 3050
+Wire Bus Line
+	4600 3550 4250 3550
+Wire Bus Line
+	4250 3550 4250 3250
+Wire Bus Line
+	4250 3250 3200 3250
+Wire Bus Line
+	4600 4350 4050 4350
+Wire Bus Line
+	4050 4350 4050 3450
+Wire Bus Line
+	4050 3450 3200 3450
+Wire Bus Line
+	4600 4850 3850 4850
+Wire Bus Line
+	3850 4850 3850 3650
+Wire Bus Line
+	3850 3650 3200 3650
+Wire Wire Line
+	1700 6800 650  6800
+Wire Wire Line
+	650  6800 650  2050
+Wire Wire Line
+	650  2050 1700 2050
+Wire Wire Line
+	1700 6700 750  6700
+Wire Wire Line
+	750  6700 750  2150
+Wire Wire Line
+	750  2150 1700 2150
+Wire Wire Line
+	1700 6600 850  6600
+Wire Wire Line
+	850  6600 850  2250
+Wire Wire Line
+	850  2250 1700 2250
+Wire Wire Line
+	1700 6500 950  6500
+Wire Wire Line
+	950  6500 950  2350
+Wire Wire Line
+	950  2350 1700 2350
+Wire Wire Line
+	1700 6250 1050 6250
+Wire Wire Line
+	1050 6250 1050 1800
+Wire Wire Line
+	1050 1800 1700 1800
+Wire Wire Line
+	1700 1900 1150 1900
+Wire Wire Line
+	1150 1900 1150 6150
+Wire Wire Line
+	1150 6150 1700 6150
+Wire Wire Line
+	1700 6000 1250 6000
+Wire Wire Line
+	1250 6000 1250 1400
+Wire Wire Line
+	1250 1400 1700 1400
+Wire Wire Line
+	1700 1500 1350 1500
+Wire Wire Line
+	1350 1500 1350 5900
+Wire Wire Line
+	1350 5900 1700 5900
+Wire Wire Line
+	1700 5800 1450 5800
+Wire Wire Line
+	1450 5800 1450 1600
+Wire Wire Line
+	1450 1600 1700 1600
+Wire Wire Line
+	1700 5700 1550 5700
+Wire Wire Line
+	1550 5700 1550 1700
+Wire Wire Line
+	1550 1700 1700 1700
 $EndSCHEMATC

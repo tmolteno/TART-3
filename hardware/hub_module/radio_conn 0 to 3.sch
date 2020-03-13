@@ -1,0 +1,3523 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 5 8
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Sheet
+S 1800 600  900  6050
+U 5E98BAE2
+F0 "Connectors 0-3" 50
+F1 "connector.sch" 50
+F2 "~Reset" I R 2700 700 50 
+F3 "B" I R 2700 800 50 
+F4 "A" I R 2700 900 50 
+F5 "WQ0-A" I L 1800 650 50 
+F6 "WQ0+A" I L 1800 750 50 
+F7 "WQ1+A" I L 1800 850 50 
+F8 "WQ1-A" I L 1800 950 50 
+F9 "WI0-A" I L 1800 1050 50 
+F10 "WI0+A" I L 1800 1150 50 
+F11 "WI1+A" I L 1800 1250 50 
+F12 "WI1-A" I L 1800 1350 50 
+F13 "WCLKB" I R 2700 1050 50 
+F14 "WCLKA" I R 2700 1150 50 
+F15 "WA2" I R 2700 1300 50 
+F16 "WA1" I R 2700 1400 50 
+F17 "WI1-B" I L 1800 1450 50 
+F18 "WI1+B" I L 1800 1550 50 
+F19 "WI0+B" I L 1800 1650 50 
+F20 "WI0-B" I L 1800 1750 50 
+F21 "WQ1-B" I L 1800 1850 50 
+F22 "WQ1+B" I L 1800 1950 50 
+F23 "WQ0+B" I L 1800 2050 50 
+F24 "WQ0-B" I L 1800 2150 50 
+F25 "YQ0-A" I L 1800 2250 50 
+F26 "YQ0+A" I L 1800 2350 50 
+F27 "YQ1+A" I L 1800 2450 50 
+F28 "YQ1-A" I L 1800 2550 50 
+F29 "YI0-A" I L 1800 2650 50 
+F30 "YI0+A" I L 1800 2750 50 
+F31 "YI1+A" I L 1800 2850 50 
+F32 "YI1-A" I L 1800 2950 50 
+F33 "YCLKB" I R 2700 2650 50 
+F34 "YCLKA" I R 2700 2750 50 
+F35 "YA3" I R 2700 2900 50 
+F36 "YA2" I R 2700 3000 50 
+F37 "YI1-B" I L 1800 3050 50 
+F38 "YI1+B" I L 1800 3150 50 
+F39 "YI0+B" I L 1800 3250 50 
+F40 "YO0-B" I L 1800 3350 50 
+F41 "YQ1-B" I L 1800 3450 50 
+F42 "YQ1+B" I L 1800 3550 50 
+F43 "YQ0+B" I L 1800 3650 50 
+F44 "YQ0-B" I L 1800 3750 50 
+F45 "ZQ0-B" I L 1800 3850 50 
+F46 "ZI0-B" I L 1800 3950 50 
+F47 "ZI0+B" I L 1800 4050 50 
+F48 "ZI1+B" I L 1800 4150 50 
+F49 "ZI1-B" I L 1800 4250 50 
+F50 "ZA2" I R 2700 4100 50 
+F51 "ZA3" I R 2700 4200 50 
+F52 "ZCLKA" I R 2700 3850 50 
+F53 "ZCLKB" I R 2700 3950 50 
+F54 "ZI1-A" I L 1800 4350 50 
+F55 "ZI1+A" I L 1800 4450 50 
+F56 "ZI0+A" I L 1800 4550 50 
+F57 "ZI0-A" I L 1800 4650 50 
+F58 "ZQ1-A" I L 1800 4750 50 
+F59 "ZQ1+A" I L 1800 4850 50 
+F60 "ZQ0+A" I L 1800 4950 50 
+F61 "ZQ0-A" I L 1800 5050 50 
+F62 "XQ0-B" I L 1800 5150 50 
+F63 "XQ0+B" I L 1800 5250 50 
+F64 "XQ1+B" I L 1800 5350 50 
+F65 "XQ1-B" I L 1800 5450 50 
+F66 "XI0-B" I L 1800 5550 50 
+F67 "XI0+B" I L 1800 5650 50 
+F68 "XI1+B" I L 1800 5750 50 
+F69 "XI1-B" I L 1800 5850 50 
+F70 "XA2" I R 2700 5350 50 
+F71 "XA3" I R 2700 5450 50 
+F72 "XCLKA" I R 2700 5100 50 
+F73 "XCLKB" I R 2700 5200 50 
+F74 "XI1-A" I L 1800 5950 50 
+F75 "XI1+A" I L 1800 6050 50 
+F76 "XI0+A" I L 1800 6150 50 
+F77 "XI0-A" I L 1800 6250 50 
+F78 "XQ1-A" I L 1800 6350 50 
+F79 "XQ1+A" I L 1800 6450 50 
+F80 "XQ0+A" I L 1800 6550 50 
+$EndSheet
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EBA7E22
+P 3200 1050
+F 0 "JP?" H 3000 1100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 3200 1164 50  0001 C CNN
+F 2 "" H 3200 1050 50  0001 C CNN
+F 3 "~" H 3200 1050 50  0001 C CNN
+	1    3200 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EBA86D3
+P 3200 1150
+F 0 "JP?" H 3000 1200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 3200 1264 50  0001 C CNN
+F 2 "" H 3200 1150 50  0001 C CNN
+F 3 "~" H 3200 1150 50  0001 C CNN
+	1    3200 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EBACD9F
+P 2800 5600
+F 0 "#PWR?" H 2800 5350 50  0001 C CNN
+F 1 "GND" H 2805 5427 50  0000 C CNN
+F 2 "" H 2800 5600 50  0001 C CNN
+F 3 "" H 2800 5600 50  0001 C CNN
+	1    2800 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2800 5600 2800 5450
+Wire Wire Line
+	2800 5450 2700 5450
+Wire Wire Line
+	2700 5350 2800 5350
+Wire Wire Line
+	2800 5350 2800 5450
+Connection ~ 2800 5450
+Wire Wire Line
+	2800 5350 2800 4200
+Wire Wire Line
+	2800 4100 2700 4100
+Connection ~ 2800 5350
+Wire Wire Line
+	2700 4200 2800 4200
+Connection ~ 2800 4200
+Wire Wire Line
+	2800 4200 2800 4100
+Wire Wire Line
+	2800 4100 2800 3000
+Wire Wire Line
+	2800 1400 2700 1400
+Connection ~ 2800 4100
+Wire Wire Line
+	2700 1300 2800 1300
+Wire Wire Line
+	2800 1300 2800 1400
+Connection ~ 2800 1400
+Wire Wire Line
+	2700 2900 2800 2900
+Connection ~ 2800 2900
+Wire Wire Line
+	2800 2900 2800 1400
+Wire Wire Line
+	2800 3000 2700 3000
+Connection ~ 2800 3000
+Wire Wire Line
+	2800 3000 2800 2900
+$Sheet
+S 5400 600  1000 6050
+U 5EC03415
+F0 "Connectors 4 to 7" 50
+F1 "connector.sch" 50
+F2 "~Reset" I R 6400 700 50 
+F3 "B" I R 6400 800 50 
+F4 "A" I R 6400 900 50 
+F5 "WA2" I R 6400 1300 50 
+F6 "WA1" I R 6400 1400 50 
+F7 "WI1-B" I L 5400 1450 50 
+F8 "WI1+B" I L 5400 1550 50 
+F9 "WI0+B" I L 5400 1650 50 
+F10 "WI0-B" I L 5400 1750 50 
+F11 "WQ1-B" I L 5400 1850 50 
+F12 "WQ1+B" I L 5400 1950 50 
+F13 "WQ0+B" I L 5400 2050 50 
+F14 "WQ0-B" I L 5400 2150 50 
+F15 "YQ0-A" I L 5400 2250 50 
+F16 "YQ0+A" I L 5400 2350 50 
+F17 "YQ1+A" I L 5400 2450 50 
+F18 "YQ1-A" I L 5400 2550 50 
+F19 "YI0-A" I L 5400 2650 50 
+F20 "YI0+A" I L 5400 2750 50 
+F21 "YI1+A" I L 5400 2850 50 
+F22 "YI1-A" I L 5400 2950 50 
+F23 "YCLKB" I R 6400 2650 50 
+F24 "YCLKA" I R 6400 2750 50 
+F25 "YA3" I R 6400 2900 50 
+F26 "YA2" I R 6400 3000 50 
+F27 "YI1-B" I L 5400 3050 50 
+F28 "YI1+B" I L 5400 3150 50 
+F29 "YI0+B" I L 5400 3250 50 
+F30 "YO0-B" I L 5400 3350 50 
+F31 "YQ1-B" I L 5400 3450 50 
+F32 "YQ1+B" I L 5400 3550 50 
+F33 "YQ0+B" I L 5400 3650 50 
+F34 "YQ0-B" I L 5400 3750 50 
+F35 "ZQ0-B" I L 5400 3850 50 
+F36 "ZI0-B" I L 5400 3950 50 
+F37 "ZI0+B" I L 5400 4050 50 
+F38 "ZI1+B" I L 5400 4150 50 
+F39 "ZI1-B" I L 5400 4250 50 
+F40 "ZA2" I R 6400 4100 50 
+F41 "ZA3" I R 6400 4200 50 
+F42 "ZCLKA" I R 6400 3850 50 
+F43 "ZCLKB" I R 6400 3950 50 
+F44 "ZI1-A" I L 5400 4350 50 
+F45 "ZI1+A" I L 5400 4450 50 
+F46 "ZI0+A" I L 5400 4550 50 
+F47 "ZI0-A" I L 5400 4650 50 
+F48 "ZQ1-A" I L 5400 4750 50 
+F49 "ZQ1+A" I L 5400 4850 50 
+F50 "ZQ0+A" I L 5400 4950 50 
+F51 "ZQ0-A" I L 5400 5050 50 
+F52 "XQ0-B" I L 5400 5150 50 
+F53 "XQ0+B" I L 5400 5250 50 
+F54 "XQ1+B" I L 5400 5350 50 
+F55 "XQ1-B" I L 5400 5450 50 
+F56 "XI0-B" I L 5400 5550 50 
+F57 "XI0+B" I L 5400 5650 50 
+F58 "XI1+B" I L 5400 5750 50 
+F59 "XI1-B" I L 5400 5850 50 
+F60 "XA2" I R 6400 5350 50 
+F61 "XA3" I R 6400 5450 50 
+F62 "XCLKA" I R 6400 5100 50 
+F63 "XCLKB" I R 6400 5200 50 
+F64 "XI1-A" I L 5400 5950 50 
+F65 "XI1+A" I L 5400 6050 50 
+F66 "XI0+A" I L 5400 6150 50 
+F67 "XI0-A" I L 5400 6250 50 
+F68 "XQ1-A" I L 5400 6350 50 
+F69 "XQ1+A" I L 5400 6450 50 
+F70 "XQ0+A" I L 5400 6550 50 
+F71 "WCLKA" I R 6400 1150 50 
+F72 "WCLKB" I R 6400 1050 50 
+F73 "WI1-A" I L 5400 1350 50 
+F74 "WI1+A" I L 5400 1250 50 
+F75 "WI0+A" I L 5400 1150 50 
+F76 "WI0-A" I L 5400 1050 50 
+F77 "WQ1-A" I L 5400 950 50 
+F78 "WQ1+A" I L 5400 850 50 
+F79 "WQ0+A" I L 5400 750 50 
+F80 "WQ0-A" I L 5400 650 50 
+$EndSheet
+$Sheet
+S 9000 600  1050 6050
+U 5EC0422F
+F0 "Connectors 8 to 11" 50
+F1 "connector.sch" 50
+F2 "~Reset" I R 10050 700 50 
+F3 "B" I R 10050 800 50 
+F4 "A" I R 10050 900 50 
+F5 "WA2" I R 10050 1300 50 
+F6 "WA1" I R 10050 1400 50 
+F7 "WI1-B" I L 9000 1450 50 
+F8 "WI1+B" I L 9000 1550 50 
+F9 "WI0+B" I L 9000 1650 50 
+F10 "WI0-B" I L 9000 1750 50 
+F11 "WQ1-B" I L 9000 1850 50 
+F12 "WQ1+B" I L 9000 1950 50 
+F13 "WQ0+B" I L 9000 2050 50 
+F14 "WQ0-B" I L 9000 2150 50 
+F15 "YQ0-A" I L 9000 2250 50 
+F16 "YQ0+A" I L 9000 2350 50 
+F17 "YQ1+A" I L 9000 2450 50 
+F18 "YQ1-A" I L 9000 2550 50 
+F19 "YI0-A" I L 9000 2650 50 
+F20 "YI0+A" I L 9000 2750 50 
+F21 "YI1+A" I L 9000 2850 50 
+F22 "YI1-A" I L 9000 2950 50 
+F23 "YCLKB" I R 10050 2650 50 
+F24 "YCLKA" I R 10050 2750 50 
+F25 "YA3" I R 10050 2900 50 
+F26 "YA2" I R 10050 3000 50 
+F27 "YI1-B" I L 9000 3050 50 
+F28 "YI1+B" I L 9000 3150 50 
+F29 "YI0+B" I L 9000 3250 50 
+F30 "YO0-B" I L 9000 3350 50 
+F31 "YQ1-B" I L 9000 3450 50 
+F32 "YQ1+B" I L 9000 3550 50 
+F33 "YQ0+B" I L 9000 3650 50 
+F34 "YQ0-B" I L 9000 3750 50 
+F35 "ZQ0-B" I L 9000 3850 50 
+F36 "ZI0-B" I L 9000 3950 50 
+F37 "ZI0+B" I L 9000 4050 50 
+F38 "ZI1+B" I L 9000 4150 50 
+F39 "ZI1-B" I L 9000 4250 50 
+F40 "ZA2" I R 10050 4100 50 
+F41 "ZA3" I R 10050 4200 50 
+F42 "ZCLKA" I R 10050 3850 50 
+F43 "ZCLKB" I R 10050 3950 50 
+F44 "ZI1-A" I L 9000 4350 50 
+F45 "ZI1+A" I L 9000 4450 50 
+F46 "ZI0+A" I L 9000 4550 50 
+F47 "ZI0-A" I L 9000 4650 50 
+F48 "ZQ1-A" I L 9000 4750 50 
+F49 "ZQ1+A" I L 9000 4850 50 
+F50 "ZQ0+A" I L 9000 4950 50 
+F51 "ZQ0-A" I L 9000 5050 50 
+F52 "XQ0-B" I L 9000 5150 50 
+F53 "XQ0+B" I L 9000 5250 50 
+F54 "XQ1+B" I L 9000 5350 50 
+F55 "XQ1-B" I L 9000 5450 50 
+F56 "XI0-B" I L 9000 5550 50 
+F57 "XI0+B" I L 9000 5650 50 
+F58 "XI1+B" I L 9000 5750 50 
+F59 "XI1-B" I L 9000 5850 50 
+F60 "XA2" I R 10050 5350 50 
+F61 "XA3" I R 10050 5450 50 
+F62 "XCLKA" I R 10050 5100 50 
+F63 "XCLKB" I R 10050 5200 50 
+F64 "XI1-A" I L 9000 5950 50 
+F65 "XI1+A" I L 9000 6050 50 
+F66 "XI0+A" I L 9000 6150 50 
+F67 "XI0-A" I L 9000 6250 50 
+F68 "XQ1-A" I L 9000 6350 50 
+F69 "XQ1+A" I L 9000 6450 50 
+F70 "XQ0+A" I L 9000 6550 50 
+F71 "WCLKA" I R 10050 1050 50 
+F72 "WCLKB" I R 10050 1150 50 
+F73 "WI1-A" I L 9000 1350 50 
+F74 "WI1+A" I L 9000 1250 50 
+F75 "WI0+A" I L 9000 1150 50 
+F76 "WI0-A" I L 9000 1050 50 
+F77 "WQ1-A" I L 9000 950 50 
+F78 "WQ1+A" I L 9000 850 50 
+F79 "WQ0+A" I L 9000 750 50 
+F80 "WQ0-A" I L 9000 650 50 
+$EndSheet
+Wire Wire Line
+	1400 650  1800 650 
+Wire Wire Line
+	1800 750  1400 750 
+Wire Wire Line
+	1400 850  1800 850 
+Wire Wire Line
+	1800 950  1400 950 
+Wire Wire Line
+	1400 1050 1800 1050
+Wire Wire Line
+	1800 1150 1400 1150
+Wire Wire Line
+	1400 1250 1800 1250
+Wire Wire Line
+	1800 1350 1400 1350
+Wire Wire Line
+	1400 1450 1800 1450
+Wire Wire Line
+	1800 1550 1400 1550
+Wire Wire Line
+	1400 1650 1800 1650
+Wire Wire Line
+	1800 1750 1400 1750
+Wire Wire Line
+	1400 1850 1800 1850
+Wire Wire Line
+	1800 1950 1400 1950
+Wire Wire Line
+	1400 2050 1800 2050
+Wire Wire Line
+	1800 2150 1400 2150
+Wire Wire Line
+	1400 2250 1800 2250
+Wire Wire Line
+	1800 2350 1400 2350
+Wire Wire Line
+	1400 2450 1800 2450
+Wire Wire Line
+	1800 2550 1400 2550
+Wire Wire Line
+	1400 2650 1800 2650
+Wire Wire Line
+	1800 2750 1400 2750
+Wire Wire Line
+	1400 2850 1800 2850
+Wire Wire Line
+	1800 2950 1400 2950
+Wire Wire Line
+	1400 3050 1800 3050
+Wire Wire Line
+	1800 3150 1400 3150
+Wire Wire Line
+	1400 3250 1800 3250
+Wire Wire Line
+	1800 3350 1400 3350
+Wire Wire Line
+	1400 3450 1800 3450
+Wire Wire Line
+	1800 3550 1400 3550
+Wire Wire Line
+	1400 3650 1800 3650
+Wire Wire Line
+	1800 3750 1400 3750
+Wire Wire Line
+	1400 3850 1800 3850
+Wire Wire Line
+	1800 3950 1400 3950
+Wire Wire Line
+	1400 4050 1800 4050
+Wire Wire Line
+	1800 4150 1400 4150
+Wire Wire Line
+	1400 4250 1800 4250
+Wire Wire Line
+	1800 4350 1400 4350
+Wire Wire Line
+	1400 4450 1800 4450
+Wire Wire Line
+	1800 4550 1400 4550
+Wire Wire Line
+	1400 4650 1800 4650
+Wire Wire Line
+	1800 4750 1400 4750
+Wire Wire Line
+	1400 4850 1800 4850
+Wire Wire Line
+	1800 4950 1400 4950
+Wire Wire Line
+	1400 5050 1800 5050
+Wire Wire Line
+	1800 5150 1400 5150
+Wire Wire Line
+	1400 5250 1800 5250
+Wire Wire Line
+	1800 5350 1400 5350
+Wire Wire Line
+	1400 5450 1800 5450
+Wire Wire Line
+	1800 5550 1400 5550
+Wire Wire Line
+	1400 5650 1800 5650
+Wire Wire Line
+	1800 5750 1400 5750
+Wire Wire Line
+	1400 5850 1800 5850
+Wire Wire Line
+	1800 5950 1400 5950
+Wire Wire Line
+	1400 6050 1800 6050
+Wire Wire Line
+	1800 6150 1400 6150
+Wire Wire Line
+	1400 6250 1800 6250
+Wire Wire Line
+	1800 6350 1400 6350
+Wire Wire Line
+	1400 6450 1800 6450
+Wire Wire Line
+	1800 6550 1400 6550
+Wire Wire Line
+	650  650  1100 650 
+Wire Wire Line
+	650  750  1100 750 
+Wire Wire Line
+	650  850  1100 850 
+Wire Wire Line
+	650  950  1100 950 
+Wire Wire Line
+	650  1050 1100 1050
+Wire Wire Line
+	650  1150 1100 1150
+Wire Wire Line
+	650  1250 1100 1250
+Wire Wire Line
+	650  1350 1100 1350
+Wire Wire Line
+	650  1450 1100 1450
+Wire Wire Line
+	650  1550 1100 1550
+Wire Wire Line
+	650  1650 1100 1650
+Wire Wire Line
+	650  1750 1100 1750
+Wire Wire Line
+	650  1850 1100 1850
+Wire Wire Line
+	650  1950 1100 1950
+Wire Wire Line
+	650  2050 1100 2050
+Wire Wire Line
+	650  2150 1100 2150
+Wire Wire Line
+	650  2250 1100 2250
+Wire Wire Line
+	650  2350 1100 2350
+Wire Wire Line
+	650  2450 1100 2450
+Wire Wire Line
+	650  2550 1100 2550
+Wire Wire Line
+	650  2650 1100 2650
+Wire Wire Line
+	650  2750 1100 2750
+Wire Wire Line
+	650  2850 1100 2850
+Wire Wire Line
+	650  2950 1100 2950
+Wire Wire Line
+	650  3050 1100 3050
+Wire Wire Line
+	650  3150 1100 3150
+Wire Wire Line
+	650  3250 1100 3250
+Wire Wire Line
+	650  3350 1100 3350
+Wire Wire Line
+	650  3450 1100 3450
+Wire Wire Line
+	650  3550 1100 3550
+Wire Wire Line
+	650  3650 1100 3650
+Wire Wire Line
+	650  3750 1100 3750
+Wire Wire Line
+	650  3850 1100 3850
+Wire Wire Line
+	650  3950 1100 3950
+Wire Wire Line
+	650  4050 1100 4050
+Wire Wire Line
+	650  4150 1100 4150
+Wire Wire Line
+	650  4250 1100 4250
+Wire Wire Line
+	650  4350 1100 4350
+Wire Wire Line
+	650  4450 1100 4450
+Wire Wire Line
+	650  4550 1100 4550
+Wire Wire Line
+	650  4650 1100 4650
+Wire Wire Line
+	650  4750 1100 4750
+Wire Wire Line
+	650  4850 1100 4850
+Wire Wire Line
+	650  4950 1100 4950
+Wire Wire Line
+	650  5050 1100 5050
+Wire Wire Line
+	650  5150 1100 5150
+Wire Wire Line
+	650  5250 1100 5250
+Wire Wire Line
+	650  5350 1100 5350
+Wire Wire Line
+	650  5450 1100 5450
+Wire Wire Line
+	650  5550 1100 5550
+Wire Wire Line
+	650  5650 1100 5650
+Wire Wire Line
+	650  5750 1100 5750
+Wire Wire Line
+	650  5850 1100 5850
+Wire Wire Line
+	650  5950 1100 5950
+Wire Wire Line
+	650  6050 1100 6050
+Wire Wire Line
+	650  6150 1100 6150
+Wire Wire Line
+	650  6250 1100 6250
+Wire Wire Line
+	650  6350 1100 6350
+Wire Wire Line
+	650  6450 1100 6450
+Wire Wire Line
+	650  6550 1100 6550
+Wire Wire Line
+	3050 5200 2700 5200
+Wire Wire Line
+	2700 5100 3050 5100
+Wire Wire Line
+	3050 3950 2700 3950
+Wire Wire Line
+	2700 3850 3050 3850
+Wire Wire Line
+	3050 2750 2700 2750
+Wire Wire Line
+	2700 2650 3050 2650
+Wire Wire Line
+	3050 1150 2700 1150
+Wire Wire Line
+	2700 1050 3050 1050
+Wire Wire Line
+	3350 1050 3700 1050
+Wire Wire Line
+	3350 1150 3700 1150
+Wire Wire Line
+	3350 2650 3700 2650
+Wire Wire Line
+	3350 2750 3700 2750
+Wire Wire Line
+	3350 3850 3700 3850
+Wire Wire Line
+	3350 3950 3700 3950
+Wire Wire Line
+	3350 5100 3700 5100
+Wire Wire Line
+	3350 5200 3700 5200
+Wire Wire Line
+	2700 700  3700 700 
+Wire Wire Line
+	2700 800  3700 800 
+Wire Wire Line
+	2700 900  3700 900 
+Text Label 3050 700  0    50   ~ 0
+~Reset
+Text Label 3050 800  0    50   ~ 0
+B
+Text Label 3050 900  0    50   ~ 0
+A
+Text HLabel 3700 700  2    50   Input ~ 0
+~Reset
+Text HLabel 3700 800  2    50   Input ~ 0
+B
+Text HLabel 3700 900  2    50   Input ~ 0
+A
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EEFF650
+P 3200 2650
+F 0 "JP?" H 3000 2700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 3200 2764 50  0001 C CNN
+F 2 "" H 3200 2650 50  0001 C CNN
+F 3 "~" H 3200 2650 50  0001 C CNN
+	1    3200 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF005B4
+P 3200 2750
+F 0 "JP?" H 3000 2800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 3200 2864 50  0001 C CNN
+F 2 "" H 3200 2750 50  0001 C CNN
+F 3 "~" H 3200 2750 50  0001 C CNN
+	1    3200 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF015A2
+P 3200 3850
+F 0 "JP?" H 3000 3900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 3200 3964 50  0001 C CNN
+F 2 "" H 3200 3850 50  0001 C CNN
+F 3 "~" H 3200 3850 50  0001 C CNN
+	1    3200 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF02B9B
+P 3200 3950
+F 0 "JP?" H 3000 4000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 3200 4064 50  0001 C CNN
+F 2 "" H 3200 3950 50  0001 C CNN
+F 3 "~" H 3200 3950 50  0001 C CNN
+	1    3200 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF03B89
+P 3200 5100
+F 0 "JP?" H 3000 5150 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 3200 5214 50  0001 C CNN
+F 2 "" H 3200 5100 50  0001 C CNN
+F 3 "~" H 3200 5100 50  0001 C CNN
+	1    3200 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF04381
+P 3200 5200
+F 0 "JP?" H 3000 5250 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 3200 5314 50  0001 C CNN
+F 2 "" H 3200 5200 50  0001 C CNN
+F 3 "~" H 3200 5200 50  0001 C CNN
+	1    3200 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0583F
+P 1250 650
+F 0 "JP?" H 1050 700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 764 50  0001 C CNN
+F 2 "" H 1250 650 50  0001 C CNN
+F 3 "~" H 1250 650 50  0001 C CNN
+	1    1250 650 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF06517
+P 1250 750
+F 0 "JP?" H 1050 800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 864 50  0001 C CNN
+F 2 "" H 1250 750 50  0001 C CNN
+F 3 "~" H 1250 750 50  0001 C CNN
+	1    1250 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF068D5
+P 1250 850
+F 0 "JP?" H 1050 900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 964 50  0001 C CNN
+F 2 "" H 1250 850 50  0001 C CNN
+F 3 "~" H 1250 850 50  0001 C CNN
+	1    1250 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0D48B
+P 1250 950
+F 0 "JP?" H 1050 1000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 1064 50  0001 C CNN
+F 2 "" H 1250 950 50  0001 C CNN
+F 3 "~" H 1250 950 50  0001 C CNN
+	1    1250 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0D609
+P 1250 1050
+F 0 "JP?" H 1050 1100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 1164 50  0001 C CNN
+F 2 "" H 1250 1050 50  0001 C CNN
+F 3 "~" H 1250 1050 50  0001 C CNN
+	1    1250 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0D79F
+P 1250 1150
+F 0 "JP?" H 1050 1200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 1264 50  0001 C CNN
+F 2 "" H 1250 1150 50  0001 C CNN
+F 3 "~" H 1250 1150 50  0001 C CNN
+	1    1250 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0D94D
+P 1250 1250
+F 0 "JP?" H 1050 1300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 1364 50  0001 C CNN
+F 2 "" H 1250 1250 50  0001 C CNN
+F 3 "~" H 1250 1250 50  0001 C CNN
+	1    1250 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0DB13
+P 1250 1350
+F 0 "JP?" H 1050 1400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 1464 50  0001 C CNN
+F 2 "" H 1250 1350 50  0001 C CNN
+F 3 "~" H 1250 1350 50  0001 C CNN
+	1    1250 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0E1BC
+P 1250 1450
+F 0 "JP?" H 1050 1500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 1564 50  0001 C CNN
+F 2 "" H 1250 1450 50  0001 C CNN
+F 3 "~" H 1250 1450 50  0001 C CNN
+	1    1250 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0E3B2
+P 1250 1550
+F 0 "JP?" H 1050 1600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 1664 50  0001 C CNN
+F 2 "" H 1250 1550 50  0001 C CNN
+F 3 "~" H 1250 1550 50  0001 C CNN
+	1    1250 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0E5C0
+P 1250 1650
+F 0 "JP?" H 1050 1700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 1764 50  0001 C CNN
+F 2 "" H 1250 1650 50  0001 C CNN
+F 3 "~" H 1250 1650 50  0001 C CNN
+	1    1250 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0E7E6
+P 1250 1750
+F 0 "JP?" H 1050 1800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 1864 50  0001 C CNN
+F 2 "" H 1250 1750 50  0001 C CNN
+F 3 "~" H 1250 1750 50  0001 C CNN
+	1    1250 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0EA24
+P 1250 1850
+F 0 "JP?" H 1050 1900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 1964 50  0001 C CNN
+F 2 "" H 1250 1850 50  0001 C CNN
+F 3 "~" H 1250 1850 50  0001 C CNN
+	1    1250 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0EC7A
+P 1250 1950
+F 0 "JP?" H 1050 2000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 2064 50  0001 C CNN
+F 2 "" H 1250 1950 50  0001 C CNN
+F 3 "~" H 1250 1950 50  0001 C CNN
+	1    1250 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0EEE8
+P 1250 2050
+F 0 "JP?" H 1050 2100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 2164 50  0001 C CNN
+F 2 "" H 1250 2050 50  0001 C CNN
+F 3 "~" H 1250 2050 50  0001 C CNN
+	1    1250 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0F16E
+P 1250 2150
+F 0 "JP?" H 1050 2200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 2264 50  0001 C CNN
+F 2 "" H 1250 2150 50  0001 C CNN
+F 3 "~" H 1250 2150 50  0001 C CNN
+	1    1250 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0F40C
+P 1250 2250
+F 0 "JP?" H 1050 2300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 2364 50  0001 C CNN
+F 2 "" H 1250 2250 50  0001 C CNN
+F 3 "~" H 1250 2250 50  0001 C CNN
+	1    1250 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0F6C2
+P 1250 2350
+F 0 "JP?" H 1050 2400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 2464 50  0001 C CNN
+F 2 "" H 1250 2350 50  0001 C CNN
+F 3 "~" H 1250 2350 50  0001 C CNN
+	1    1250 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0F990
+P 1250 2450
+F 0 "JP?" H 1050 2500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 2564 50  0001 C CNN
+F 2 "" H 1250 2450 50  0001 C CNN
+F 3 "~" H 1250 2450 50  0001 C CNN
+	1    1250 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0FC76
+P 1250 2550
+F 0 "JP?" H 1050 2600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 2664 50  0001 C CNN
+F 2 "" H 1250 2550 50  0001 C CNN
+F 3 "~" H 1250 2550 50  0001 C CNN
+	1    1250 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF0FF74
+P 1250 2650
+F 0 "JP?" H 1050 2700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 2764 50  0001 C CNN
+F 2 "" H 1250 2650 50  0001 C CNN
+F 3 "~" H 1250 2650 50  0001 C CNN
+	1    1250 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF1028A
+P 1250 2750
+F 0 "JP?" H 1050 2800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 2864 50  0001 C CNN
+F 2 "" H 1250 2750 50  0001 C CNN
+F 3 "~" H 1250 2750 50  0001 C CNN
+	1    1250 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF105B8
+P 1250 2850
+F 0 "JP?" H 1050 2900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 2964 50  0001 C CNN
+F 2 "" H 1250 2850 50  0001 C CNN
+F 3 "~" H 1250 2850 50  0001 C CNN
+	1    1250 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF108FE
+P 1250 2950
+F 0 "JP?" H 1050 3000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 3064 50  0001 C CNN
+F 2 "" H 1250 2950 50  0001 C CNN
+F 3 "~" H 1250 2950 50  0001 C CNN
+	1    1250 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF10C5C
+P 1250 3050
+F 0 "JP?" H 1050 3100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 3164 50  0001 C CNN
+F 2 "" H 1250 3050 50  0001 C CNN
+F 3 "~" H 1250 3050 50  0001 C CNN
+	1    1250 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF10FD2
+P 1250 3150
+F 0 "JP?" H 1050 3200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 3264 50  0001 C CNN
+F 2 "" H 1250 3150 50  0001 C CNN
+F 3 "~" H 1250 3150 50  0001 C CNN
+	1    1250 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF11360
+P 1250 3250
+F 0 "JP?" H 1050 3300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 3364 50  0001 C CNN
+F 2 "" H 1250 3250 50  0001 C CNN
+F 3 "~" H 1250 3250 50  0001 C CNN
+	1    1250 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF11706
+P 1250 3350
+F 0 "JP?" H 1050 3400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 3464 50  0001 C CNN
+F 2 "" H 1250 3350 50  0001 C CNN
+F 3 "~" H 1250 3350 50  0001 C CNN
+	1    1250 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF11DAC
+P 1250 3450
+F 0 "JP?" H 1050 3500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 3564 50  0001 C CNN
+F 2 "" H 1250 3450 50  0001 C CNN
+F 3 "~" H 1250 3450 50  0001 C CNN
+	1    1250 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF12182
+P 1250 3550
+F 0 "JP?" H 1050 3600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 3664 50  0001 C CNN
+F 2 "" H 1250 3550 50  0001 C CNN
+F 3 "~" H 1250 3550 50  0001 C CNN
+	1    1250 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF12570
+P 1250 3650
+F 0 "JP?" H 1050 3700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 3764 50  0001 C CNN
+F 2 "" H 1250 3650 50  0001 C CNN
+F 3 "~" H 1250 3650 50  0001 C CNN
+	1    1250 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF12976
+P 1250 3750
+F 0 "JP?" H 1050 3800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 3864 50  0001 C CNN
+F 2 "" H 1250 3750 50  0001 C CNN
+F 3 "~" H 1250 3750 50  0001 C CNN
+	1    1250 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF12D94
+P 1250 3850
+F 0 "JP?" H 1050 3900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 3964 50  0001 C CNN
+F 2 "" H 1250 3850 50  0001 C CNN
+F 3 "~" H 1250 3850 50  0001 C CNN
+	1    1250 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF131CA
+P 1250 3950
+F 0 "JP?" H 1050 4000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 4064 50  0001 C CNN
+F 2 "" H 1250 3950 50  0001 C CNN
+F 3 "~" H 1250 3950 50  0001 C CNN
+	1    1250 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF13618
+P 1250 4050
+F 0 "JP?" H 1050 4100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 4164 50  0001 C CNN
+F 2 "" H 1250 4050 50  0001 C CNN
+F 3 "~" H 1250 4050 50  0001 C CNN
+	1    1250 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF13A7E
+P 1250 4150
+F 0 "JP?" H 1050 4200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 4264 50  0001 C CNN
+F 2 "" H 1250 4150 50  0001 C CNN
+F 3 "~" H 1250 4150 50  0001 C CNN
+	1    1250 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF13EFC
+P 1250 4250
+F 0 "JP?" H 1050 4300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 4364 50  0001 C CNN
+F 2 "" H 1250 4250 50  0001 C CNN
+F 3 "~" H 1250 4250 50  0001 C CNN
+	1    1250 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF14392
+P 1250 4350
+F 0 "JP?" H 1050 4400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 4464 50  0001 C CNN
+F 2 "" H 1250 4350 50  0001 C CNN
+F 3 "~" H 1250 4350 50  0001 C CNN
+	1    1250 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF14840
+P 1250 4450
+F 0 "JP?" H 1050 4500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 4564 50  0001 C CNN
+F 2 "" H 1250 4450 50  0001 C CNN
+F 3 "~" H 1250 4450 50  0001 C CNN
+	1    1250 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF14D06
+P 1250 4550
+F 0 "JP?" H 1050 4600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 4664 50  0001 C CNN
+F 2 "" H 1250 4550 50  0001 C CNN
+F 3 "~" H 1250 4550 50  0001 C CNN
+	1    1250 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF151E4
+P 1250 4650
+F 0 "JP?" H 1050 4700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 4764 50  0001 C CNN
+F 2 "" H 1250 4650 50  0001 C CNN
+F 3 "~" H 1250 4650 50  0001 C CNN
+	1    1250 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF156DA
+P 1250 4750
+F 0 "JP?" H 1050 4800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 4864 50  0001 C CNN
+F 2 "" H 1250 4750 50  0001 C CNN
+F 3 "~" H 1250 4750 50  0001 C CNN
+	1    1250 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF15BE8
+P 1250 4850
+F 0 "JP?" H 1050 4900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 4964 50  0001 C CNN
+F 2 "" H 1250 4850 50  0001 C CNN
+F 3 "~" H 1250 4850 50  0001 C CNN
+	1    1250 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF1610E
+P 1250 4950
+F 0 "JP?" H 1050 5000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 5064 50  0001 C CNN
+F 2 "" H 1250 4950 50  0001 C CNN
+F 3 "~" H 1250 4950 50  0001 C CNN
+	1    1250 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF1664C
+P 1250 5050
+F 0 "JP?" H 1050 5100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 5164 50  0001 C CNN
+F 2 "" H 1250 5050 50  0001 C CNN
+F 3 "~" H 1250 5050 50  0001 C CNN
+	1    1250 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF16BA2
+P 1250 5150
+F 0 "JP?" H 1050 5200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 5264 50  0001 C CNN
+F 2 "" H 1250 5150 50  0001 C CNN
+F 3 "~" H 1250 5150 50  0001 C CNN
+	1    1250 5150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF17110
+P 1250 5250
+F 0 "JP?" H 1050 5300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 5364 50  0001 C CNN
+F 2 "" H 1250 5250 50  0001 C CNN
+F 3 "~" H 1250 5250 50  0001 C CNN
+	1    1250 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF17696
+P 1250 5350
+F 0 "JP?" H 1050 5400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 5464 50  0001 C CNN
+F 2 "" H 1250 5350 50  0001 C CNN
+F 3 "~" H 1250 5350 50  0001 C CNN
+	1    1250 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF17C34
+P 1250 5450
+F 0 "JP?" H 1050 5500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 5564 50  0001 C CNN
+F 2 "" H 1250 5450 50  0001 C CNN
+F 3 "~" H 1250 5450 50  0001 C CNN
+	1    1250 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF181EA
+P 1250 5550
+F 0 "JP?" H 1050 5600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 5664 50  0001 C CNN
+F 2 "" H 1250 5550 50  0001 C CNN
+F 3 "~" H 1250 5550 50  0001 C CNN
+	1    1250 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF187E0
+P 1250 5650
+F 0 "JP?" H 1050 5700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 5764 50  0001 C CNN
+F 2 "" H 1250 5650 50  0001 C CNN
+F 3 "~" H 1250 5650 50  0001 C CNN
+	1    1250 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF18B5E
+P 1250 5750
+F 0 "JP?" H 1050 5800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 5864 50  0001 C CNN
+F 2 "" H 1250 5750 50  0001 C CNN
+F 3 "~" H 1250 5750 50  0001 C CNN
+	1    1250 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF18EF4
+P 1250 5850
+F 0 "JP?" H 1050 5900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 5964 50  0001 C CNN
+F 2 "" H 1250 5850 50  0001 C CNN
+F 3 "~" H 1250 5850 50  0001 C CNN
+	1    1250 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF192A2
+P 1250 5950
+F 0 "JP?" H 1050 6000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 6064 50  0001 C CNN
+F 2 "" H 1250 5950 50  0001 C CNN
+F 3 "~" H 1250 5950 50  0001 C CNN
+	1    1250 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF19668
+P 1250 6050
+F 0 "JP?" H 1050 6100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 6164 50  0001 C CNN
+F 2 "" H 1250 6050 50  0001 C CNN
+F 3 "~" H 1250 6050 50  0001 C CNN
+	1    1250 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF19A46
+P 1250 6150
+F 0 "JP?" H 1050 6200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 6264 50  0001 C CNN
+F 2 "" H 1250 6150 50  0001 C CNN
+F 3 "~" H 1250 6150 50  0001 C CNN
+	1    1250 6150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF19E3C
+P 1250 6250
+F 0 "JP?" H 1050 6300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 6364 50  0001 C CNN
+F 2 "" H 1250 6250 50  0001 C CNN
+F 3 "~" H 1250 6250 50  0001 C CNN
+	1    1250 6250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF1A24A
+P 1250 6350
+F 0 "JP?" H 1050 6400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 6464 50  0001 C CNN
+F 2 "" H 1250 6350 50  0001 C CNN
+F 3 "~" H 1250 6350 50  0001 C CNN
+	1    1250 6350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF1A670
+P 1250 6450
+F 0 "JP?" H 1050 6500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 6564 50  0001 C CNN
+F 2 "" H 1250 6450 50  0001 C CNN
+F 3 "~" H 1250 6450 50  0001 C CNN
+	1    1250 6450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EF1AAAE
+P 1250 6550
+F 0 "JP?" H 1050 6600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 1250 6664 50  0001 C CNN
+F 2 "" H 1250 6550 50  0001 C CNN
+F 3 "~" H 1250 6550 50  0001 C CNN
+	1    1250 6550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 650  5400 650 
+Wire Wire Line
+	5400 750  5000 750 
+Wire Wire Line
+	5000 850  5400 850 
+Wire Wire Line
+	5400 950  5000 950 
+Wire Wire Line
+	5000 1050 5400 1050
+Wire Wire Line
+	5400 1150 5000 1150
+Wire Wire Line
+	5000 1250 5400 1250
+Wire Wire Line
+	5400 1350 5000 1350
+Wire Wire Line
+	5000 1450 5400 1450
+Wire Wire Line
+	5400 1550 5000 1550
+Wire Wire Line
+	5000 1650 5400 1650
+Wire Wire Line
+	5400 1750 5000 1750
+Wire Wire Line
+	5000 1850 5400 1850
+Wire Wire Line
+	5400 1950 5000 1950
+Wire Wire Line
+	5000 2050 5400 2050
+Wire Wire Line
+	5400 2150 5000 2150
+Wire Wire Line
+	5000 2250 5400 2250
+Wire Wire Line
+	5400 2350 5000 2350
+Wire Wire Line
+	5000 2450 5400 2450
+Wire Wire Line
+	5400 2550 5000 2550
+Wire Wire Line
+	5000 2650 5400 2650
+Wire Wire Line
+	5400 2750 5000 2750
+Wire Wire Line
+	5000 2850 5400 2850
+Wire Wire Line
+	5400 2950 5000 2950
+Wire Wire Line
+	5000 3050 5400 3050
+Wire Wire Line
+	5400 3150 5000 3150
+Wire Wire Line
+	5000 3250 5400 3250
+Wire Wire Line
+	5400 3350 5000 3350
+Wire Wire Line
+	5000 3450 5400 3450
+Wire Wire Line
+	5400 3550 5000 3550
+Wire Wire Line
+	5000 3650 5400 3650
+Wire Wire Line
+	5400 3750 5000 3750
+Wire Wire Line
+	5000 3850 5400 3850
+Wire Wire Line
+	5400 3950 5000 3950
+Wire Wire Line
+	5000 4050 5400 4050
+Wire Wire Line
+	5400 4150 5000 4150
+Wire Wire Line
+	5000 4250 5400 4250
+Wire Wire Line
+	5400 4350 5000 4350
+Wire Wire Line
+	5000 4450 5400 4450
+Wire Wire Line
+	5400 4550 5000 4550
+Wire Wire Line
+	5000 4650 5400 4650
+Wire Wire Line
+	5400 4750 5000 4750
+Wire Wire Line
+	5000 4850 5400 4850
+Wire Wire Line
+	5400 4950 5000 4950
+Wire Wire Line
+	5000 5050 5400 5050
+Wire Wire Line
+	5400 5150 5000 5150
+Wire Wire Line
+	5000 5250 5400 5250
+Wire Wire Line
+	5400 5350 5000 5350
+Wire Wire Line
+	5000 5450 5400 5450
+Wire Wire Line
+	5400 5550 5000 5550
+Wire Wire Line
+	5000 5650 5400 5650
+Wire Wire Line
+	5400 5750 5000 5750
+Wire Wire Line
+	5000 5850 5400 5850
+Wire Wire Line
+	5400 5950 5000 5950
+Wire Wire Line
+	5000 6050 5400 6050
+Wire Wire Line
+	5400 6150 5000 6150
+Wire Wire Line
+	5000 6250 5400 6250
+Wire Wire Line
+	5400 6350 5000 6350
+Wire Wire Line
+	5000 6450 5400 6450
+Wire Wire Line
+	5400 6550 5000 6550
+Wire Wire Line
+	4250 650  4700 650 
+Wire Wire Line
+	4250 750  4700 750 
+Wire Wire Line
+	4250 850  4700 850 
+Wire Wire Line
+	4250 950  4700 950 
+Wire Wire Line
+	4250 1050 4700 1050
+Wire Wire Line
+	4250 1150 4700 1150
+Wire Wire Line
+	4250 1250 4700 1250
+Wire Wire Line
+	4250 1350 4700 1350
+Wire Wire Line
+	4250 1450 4700 1450
+Wire Wire Line
+	4250 1550 4700 1550
+Wire Wire Line
+	4250 1650 4700 1650
+Wire Wire Line
+	4250 1750 4700 1750
+Wire Wire Line
+	4250 1850 4700 1850
+Wire Wire Line
+	4250 1950 4700 1950
+Wire Wire Line
+	4250 2050 4700 2050
+Wire Wire Line
+	4250 2150 4700 2150
+Wire Wire Line
+	4250 2250 4700 2250
+Wire Wire Line
+	4250 2350 4700 2350
+Wire Wire Line
+	4250 2450 4700 2450
+Wire Wire Line
+	4250 2550 4700 2550
+Wire Wire Line
+	4250 2650 4700 2650
+Wire Wire Line
+	4250 2750 4700 2750
+Wire Wire Line
+	4250 2850 4700 2850
+Wire Wire Line
+	4250 2950 4700 2950
+Wire Wire Line
+	4250 3050 4700 3050
+Wire Wire Line
+	4250 3150 4700 3150
+Wire Wire Line
+	4250 3250 4700 3250
+Wire Wire Line
+	4250 3350 4700 3350
+Wire Wire Line
+	4250 3450 4700 3450
+Wire Wire Line
+	4250 3550 4700 3550
+Wire Wire Line
+	4250 3650 4700 3650
+Wire Wire Line
+	4250 3750 4700 3750
+Wire Wire Line
+	4250 3850 4700 3850
+Wire Wire Line
+	4250 3950 4700 3950
+Wire Wire Line
+	4250 4050 4700 4050
+Wire Wire Line
+	4250 4150 4700 4150
+Wire Wire Line
+	4250 4250 4700 4250
+Wire Wire Line
+	4250 4350 4700 4350
+Wire Wire Line
+	4250 4450 4700 4450
+Wire Wire Line
+	4250 4550 4700 4550
+Wire Wire Line
+	4250 4650 4700 4650
+Wire Wire Line
+	4250 4750 4700 4750
+Wire Wire Line
+	4250 4850 4700 4850
+Wire Wire Line
+	4250 4950 4700 4950
+Wire Wire Line
+	4250 5050 4700 5050
+Wire Wire Line
+	4250 5150 4700 5150
+Wire Wire Line
+	4250 5250 4700 5250
+Wire Wire Line
+	4250 5350 4700 5350
+Wire Wire Line
+	4250 5450 4700 5450
+Wire Wire Line
+	4250 5550 4700 5550
+Wire Wire Line
+	4250 5650 4700 5650
+Wire Wire Line
+	4250 5750 4700 5750
+Wire Wire Line
+	4250 5850 4700 5850
+Wire Wire Line
+	4250 5950 4700 5950
+Wire Wire Line
+	4250 6050 4700 6050
+Wire Wire Line
+	4250 6150 4700 6150
+Wire Wire Line
+	4250 6250 4700 6250
+Wire Wire Line
+	4250 6350 4700 6350
+Wire Wire Line
+	4250 6450 4700 6450
+Wire Wire Line
+	4250 6550 4700 6550
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC42D0
+P 4850 650
+F 0 "JP?" H 4650 700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 764 50  0001 C CNN
+F 2 "" H 4850 650 50  0001 C CNN
+F 3 "~" H 4850 650 50  0001 C CNN
+	1    4850 650 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC42D6
+P 4850 750
+F 0 "JP?" H 4650 800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 864 50  0001 C CNN
+F 2 "" H 4850 750 50  0001 C CNN
+F 3 "~" H 4850 750 50  0001 C CNN
+	1    4850 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC42DC
+P 4850 850
+F 0 "JP?" H 4650 900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 964 50  0001 C CNN
+F 2 "" H 4850 850 50  0001 C CNN
+F 3 "~" H 4850 850 50  0001 C CNN
+	1    4850 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC42E2
+P 4850 950
+F 0 "JP?" H 4650 1000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 1064 50  0001 C CNN
+F 2 "" H 4850 950 50  0001 C CNN
+F 3 "~" H 4850 950 50  0001 C CNN
+	1    4850 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC42E8
+P 4850 1050
+F 0 "JP?" H 4650 1100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 1164 50  0001 C CNN
+F 2 "" H 4850 1050 50  0001 C CNN
+F 3 "~" H 4850 1050 50  0001 C CNN
+	1    4850 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC42EE
+P 4850 1150
+F 0 "JP?" H 4650 1200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 1264 50  0001 C CNN
+F 2 "" H 4850 1150 50  0001 C CNN
+F 3 "~" H 4850 1150 50  0001 C CNN
+	1    4850 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC42F4
+P 4850 1250
+F 0 "JP?" H 4650 1300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 1364 50  0001 C CNN
+F 2 "" H 4850 1250 50  0001 C CNN
+F 3 "~" H 4850 1250 50  0001 C CNN
+	1    4850 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC42FA
+P 4850 1350
+F 0 "JP?" H 4650 1400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 1464 50  0001 C CNN
+F 2 "" H 4850 1350 50  0001 C CNN
+F 3 "~" H 4850 1350 50  0001 C CNN
+	1    4850 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4300
+P 4850 1450
+F 0 "JP?" H 4650 1500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 1564 50  0001 C CNN
+F 2 "" H 4850 1450 50  0001 C CNN
+F 3 "~" H 4850 1450 50  0001 C CNN
+	1    4850 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4306
+P 4850 1550
+F 0 "JP?" H 4650 1600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 1664 50  0001 C CNN
+F 2 "" H 4850 1550 50  0001 C CNN
+F 3 "~" H 4850 1550 50  0001 C CNN
+	1    4850 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC430C
+P 4850 1650
+F 0 "JP?" H 4650 1700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 1764 50  0001 C CNN
+F 2 "" H 4850 1650 50  0001 C CNN
+F 3 "~" H 4850 1650 50  0001 C CNN
+	1    4850 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4312
+P 4850 1750
+F 0 "JP?" H 4650 1800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 1864 50  0001 C CNN
+F 2 "" H 4850 1750 50  0001 C CNN
+F 3 "~" H 4850 1750 50  0001 C CNN
+	1    4850 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4318
+P 4850 1850
+F 0 "JP?" H 4650 1900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 1964 50  0001 C CNN
+F 2 "" H 4850 1850 50  0001 C CNN
+F 3 "~" H 4850 1850 50  0001 C CNN
+	1    4850 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC431E
+P 4850 1950
+F 0 "JP?" H 4650 2000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 2064 50  0001 C CNN
+F 2 "" H 4850 1950 50  0001 C CNN
+F 3 "~" H 4850 1950 50  0001 C CNN
+	1    4850 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4324
+P 4850 2050
+F 0 "JP?" H 4650 2100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 2164 50  0001 C CNN
+F 2 "" H 4850 2050 50  0001 C CNN
+F 3 "~" H 4850 2050 50  0001 C CNN
+	1    4850 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC432A
+P 4850 2150
+F 0 "JP?" H 4650 2200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 2264 50  0001 C CNN
+F 2 "" H 4850 2150 50  0001 C CNN
+F 3 "~" H 4850 2150 50  0001 C CNN
+	1    4850 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4330
+P 4850 2250
+F 0 "JP?" H 4650 2300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 2364 50  0001 C CNN
+F 2 "" H 4850 2250 50  0001 C CNN
+F 3 "~" H 4850 2250 50  0001 C CNN
+	1    4850 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4336
+P 4850 2350
+F 0 "JP?" H 4650 2400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 2464 50  0001 C CNN
+F 2 "" H 4850 2350 50  0001 C CNN
+F 3 "~" H 4850 2350 50  0001 C CNN
+	1    4850 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC433C
+P 4850 2450
+F 0 "JP?" H 4650 2500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 2564 50  0001 C CNN
+F 2 "" H 4850 2450 50  0001 C CNN
+F 3 "~" H 4850 2450 50  0001 C CNN
+	1    4850 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4342
+P 4850 2550
+F 0 "JP?" H 4650 2600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 2664 50  0001 C CNN
+F 2 "" H 4850 2550 50  0001 C CNN
+F 3 "~" H 4850 2550 50  0001 C CNN
+	1    4850 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4348
+P 4850 2650
+F 0 "JP?" H 4650 2700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 2764 50  0001 C CNN
+F 2 "" H 4850 2650 50  0001 C CNN
+F 3 "~" H 4850 2650 50  0001 C CNN
+	1    4850 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC434E
+P 4850 2750
+F 0 "JP?" H 4650 2800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 2864 50  0001 C CNN
+F 2 "" H 4850 2750 50  0001 C CNN
+F 3 "~" H 4850 2750 50  0001 C CNN
+	1    4850 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4354
+P 4850 2850
+F 0 "JP?" H 4650 2900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 2964 50  0001 C CNN
+F 2 "" H 4850 2850 50  0001 C CNN
+F 3 "~" H 4850 2850 50  0001 C CNN
+	1    4850 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC435A
+P 4850 2950
+F 0 "JP?" H 4650 3000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 3064 50  0001 C CNN
+F 2 "" H 4850 2950 50  0001 C CNN
+F 3 "~" H 4850 2950 50  0001 C CNN
+	1    4850 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4360
+P 4850 3050
+F 0 "JP?" H 4650 3100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 3164 50  0001 C CNN
+F 2 "" H 4850 3050 50  0001 C CNN
+F 3 "~" H 4850 3050 50  0001 C CNN
+	1    4850 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4366
+P 4850 3150
+F 0 "JP?" H 4650 3200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 3264 50  0001 C CNN
+F 2 "" H 4850 3150 50  0001 C CNN
+F 3 "~" H 4850 3150 50  0001 C CNN
+	1    4850 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC436C
+P 4850 3250
+F 0 "JP?" H 4650 3300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 3364 50  0001 C CNN
+F 2 "" H 4850 3250 50  0001 C CNN
+F 3 "~" H 4850 3250 50  0001 C CNN
+	1    4850 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4372
+P 4850 3350
+F 0 "JP?" H 4650 3400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 3464 50  0001 C CNN
+F 2 "" H 4850 3350 50  0001 C CNN
+F 3 "~" H 4850 3350 50  0001 C CNN
+	1    4850 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4378
+P 4850 3450
+F 0 "JP?" H 4650 3500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 3564 50  0001 C CNN
+F 2 "" H 4850 3450 50  0001 C CNN
+F 3 "~" H 4850 3450 50  0001 C CNN
+	1    4850 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC437E
+P 4850 3550
+F 0 "JP?" H 4650 3600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 3664 50  0001 C CNN
+F 2 "" H 4850 3550 50  0001 C CNN
+F 3 "~" H 4850 3550 50  0001 C CNN
+	1    4850 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4384
+P 4850 3650
+F 0 "JP?" H 4650 3700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 3764 50  0001 C CNN
+F 2 "" H 4850 3650 50  0001 C CNN
+F 3 "~" H 4850 3650 50  0001 C CNN
+	1    4850 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC438A
+P 4850 3750
+F 0 "JP?" H 4650 3800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 3864 50  0001 C CNN
+F 2 "" H 4850 3750 50  0001 C CNN
+F 3 "~" H 4850 3750 50  0001 C CNN
+	1    4850 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4390
+P 4850 3850
+F 0 "JP?" H 4650 3900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 3964 50  0001 C CNN
+F 2 "" H 4850 3850 50  0001 C CNN
+F 3 "~" H 4850 3850 50  0001 C CNN
+	1    4850 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4396
+P 4850 3950
+F 0 "JP?" H 4650 4000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 4064 50  0001 C CNN
+F 2 "" H 4850 3950 50  0001 C CNN
+F 3 "~" H 4850 3950 50  0001 C CNN
+	1    4850 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC439C
+P 4850 4050
+F 0 "JP?" H 4650 4100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 4164 50  0001 C CNN
+F 2 "" H 4850 4050 50  0001 C CNN
+F 3 "~" H 4850 4050 50  0001 C CNN
+	1    4850 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43A2
+P 4850 4150
+F 0 "JP?" H 4650 4200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 4264 50  0001 C CNN
+F 2 "" H 4850 4150 50  0001 C CNN
+F 3 "~" H 4850 4150 50  0001 C CNN
+	1    4850 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43A8
+P 4850 4250
+F 0 "JP?" H 4650 4300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 4364 50  0001 C CNN
+F 2 "" H 4850 4250 50  0001 C CNN
+F 3 "~" H 4850 4250 50  0001 C CNN
+	1    4850 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43AE
+P 4850 4350
+F 0 "JP?" H 4650 4400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 4464 50  0001 C CNN
+F 2 "" H 4850 4350 50  0001 C CNN
+F 3 "~" H 4850 4350 50  0001 C CNN
+	1    4850 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43B4
+P 4850 4450
+F 0 "JP?" H 4650 4500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 4564 50  0001 C CNN
+F 2 "" H 4850 4450 50  0001 C CNN
+F 3 "~" H 4850 4450 50  0001 C CNN
+	1    4850 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43BA
+P 4850 4550
+F 0 "JP?" H 4650 4600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 4664 50  0001 C CNN
+F 2 "" H 4850 4550 50  0001 C CNN
+F 3 "~" H 4850 4550 50  0001 C CNN
+	1    4850 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43C0
+P 4850 4650
+F 0 "JP?" H 4650 4700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 4764 50  0001 C CNN
+F 2 "" H 4850 4650 50  0001 C CNN
+F 3 "~" H 4850 4650 50  0001 C CNN
+	1    4850 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43C6
+P 4850 4750
+F 0 "JP?" H 4650 4800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 4864 50  0001 C CNN
+F 2 "" H 4850 4750 50  0001 C CNN
+F 3 "~" H 4850 4750 50  0001 C CNN
+	1    4850 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43CC
+P 4850 4850
+F 0 "JP?" H 4650 4900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 4964 50  0001 C CNN
+F 2 "" H 4850 4850 50  0001 C CNN
+F 3 "~" H 4850 4850 50  0001 C CNN
+	1    4850 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43D2
+P 4850 4950
+F 0 "JP?" H 4650 5000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 5064 50  0001 C CNN
+F 2 "" H 4850 4950 50  0001 C CNN
+F 3 "~" H 4850 4950 50  0001 C CNN
+	1    4850 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43D8
+P 4850 5050
+F 0 "JP?" H 4650 5100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 5164 50  0001 C CNN
+F 2 "" H 4850 5050 50  0001 C CNN
+F 3 "~" H 4850 5050 50  0001 C CNN
+	1    4850 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43DE
+P 4850 5150
+F 0 "JP?" H 4650 5200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 5264 50  0001 C CNN
+F 2 "" H 4850 5150 50  0001 C CNN
+F 3 "~" H 4850 5150 50  0001 C CNN
+	1    4850 5150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43E4
+P 4850 5250
+F 0 "JP?" H 4650 5300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 5364 50  0001 C CNN
+F 2 "" H 4850 5250 50  0001 C CNN
+F 3 "~" H 4850 5250 50  0001 C CNN
+	1    4850 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43EA
+P 4850 5350
+F 0 "JP?" H 4650 5400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 5464 50  0001 C CNN
+F 2 "" H 4850 5350 50  0001 C CNN
+F 3 "~" H 4850 5350 50  0001 C CNN
+	1    4850 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43F0
+P 4850 5450
+F 0 "JP?" H 4650 5500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 5564 50  0001 C CNN
+F 2 "" H 4850 5450 50  0001 C CNN
+F 3 "~" H 4850 5450 50  0001 C CNN
+	1    4850 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43F6
+P 4850 5550
+F 0 "JP?" H 4650 5600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 5664 50  0001 C CNN
+F 2 "" H 4850 5550 50  0001 C CNN
+F 3 "~" H 4850 5550 50  0001 C CNN
+	1    4850 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC43FC
+P 4850 5650
+F 0 "JP?" H 4650 5700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 5764 50  0001 C CNN
+F 2 "" H 4850 5650 50  0001 C CNN
+F 3 "~" H 4850 5650 50  0001 C CNN
+	1    4850 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4402
+P 4850 5750
+F 0 "JP?" H 4650 5800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 5864 50  0001 C CNN
+F 2 "" H 4850 5750 50  0001 C CNN
+F 3 "~" H 4850 5750 50  0001 C CNN
+	1    4850 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4408
+P 4850 5850
+F 0 "JP?" H 4650 5900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 5964 50  0001 C CNN
+F 2 "" H 4850 5850 50  0001 C CNN
+F 3 "~" H 4850 5850 50  0001 C CNN
+	1    4850 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC440E
+P 4850 5950
+F 0 "JP?" H 4650 6000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 6064 50  0001 C CNN
+F 2 "" H 4850 5950 50  0001 C CNN
+F 3 "~" H 4850 5950 50  0001 C CNN
+	1    4850 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4414
+P 4850 6050
+F 0 "JP?" H 4650 6100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 6164 50  0001 C CNN
+F 2 "" H 4850 6050 50  0001 C CNN
+F 3 "~" H 4850 6050 50  0001 C CNN
+	1    4850 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC441A
+P 4850 6150
+F 0 "JP?" H 4650 6200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 6264 50  0001 C CNN
+F 2 "" H 4850 6150 50  0001 C CNN
+F 3 "~" H 4850 6150 50  0001 C CNN
+	1    4850 6150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4420
+P 4850 6250
+F 0 "JP?" H 4650 6300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 6364 50  0001 C CNN
+F 2 "" H 4850 6250 50  0001 C CNN
+F 3 "~" H 4850 6250 50  0001 C CNN
+	1    4850 6250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4426
+P 4850 6350
+F 0 "JP?" H 4650 6400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 6464 50  0001 C CNN
+F 2 "" H 4850 6350 50  0001 C CNN
+F 3 "~" H 4850 6350 50  0001 C CNN
+	1    4850 6350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC442C
+P 4850 6450
+F 0 "JP?" H 4650 6500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 6564 50  0001 C CNN
+F 2 "" H 4850 6450 50  0001 C CNN
+F 3 "~" H 4850 6450 50  0001 C CNN
+	1    4850 6450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5EFC4432
+P 4850 6550
+F 0 "JP?" H 4650 6600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 4850 6664 50  0001 C CNN
+F 2 "" H 4850 6550 50  0001 C CNN
+F 3 "~" H 4850 6550 50  0001 C CNN
+	1    4850 6550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8600 650  9000 650 
+Wire Wire Line
+	9000 750  8600 750 
+Wire Wire Line
+	8600 850  9000 850 
+Wire Wire Line
+	9000 950  8600 950 
+Wire Wire Line
+	8600 1050 9000 1050
+Wire Wire Line
+	9000 1150 8600 1150
+Wire Wire Line
+	8600 1250 9000 1250
+Wire Wire Line
+	9000 1350 8600 1350
+Wire Wire Line
+	8600 1450 9000 1450
+Wire Wire Line
+	9000 1550 8600 1550
+Wire Wire Line
+	8600 1650 9000 1650
+Wire Wire Line
+	9000 1750 8600 1750
+Wire Wire Line
+	8600 1850 9000 1850
+Wire Wire Line
+	9000 1950 8600 1950
+Wire Wire Line
+	8600 2050 9000 2050
+Wire Wire Line
+	9000 2150 8600 2150
+Wire Wire Line
+	8600 2250 9000 2250
+Wire Wire Line
+	9000 2350 8600 2350
+Wire Wire Line
+	8600 2450 9000 2450
+Wire Wire Line
+	9000 2550 8600 2550
+Wire Wire Line
+	8600 2650 9000 2650
+Wire Wire Line
+	9000 2750 8600 2750
+Wire Wire Line
+	8600 2850 9000 2850
+Wire Wire Line
+	9000 2950 8600 2950
+Wire Wire Line
+	8600 3050 9000 3050
+Wire Wire Line
+	9000 3150 8600 3150
+Wire Wire Line
+	8600 3250 9000 3250
+Wire Wire Line
+	9000 3350 8600 3350
+Wire Wire Line
+	8600 3450 9000 3450
+Wire Wire Line
+	9000 3550 8600 3550
+Wire Wire Line
+	8600 3650 9000 3650
+Wire Wire Line
+	9000 3750 8600 3750
+Wire Wire Line
+	8600 3850 9000 3850
+Wire Wire Line
+	9000 3950 8600 3950
+Wire Wire Line
+	8600 4050 9000 4050
+Wire Wire Line
+	9000 4150 8600 4150
+Wire Wire Line
+	8600 4250 9000 4250
+Wire Wire Line
+	9000 4350 8600 4350
+Wire Wire Line
+	8600 4450 9000 4450
+Wire Wire Line
+	9000 4550 8600 4550
+Wire Wire Line
+	8600 4650 9000 4650
+Wire Wire Line
+	9000 4750 8600 4750
+Wire Wire Line
+	8600 4850 9000 4850
+Wire Wire Line
+	9000 4950 8600 4950
+Wire Wire Line
+	8600 5050 9000 5050
+Wire Wire Line
+	9000 5150 8600 5150
+Wire Wire Line
+	8600 5250 9000 5250
+Wire Wire Line
+	9000 5350 8600 5350
+Wire Wire Line
+	8600 5450 9000 5450
+Wire Wire Line
+	9000 5550 8600 5550
+Wire Wire Line
+	8600 5650 9000 5650
+Wire Wire Line
+	9000 5750 8600 5750
+Wire Wire Line
+	8600 5850 9000 5850
+Wire Wire Line
+	9000 5950 8600 5950
+Wire Wire Line
+	8600 6050 9000 6050
+Wire Wire Line
+	9000 6150 8600 6150
+Wire Wire Line
+	8600 6250 9000 6250
+Wire Wire Line
+	9000 6350 8600 6350
+Wire Wire Line
+	8600 6450 9000 6450
+Wire Wire Line
+	9000 6550 8600 6550
+Wire Wire Line
+	7850 650  8300 650 
+Wire Wire Line
+	7850 750  8300 750 
+Wire Wire Line
+	7850 850  8300 850 
+Wire Wire Line
+	7850 950  8300 950 
+Wire Wire Line
+	7850 1050 8300 1050
+Wire Wire Line
+	7850 1150 8300 1150
+Wire Wire Line
+	7850 1250 8300 1250
+Wire Wire Line
+	7850 1350 8300 1350
+Wire Wire Line
+	7850 1450 8300 1450
+Wire Wire Line
+	7850 1550 8300 1550
+Wire Wire Line
+	7850 1650 8300 1650
+Wire Wire Line
+	7850 1750 8300 1750
+Wire Wire Line
+	7850 1850 8300 1850
+Wire Wire Line
+	7850 1950 8300 1950
+Wire Wire Line
+	7850 2050 8300 2050
+Wire Wire Line
+	7850 2150 8300 2150
+Wire Wire Line
+	7850 2250 8300 2250
+Wire Wire Line
+	7850 2350 8300 2350
+Wire Wire Line
+	7850 2450 8300 2450
+Wire Wire Line
+	7850 2550 8300 2550
+Wire Wire Line
+	7850 2650 8300 2650
+Wire Wire Line
+	7850 2750 8300 2750
+Wire Wire Line
+	7850 2850 8300 2850
+Wire Wire Line
+	7850 2950 8300 2950
+Wire Wire Line
+	7850 3050 8300 3050
+Wire Wire Line
+	7850 3150 8300 3150
+Wire Wire Line
+	7850 3250 8300 3250
+Wire Wire Line
+	7850 3350 8300 3350
+Wire Wire Line
+	7850 3450 8300 3450
+Wire Wire Line
+	7850 3550 8300 3550
+Wire Wire Line
+	7850 3650 8300 3650
+Wire Wire Line
+	7850 3750 8300 3750
+Wire Wire Line
+	7850 3850 8300 3850
+Wire Wire Line
+	7850 3950 8300 3950
+Wire Wire Line
+	7850 4050 8300 4050
+Wire Wire Line
+	7850 4150 8300 4150
+Wire Wire Line
+	7850 4250 8300 4250
+Wire Wire Line
+	7850 4350 8300 4350
+Wire Wire Line
+	7850 4450 8300 4450
+Wire Wire Line
+	7850 4550 8300 4550
+Wire Wire Line
+	7850 4650 8300 4650
+Wire Wire Line
+	7850 4750 8300 4750
+Wire Wire Line
+	7850 4850 8300 4850
+Wire Wire Line
+	7850 4950 8300 4950
+Wire Wire Line
+	7850 5050 8300 5050
+Wire Wire Line
+	7850 5150 8300 5150
+Wire Wire Line
+	7850 5250 8300 5250
+Wire Wire Line
+	7850 5350 8300 5350
+Wire Wire Line
+	7850 5450 8300 5450
+Wire Wire Line
+	7850 5550 8300 5550
+Wire Wire Line
+	7850 5650 8300 5650
+Wire Wire Line
+	7850 5750 8300 5750
+Wire Wire Line
+	7850 5850 8300 5850
+Wire Wire Line
+	7850 5950 8300 5950
+Wire Wire Line
+	7850 6050 8300 6050
+Wire Wire Line
+	7850 6150 8300 6150
+Wire Wire Line
+	7850 6250 8300 6250
+Wire Wire Line
+	7850 6350 8300 6350
+Wire Wire Line
+	7850 6450 8300 6450
+Wire Wire Line
+	7850 6550 8300 6550
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051F52
+P 8450 650
+F 0 "JP?" H 8250 700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 764 50  0001 C CNN
+F 2 "" H 8450 650 50  0001 C CNN
+F 3 "~" H 8450 650 50  0001 C CNN
+	1    8450 650 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051F58
+P 8450 750
+F 0 "JP?" H 8250 800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 864 50  0001 C CNN
+F 2 "" H 8450 750 50  0001 C CNN
+F 3 "~" H 8450 750 50  0001 C CNN
+	1    8450 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051F5E
+P 8450 850
+F 0 "JP?" H 8250 900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 964 50  0001 C CNN
+F 2 "" H 8450 850 50  0001 C CNN
+F 3 "~" H 8450 850 50  0001 C CNN
+	1    8450 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051F64
+P 8450 950
+F 0 "JP?" H 8250 1000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 1064 50  0001 C CNN
+F 2 "" H 8450 950 50  0001 C CNN
+F 3 "~" H 8450 950 50  0001 C CNN
+	1    8450 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051F6A
+P 8450 1050
+F 0 "JP?" H 8250 1100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 1164 50  0001 C CNN
+F 2 "" H 8450 1050 50  0001 C CNN
+F 3 "~" H 8450 1050 50  0001 C CNN
+	1    8450 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051F70
+P 8450 1150
+F 0 "JP?" H 8250 1200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 1264 50  0001 C CNN
+F 2 "" H 8450 1150 50  0001 C CNN
+F 3 "~" H 8450 1150 50  0001 C CNN
+	1    8450 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051F76
+P 8450 1250
+F 0 "JP?" H 8250 1300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 1364 50  0001 C CNN
+F 2 "" H 8450 1250 50  0001 C CNN
+F 3 "~" H 8450 1250 50  0001 C CNN
+	1    8450 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051F7C
+P 8450 1350
+F 0 "JP?" H 8250 1400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 1464 50  0001 C CNN
+F 2 "" H 8450 1350 50  0001 C CNN
+F 3 "~" H 8450 1350 50  0001 C CNN
+	1    8450 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051F82
+P 8450 1450
+F 0 "JP?" H 8250 1500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 1564 50  0001 C CNN
+F 2 "" H 8450 1450 50  0001 C CNN
+F 3 "~" H 8450 1450 50  0001 C CNN
+	1    8450 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051F88
+P 8450 1550
+F 0 "JP?" H 8250 1600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 1664 50  0001 C CNN
+F 2 "" H 8450 1550 50  0001 C CNN
+F 3 "~" H 8450 1550 50  0001 C CNN
+	1    8450 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051F8E
+P 8450 1650
+F 0 "JP?" H 8250 1700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 1764 50  0001 C CNN
+F 2 "" H 8450 1650 50  0001 C CNN
+F 3 "~" H 8450 1650 50  0001 C CNN
+	1    8450 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051F94
+P 8450 1750
+F 0 "JP?" H 8250 1800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 1864 50  0001 C CNN
+F 2 "" H 8450 1750 50  0001 C CNN
+F 3 "~" H 8450 1750 50  0001 C CNN
+	1    8450 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051F9A
+P 8450 1850
+F 0 "JP?" H 8250 1900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 1964 50  0001 C CNN
+F 2 "" H 8450 1850 50  0001 C CNN
+F 3 "~" H 8450 1850 50  0001 C CNN
+	1    8450 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FA0
+P 8450 1950
+F 0 "JP?" H 8250 2000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 2064 50  0001 C CNN
+F 2 "" H 8450 1950 50  0001 C CNN
+F 3 "~" H 8450 1950 50  0001 C CNN
+	1    8450 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FA6
+P 8450 2050
+F 0 "JP?" H 8250 2100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 2164 50  0001 C CNN
+F 2 "" H 8450 2050 50  0001 C CNN
+F 3 "~" H 8450 2050 50  0001 C CNN
+	1    8450 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FAC
+P 8450 2150
+F 0 "JP?" H 8250 2200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 2264 50  0001 C CNN
+F 2 "" H 8450 2150 50  0001 C CNN
+F 3 "~" H 8450 2150 50  0001 C CNN
+	1    8450 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FB2
+P 8450 2250
+F 0 "JP?" H 8250 2300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 2364 50  0001 C CNN
+F 2 "" H 8450 2250 50  0001 C CNN
+F 3 "~" H 8450 2250 50  0001 C CNN
+	1    8450 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FB8
+P 8450 2350
+F 0 "JP?" H 8250 2400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 2464 50  0001 C CNN
+F 2 "" H 8450 2350 50  0001 C CNN
+F 3 "~" H 8450 2350 50  0001 C CNN
+	1    8450 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FBE
+P 8450 2450
+F 0 "JP?" H 8250 2500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 2564 50  0001 C CNN
+F 2 "" H 8450 2450 50  0001 C CNN
+F 3 "~" H 8450 2450 50  0001 C CNN
+	1    8450 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FC4
+P 8450 2550
+F 0 "JP?" H 8250 2600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 2664 50  0001 C CNN
+F 2 "" H 8450 2550 50  0001 C CNN
+F 3 "~" H 8450 2550 50  0001 C CNN
+	1    8450 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FCA
+P 8450 2650
+F 0 "JP?" H 8250 2700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 2764 50  0001 C CNN
+F 2 "" H 8450 2650 50  0001 C CNN
+F 3 "~" H 8450 2650 50  0001 C CNN
+	1    8450 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FD0
+P 8450 2750
+F 0 "JP?" H 8250 2800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 2864 50  0001 C CNN
+F 2 "" H 8450 2750 50  0001 C CNN
+F 3 "~" H 8450 2750 50  0001 C CNN
+	1    8450 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FD6
+P 8450 2850
+F 0 "JP?" H 8250 2900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 2964 50  0001 C CNN
+F 2 "" H 8450 2850 50  0001 C CNN
+F 3 "~" H 8450 2850 50  0001 C CNN
+	1    8450 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FDC
+P 8450 2950
+F 0 "JP?" H 8250 3000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 3064 50  0001 C CNN
+F 2 "" H 8450 2950 50  0001 C CNN
+F 3 "~" H 8450 2950 50  0001 C CNN
+	1    8450 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FE2
+P 8450 3050
+F 0 "JP?" H 8250 3100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 3164 50  0001 C CNN
+F 2 "" H 8450 3050 50  0001 C CNN
+F 3 "~" H 8450 3050 50  0001 C CNN
+	1    8450 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FE8
+P 8450 3150
+F 0 "JP?" H 8250 3200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 3264 50  0001 C CNN
+F 2 "" H 8450 3150 50  0001 C CNN
+F 3 "~" H 8450 3150 50  0001 C CNN
+	1    8450 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FEE
+P 8450 3250
+F 0 "JP?" H 8250 3300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 3364 50  0001 C CNN
+F 2 "" H 8450 3250 50  0001 C CNN
+F 3 "~" H 8450 3250 50  0001 C CNN
+	1    8450 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FF4
+P 8450 3350
+F 0 "JP?" H 8250 3400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 3464 50  0001 C CNN
+F 2 "" H 8450 3350 50  0001 C CNN
+F 3 "~" H 8450 3350 50  0001 C CNN
+	1    8450 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F051FFA
+P 8450 3450
+F 0 "JP?" H 8250 3500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 3564 50  0001 C CNN
+F 2 "" H 8450 3450 50  0001 C CNN
+F 3 "~" H 8450 3450 50  0001 C CNN
+	1    8450 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052000
+P 8450 3550
+F 0 "JP?" H 8250 3600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 3664 50  0001 C CNN
+F 2 "" H 8450 3550 50  0001 C CNN
+F 3 "~" H 8450 3550 50  0001 C CNN
+	1    8450 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052006
+P 8450 3650
+F 0 "JP?" H 8250 3700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 3764 50  0001 C CNN
+F 2 "" H 8450 3650 50  0001 C CNN
+F 3 "~" H 8450 3650 50  0001 C CNN
+	1    8450 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F05200C
+P 8450 3750
+F 0 "JP?" H 8250 3800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 3864 50  0001 C CNN
+F 2 "" H 8450 3750 50  0001 C CNN
+F 3 "~" H 8450 3750 50  0001 C CNN
+	1    8450 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052012
+P 8450 3850
+F 0 "JP?" H 8250 3900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 3964 50  0001 C CNN
+F 2 "" H 8450 3850 50  0001 C CNN
+F 3 "~" H 8450 3850 50  0001 C CNN
+	1    8450 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052018
+P 8450 3950
+F 0 "JP?" H 8250 4000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 4064 50  0001 C CNN
+F 2 "" H 8450 3950 50  0001 C CNN
+F 3 "~" H 8450 3950 50  0001 C CNN
+	1    8450 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F05201E
+P 8450 4050
+F 0 "JP?" H 8250 4100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 4164 50  0001 C CNN
+F 2 "" H 8450 4050 50  0001 C CNN
+F 3 "~" H 8450 4050 50  0001 C CNN
+	1    8450 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052024
+P 8450 4150
+F 0 "JP?" H 8250 4200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 4264 50  0001 C CNN
+F 2 "" H 8450 4150 50  0001 C CNN
+F 3 "~" H 8450 4150 50  0001 C CNN
+	1    8450 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F05202A
+P 8450 4250
+F 0 "JP?" H 8250 4300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 4364 50  0001 C CNN
+F 2 "" H 8450 4250 50  0001 C CNN
+F 3 "~" H 8450 4250 50  0001 C CNN
+	1    8450 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052030
+P 8450 4350
+F 0 "JP?" H 8250 4400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 4464 50  0001 C CNN
+F 2 "" H 8450 4350 50  0001 C CNN
+F 3 "~" H 8450 4350 50  0001 C CNN
+	1    8450 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052036
+P 8450 4450
+F 0 "JP?" H 8250 4500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 4564 50  0001 C CNN
+F 2 "" H 8450 4450 50  0001 C CNN
+F 3 "~" H 8450 4450 50  0001 C CNN
+	1    8450 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F05203C
+P 8450 4550
+F 0 "JP?" H 8250 4600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 4664 50  0001 C CNN
+F 2 "" H 8450 4550 50  0001 C CNN
+F 3 "~" H 8450 4550 50  0001 C CNN
+	1    8450 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052042
+P 8450 4650
+F 0 "JP?" H 8250 4700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 4764 50  0001 C CNN
+F 2 "" H 8450 4650 50  0001 C CNN
+F 3 "~" H 8450 4650 50  0001 C CNN
+	1    8450 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052048
+P 8450 4750
+F 0 "JP?" H 8250 4800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 4864 50  0001 C CNN
+F 2 "" H 8450 4750 50  0001 C CNN
+F 3 "~" H 8450 4750 50  0001 C CNN
+	1    8450 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F05204E
+P 8450 4850
+F 0 "JP?" H 8250 4900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 4964 50  0001 C CNN
+F 2 "" H 8450 4850 50  0001 C CNN
+F 3 "~" H 8450 4850 50  0001 C CNN
+	1    8450 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052054
+P 8450 4950
+F 0 "JP?" H 8250 5000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 5064 50  0001 C CNN
+F 2 "" H 8450 4950 50  0001 C CNN
+F 3 "~" H 8450 4950 50  0001 C CNN
+	1    8450 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F05205A
+P 8450 5050
+F 0 "JP?" H 8250 5100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 5164 50  0001 C CNN
+F 2 "" H 8450 5050 50  0001 C CNN
+F 3 "~" H 8450 5050 50  0001 C CNN
+	1    8450 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052060
+P 8450 5150
+F 0 "JP?" H 8250 5200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 5264 50  0001 C CNN
+F 2 "" H 8450 5150 50  0001 C CNN
+F 3 "~" H 8450 5150 50  0001 C CNN
+	1    8450 5150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052066
+P 8450 5250
+F 0 "JP?" H 8250 5300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 5364 50  0001 C CNN
+F 2 "" H 8450 5250 50  0001 C CNN
+F 3 "~" H 8450 5250 50  0001 C CNN
+	1    8450 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F05206C
+P 8450 5350
+F 0 "JP?" H 8250 5400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 5464 50  0001 C CNN
+F 2 "" H 8450 5350 50  0001 C CNN
+F 3 "~" H 8450 5350 50  0001 C CNN
+	1    8450 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052072
+P 8450 5450
+F 0 "JP?" H 8250 5500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 5564 50  0001 C CNN
+F 2 "" H 8450 5450 50  0001 C CNN
+F 3 "~" H 8450 5450 50  0001 C CNN
+	1    8450 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052078
+P 8450 5550
+F 0 "JP?" H 8250 5600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 5664 50  0001 C CNN
+F 2 "" H 8450 5550 50  0001 C CNN
+F 3 "~" H 8450 5550 50  0001 C CNN
+	1    8450 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F05207E
+P 8450 5650
+F 0 "JP?" H 8250 5700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 5764 50  0001 C CNN
+F 2 "" H 8450 5650 50  0001 C CNN
+F 3 "~" H 8450 5650 50  0001 C CNN
+	1    8450 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052084
+P 8450 5750
+F 0 "JP?" H 8250 5800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 5864 50  0001 C CNN
+F 2 "" H 8450 5750 50  0001 C CNN
+F 3 "~" H 8450 5750 50  0001 C CNN
+	1    8450 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F05208A
+P 8450 5850
+F 0 "JP?" H 8250 5900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 5964 50  0001 C CNN
+F 2 "" H 8450 5850 50  0001 C CNN
+F 3 "~" H 8450 5850 50  0001 C CNN
+	1    8450 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052090
+P 8450 5950
+F 0 "JP?" H 8250 6000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 6064 50  0001 C CNN
+F 2 "" H 8450 5950 50  0001 C CNN
+F 3 "~" H 8450 5950 50  0001 C CNN
+	1    8450 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F052096
+P 8450 6050
+F 0 "JP?" H 8250 6100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 6164 50  0001 C CNN
+F 2 "" H 8450 6050 50  0001 C CNN
+F 3 "~" H 8450 6050 50  0001 C CNN
+	1    8450 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F05209C
+P 8450 6150
+F 0 "JP?" H 8250 6200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 6264 50  0001 C CNN
+F 2 "" H 8450 6150 50  0001 C CNN
+F 3 "~" H 8450 6150 50  0001 C CNN
+	1    8450 6150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F0520A2
+P 8450 6250
+F 0 "JP?" H 8250 6300 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 6364 50  0001 C CNN
+F 2 "" H 8450 6250 50  0001 C CNN
+F 3 "~" H 8450 6250 50  0001 C CNN
+	1    8450 6250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F0520A8
+P 8450 6350
+F 0 "JP?" H 8250 6400 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 6464 50  0001 C CNN
+F 2 "" H 8450 6350 50  0001 C CNN
+F 3 "~" H 8450 6350 50  0001 C CNN
+	1    8450 6350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F0520AE
+P 8450 6450
+F 0 "JP?" H 8250 6500 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 6564 50  0001 C CNN
+F 2 "" H 8450 6450 50  0001 C CNN
+F 3 "~" H 8450 6450 50  0001 C CNN
+	1    8450 6450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F0520B4
+P 8450 6550
+F 0 "JP?" H 8250 6600 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 8450 6664 50  0001 C CNN
+F 2 "" H 8450 6550 50  0001 C CNN
+F 3 "~" H 8450 6550 50  0001 C CNN
+	1    8450 6550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F2049F3
+P 10550 1050
+F 0 "JP?" H 10350 1100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 10550 1164 50  0001 C CNN
+F 2 "" H 10550 1050 50  0001 C CNN
+F 3 "~" H 10550 1050 50  0001 C CNN
+	1    10550 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F2049F9
+P 10550 1150
+F 0 "JP?" H 10350 1200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 10550 1264 50  0001 C CNN
+F 2 "" H 10550 1150 50  0001 C CNN
+F 3 "~" H 10550 1150 50  0001 C CNN
+	1    10550 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F2049FF
+P 10150 5600
+F 0 "#PWR?" H 10150 5350 50  0001 C CNN
+F 1 "GND" H 10155 5427 50  0000 C CNN
+F 2 "" H 10150 5600 50  0001 C CNN
+F 3 "" H 10150 5600 50  0001 C CNN
+	1    10150 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10150 5600 10150 5450
+Wire Wire Line
+	10150 5450 10050 5450
+Wire Wire Line
+	10050 5350 10150 5350
+Wire Wire Line
+	10150 5350 10150 5450
+Connection ~ 10150 5450
+Wire Wire Line
+	10150 5350 10150 4200
+Wire Wire Line
+	10150 4100 10050 4100
+Connection ~ 10150 5350
+Wire Wire Line
+	10050 4200 10150 4200
+Connection ~ 10150 4200
+Wire Wire Line
+	10150 4200 10150 4100
+Wire Wire Line
+	10150 4100 10150 3000
+Wire Wire Line
+	10150 1400 10050 1400
+Connection ~ 10150 4100
+Wire Wire Line
+	10050 1300 10150 1300
+Wire Wire Line
+	10150 1300 10150 1400
+Connection ~ 10150 1400
+Wire Wire Line
+	10050 2900 10150 2900
+Connection ~ 10150 2900
+Wire Wire Line
+	10150 2900 10150 1400
+Wire Wire Line
+	10150 3000 10050 3000
+Connection ~ 10150 3000
+Wire Wire Line
+	10150 3000 10150 2900
+Wire Wire Line
+	10400 5200 10050 5200
+Wire Wire Line
+	10050 5100 10400 5100
+Wire Wire Line
+	10400 3950 10050 3950
+Wire Wire Line
+	10050 3850 10400 3850
+Wire Wire Line
+	10400 2750 10050 2750
+Wire Wire Line
+	10050 2650 10400 2650
+Wire Wire Line
+	10400 1150 10050 1150
+Wire Wire Line
+	10050 1050 10400 1050
+Wire Wire Line
+	10700 1050 11050 1050
+Wire Wire Line
+	10700 1150 11050 1150
+Wire Wire Line
+	10700 2650 11050 2650
+Wire Wire Line
+	10700 2750 11050 2750
+Wire Wire Line
+	10700 3850 11050 3850
+Wire Wire Line
+	10700 3950 11050 3950
+Wire Wire Line
+	10700 5100 11050 5100
+Wire Wire Line
+	10700 5200 11050 5200
+Wire Wire Line
+	10050 700  11050 700 
+Wire Wire Line
+	10050 800  11050 800 
+Wire Wire Line
+	10050 900  11050 900 
+Text Label 10400 700  0    50   ~ 0
+~Reset
+Text Label 10400 800  0    50   ~ 0
+B
+Text Label 10400 900  0    50   ~ 0
+A
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F204A34
+P 10550 2650
+F 0 "JP?" H 10350 2700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 10550 2764 50  0001 C CNN
+F 2 "" H 10550 2650 50  0001 C CNN
+F 3 "~" H 10550 2650 50  0001 C CNN
+	1    10550 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F204A3A
+P 10550 2750
+F 0 "JP?" H 10350 2800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 10550 2864 50  0001 C CNN
+F 2 "" H 10550 2750 50  0001 C CNN
+F 3 "~" H 10550 2750 50  0001 C CNN
+	1    10550 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F204A40
+P 10550 3850
+F 0 "JP?" H 10350 3900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 10550 3964 50  0001 C CNN
+F 2 "" H 10550 3850 50  0001 C CNN
+F 3 "~" H 10550 3850 50  0001 C CNN
+	1    10550 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F204A46
+P 10550 3950
+F 0 "JP?" H 10350 4000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 10550 4064 50  0001 C CNN
+F 2 "" H 10550 3950 50  0001 C CNN
+F 3 "~" H 10550 3950 50  0001 C CNN
+	1    10550 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F204A4C
+P 10550 5100
+F 0 "JP?" H 10350 5150 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 10550 5214 50  0001 C CNN
+F 2 "" H 10550 5100 50  0001 C CNN
+F 3 "~" H 10550 5100 50  0001 C CNN
+	1    10550 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F204A52
+P 10550 5200
+F 0 "JP?" H 10350 5250 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 10550 5314 50  0001 C CNN
+F 2 "" H 10550 5200 50  0001 C CNN
+F 3 "~" H 10550 5200 50  0001 C CNN
+	1    10550 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F35BDA9
+P 6900 1050
+F 0 "JP?" H 6700 1100 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 6900 1164 50  0001 C CNN
+F 2 "" H 6900 1050 50  0001 C CNN
+F 3 "~" H 6900 1050 50  0001 C CNN
+	1    6900 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F35BDAF
+P 6900 1150
+F 0 "JP?" H 6700 1200 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 6900 1264 50  0001 C CNN
+F 2 "" H 6900 1150 50  0001 C CNN
+F 3 "~" H 6900 1150 50  0001 C CNN
+	1    6900 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5F35BDB5
+P 6500 5600
+F 0 "#PWR?" H 6500 5350 50  0001 C CNN
+F 1 "GND" H 6505 5427 50  0000 C CNN
+F 2 "" H 6500 5600 50  0001 C CNN
+F 3 "" H 6500 5600 50  0001 C CNN
+	1    6500 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6500 5600 6500 5450
+Wire Wire Line
+	6500 5450 6400 5450
+Wire Wire Line
+	6400 5350 6500 5350
+Wire Wire Line
+	6500 5350 6500 5450
+Connection ~ 6500 5450
+Wire Wire Line
+	6500 5350 6500 4200
+Wire Wire Line
+	6500 4100 6400 4100
+Connection ~ 6500 5350
+Wire Wire Line
+	6400 4200 6500 4200
+Connection ~ 6500 4200
+Wire Wire Line
+	6500 4200 6500 4100
+Wire Wire Line
+	6500 4100 6500 3000
+Wire Wire Line
+	6500 1400 6400 1400
+Connection ~ 6500 4100
+Wire Wire Line
+	6400 1300 6500 1300
+Wire Wire Line
+	6500 1300 6500 1400
+Connection ~ 6500 1400
+Wire Wire Line
+	6400 2900 6500 2900
+Connection ~ 6500 2900
+Wire Wire Line
+	6500 2900 6500 1400
+Wire Wire Line
+	6500 3000 6400 3000
+Connection ~ 6500 3000
+Wire Wire Line
+	6500 3000 6500 2900
+Wire Wire Line
+	6750 5200 6400 5200
+Wire Wire Line
+	6400 5100 6750 5100
+Wire Wire Line
+	6750 3950 6400 3950
+Wire Wire Line
+	6400 3850 6750 3850
+Wire Wire Line
+	6750 2750 6400 2750
+Wire Wire Line
+	6400 2650 6750 2650
+Wire Wire Line
+	6750 1150 6400 1150
+Wire Wire Line
+	6400 1050 6750 1050
+Wire Wire Line
+	7050 1050 7400 1050
+Wire Wire Line
+	7050 1150 7400 1150
+Wire Wire Line
+	7050 2650 7400 2650
+Wire Wire Line
+	7050 2750 7400 2750
+Wire Wire Line
+	7050 3850 7400 3850
+Wire Wire Line
+	7050 3950 7400 3950
+Wire Wire Line
+	7050 5100 7400 5100
+Wire Wire Line
+	7050 5200 7400 5200
+Wire Wire Line
+	6400 700  7400 700 
+Wire Wire Line
+	6400 800  7400 800 
+Wire Wire Line
+	6400 900  7400 900 
+Text Label 6750 700  0    50   ~ 0
+~Reset
+Text Label 6750 800  0    50   ~ 0
+B
+Text Label 6750 900  0    50   ~ 0
+A
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F35BDEA
+P 6900 2650
+F 0 "JP?" H 6700 2700 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 6900 2764 50  0001 C CNN
+F 2 "" H 6900 2650 50  0001 C CNN
+F 3 "~" H 6900 2650 50  0001 C CNN
+	1    6900 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F35BDF0
+P 6900 2750
+F 0 "JP?" H 6700 2800 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 6900 2864 50  0001 C CNN
+F 2 "" H 6900 2750 50  0001 C CNN
+F 3 "~" H 6900 2750 50  0001 C CNN
+	1    6900 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F35BDF6
+P 6900 3850
+F 0 "JP?" H 6700 3900 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 6900 3964 50  0001 C CNN
+F 2 "" H 6900 3850 50  0001 C CNN
+F 3 "~" H 6900 3850 50  0001 C CNN
+	1    6900 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F35BDFC
+P 6900 3950
+F 0 "JP?" H 6700 4000 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 6900 4064 50  0001 C CNN
+F 2 "" H 6900 3950 50  0001 C CNN
+F 3 "~" H 6900 3950 50  0001 C CNN
+	1    6900 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F35BE02
+P 6900 5100
+F 0 "JP?" H 6700 5150 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 6900 5214 50  0001 C CNN
+F 2 "" H 6900 5100 50  0001 C CNN
+F 3 "~" H 6900 5100 50  0001 C CNN
+	1    6900 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Bridged JP?
+U 1 1 5F35BE08
+P 6900 5200
+F 0 "JP?" H 6700 5250 50  0000 C CNN
+F 1 "SolderJumper_2_Bridged" H 6900 5314 50  0001 C CNN
+F 2 "" H 6900 5200 50  0001 C CNN
+F 3 "~" H 6900 5200 50  0001 C CNN
+	1    6900 5200
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
