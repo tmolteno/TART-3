@@ -127,17 +127,23 @@ def fu_minimize():
     penalty, score = global_f(x_opt)
     return penalty*score
 
-
+def array_from_json(json):
+    ret = YAntennaArray(N, radius, res_arcmin, fov_degrees)
+    
 class YAntennaArray:
     '''
         Antenna array consists of three arms called arm0, arm120 and arm240.
         Each arm has N antennas. In the case of the tart, it will be N=8
         
     '''
-    def __init__(self, N, radius, res_arcmin, fov_degrees):
+    def __init__(self, N, radius, res_arcmin, fov_degrees, spacing):
         self.N = N
         self.radius = radius
+        self.spacing = spacing
         self.frequency = 1.57542e9
+        self.fov_degrees = fov_degrees
+        self.res_arcmin = res_arcmin
+        
         self.fov = disko.HealpixSubSphere.from_resolution(resolution=res_arcmin, 
                                       theta = np.radians(0.0), phi=0.0, 
                                       radius=np.radians(fov_degrees/2))
@@ -205,14 +211,24 @@ class YAntennaArray:
         self.ax2.set_title("Array layout. penalty={:.3g}".format(penalty))
         self.ax2.plot(ant_pos[:,0], ant_pos[:,1], 'x')
         self.ax2.grid(True)
-
+        # circles with colors from default color cycle
+        for a in ant_pos:
+            self.ax2.add_patch(plt.Circle([a[0], a[1]], radius=self.spacing/2, color='black'))
         self.fig.savefig('uv_coverage.pdf')
         
         plt.pause(0.1)
         
         ret = {}
-        ret['score'] = score
+        ret['condition_number'] = score
         ret['penalty'] = penalty
+        ret['N'] = N
+        ret['radius'] = self.radius
+        ret['frequency'] = self.frequency
+        ret['fov_degrees'] = self.fov_degrees
+        ret['res_arcmin'] = self.res_arcmin
+        ret['npix'] = self.fov.npix
+
+        
         arm0, arm120, arm240 = self.sort_arms(arms)
 
         ret['arm0'] = arm0.tolist()
@@ -283,7 +299,8 @@ if __name__=="__main__":
     
     ant = YAntennaArray(N=8, radius=radius, 
                         res_arcmin=ARGS.arcmin,
-                        fov_degrees=ARGS.fov)
+                        fov_degrees=ARGS.fov,
+                        spacing=ARGS.spacing)
     best_score = 1e49
     
     # Set up global variables for the tf function
