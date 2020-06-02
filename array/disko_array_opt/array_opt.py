@@ -63,7 +63,26 @@ def penalize(duv2, limit=0.2):
     duv = tf.sqrt(duv2)
     clip_lower = tf.math.softplus((limit - duv)*sharpness)/sharpness
     return (clip_lower/limit)**2
+
+def penalty(x):
+
+    _x = x_constrained * tf.sin(theta)
+    _y = x_constrained * tf.cos(theta)
+    _z = tf.zeros_like(x)
     
+    num_ant = x.shape[0]
+
+    penalty = 1
+    for i in range(num_ant):
+        for j in range(i+1, num_ant):
+            u = _x[i] - _x[j]
+            v = _y[i] - _y[j]
+            w = _z[i] - _z[j]
+            
+            duv = (u**2 + v**2 + w**2)
+            penalty += penalize(duv, min_spacing)
+            
+
 def global_f(x):
     '''
         A function suitable for optimizing using a global minimizer. This will
@@ -100,12 +119,13 @@ def global_f(x):
     s = tf.linalg.svd(gamma, full_matrices=False, compute_uv=False)
     score = (s[0] / s[275])
     print("C/N={}  penalty={}".format(score, penalty))
-    return penalty*score
+    return penalty, score
 
 #Function without input
 def fu_minimize():
     tf.debugging.check_numerics(x_opt, message="x is buggered")
-    return global_f(x_opt)
+    penalty, score = global_f(x_opt)
+    return penalty*score
 
 
 class YAntennaArray:
@@ -167,13 +187,13 @@ class YAntennaArray:
         arm240 = np.sort(arm240)
         return arm0, arm120, arm240
     
-    def plot_uv(self, arms, score):
+    def plot_uv(self, arms, penalty, score):
         
         #self.fig.clf()
         self.ax1.clear()
         self.ax1.set_aspect('equal', adjustable='box')
         dsko = self.get_disko(arms)
-        self.ax1.set_title("U-V coverage score={:.3g}".format(score))
+        self.ax1.set_title("U-V cond={:.3g}".format(score))
         self.ax1.plot(dsko.u_arr, dsko.v_arr, '.')
         self.ax1.plot(-dsko.u_arr, -dsko.v_arr, '.')
         self.ax1.grid(True)
@@ -182,7 +202,7 @@ class YAntennaArray:
 
         self.ax2.clear()
         self.ax2.set_aspect('equal', adjustable='box')
-        self.ax2.set_title("Antenna Locations")
+        self.ax2.set_title("Array layout. penalty={:.3g}".format(penalty))
         self.ax2.plot(ant_pos[:,0], ant_pos[:,1], 'x')
         self.ax2.grid(True)
 
@@ -192,6 +212,7 @@ class YAntennaArray:
         
         ret = {}
         ret['score'] = score
+        ret['penalty'] = penalty
         arm0, arm120, arm240 = self.sort_arms(arms)
 
         ret['arm0'] = arm0.tolist()
@@ -276,15 +297,16 @@ if __name__=="__main__":
         opt = tf.keras.optimizers.RMSprop(learning_rate=ARGS.learning_rate)
         for i in range(ARGS.iter):
             opt.minimize(fu_minimize, var_list=[x_opt])
-            y = global_f(x_opt).numpy()
+            penalty, score = global_f(x_opt)
             
+            y = (penalty*score).numpy()
             print("score = {:6.3g}".format(y))
             #print (opt.get_gradients(y, [x_opt]))
             if (y < best_score):
                 x_constrained = constrain(x_opt, radius_min, radius).numpy()
                 arms = np.split(x_constrained, 3)
                 ant.print(arms)
-                ant.plot_uv(arms, y)
+                ant.plot_uv(arms, penalty.numpy(), score.numpy())
                 best_score = y
                 
 
