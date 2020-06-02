@@ -188,12 +188,12 @@ class YAntennaArray:
     
     def sort_arms(self, arms):
         arm0, arm120, arm240 = arms
-        arm0 = np.sort(arm0)
-        arm120 = np.sort(arm120)
-        arm240 = np.sort(arm240)
+#         arm0 = np.sort(arm0)
+#         arm120 = np.sort(arm120)
+#         arm240 = np.sort(arm240)
         return arm0, arm120, arm240
     
-    def plot_uv(self, arms, penalty, score):
+    def plot_uv(self, filename, arms, penalty, score):
         
         #self.fig.clf()
         self.ax1.clear()
@@ -214,7 +214,7 @@ class YAntennaArray:
         # circles with colors from default color cycle
         for a in ant_pos:
             self.ax2.add_patch(plt.Circle([a[0], a[1]], radius=self.spacing/2, color='black'))
-        self.fig.savefig('uv_coverage.pdf')
+        self.fig.savefig(filename + '.pdf')
         
         plt.pause(0.1)
         
@@ -235,7 +235,8 @@ class YAntennaArray:
         ret['arm120'] = arm120.tolist()
         ret['arm240'] = arm240.tolist()
 
-        with open('optimized_array.json', 'w') as outfile:
+        fname = filename + '.json'
+        with open(fname, 'w') as outfile:
             json.dump(ret, outfile, sort_keys=True, indent=4)
             
             
@@ -267,6 +268,10 @@ if __name__=="__main__":
     parser.add_argument('--spacing', type=float, default=0.15, help="Minimum antenna spacing.")
 
     parser.add_argument('--fov', type=float, default=180.0, help="Field of view in degrees")
+    
+    parser.add_argument('--initial', required=False, default=None, help="Start the optimization from the positions specified in the JSON file")
+
+    parser.add_argument('--outfile', required=False, default="optimized_array", help="Write the optimization results to the specified JSON file")
 
     parser.add_argument('--learning-rate', type=float, default=0.02, help="Optimizer learning rate.")
 
@@ -307,27 +312,35 @@ if __name__=="__main__":
     init(radius_min, ARGS.spacing, radius)
     
     
-    if True:
+    if ARGS.initial is not None:
+        with open(ARGS.initial, 'r') as f:
+            data = json.load(f)
+        arms = np.array([data['arm0'], data['arm120'], data['arm240']]).flatten()
+        x_opt = tf.Variable(arms, dtype=tf.float64)
+        penalty, score = global_f(x_opt)
+        print("Loading from JSON file: {}, score={}, penalty={}".format(ARGS.initial, score, penalty))
+        print("array = {}".format(x_opt.numpy()))
+    else:
         x_opt = tf.Variable(tf.random_uniform_initializer(minval=radius_min, 
-                                                          maxval=radius)(shape=(24,), 
-                                                                              dtype=tf.float64))
-        opt = tf.keras.optimizers.RMSprop(learning_rate=ARGS.learning_rate)
-        for i in range(ARGS.iter):
-            opt.minimize(fu_minimize, var_list=[x_opt])
-            penalty, score = global_f(x_opt)
-            
-            y = (penalty*score).numpy()
-            print("score = {:6.3g}".format(y))
-            #print (opt.get_gradients(y, [x_opt]))
-            if (y < best_score):
-                x_constrained = constrain(x_opt, radius_min, radius).numpy()
-                arms = np.split(x_constrained, 3)
-                ant.print(arms)
-                ant.plot_uv(arms, penalty.numpy(), score.numpy())
-                best_score = y
+                            maxval=radius)(shape=(24,),
+                            dtype=tf.float64))
+    opt = tf.keras.optimizers.RMSprop(learning_rate=ARGS.learning_rate)
+    for i in range(ARGS.iter):
+        opt.minimize(fu_minimize, var_list=[x_opt])
+        penalty, score = global_f(x_opt)
+        
+        y = (penalty*score).numpy()
+        print("score = {:6.3g}".format(y))
+        #print (opt.get_gradients(y, [x_opt]))
+        if (y < best_score):
+            x_constrained = constrain(x_opt, radius_min, radius).numpy()
+            arms = np.split(x_constrained, 3)
+            ant.print(arms)
+            ant.plot_uv(ARGS.outfile, arms, penalty.numpy(), score.numpy())
+            best_score = y
                 
 
-    else:
+    if False:
         for i in range(ARGS.iter):
             arm0 = np.random.uniform(0, radius, 8)
             arm120 = np.random.uniform(0, radius, 8)
@@ -343,7 +356,7 @@ if __name__=="__main__":
                 print("Iteration {} New best score {}".format(i, score))
                 ant.print(arm0, arm120, arm240)
                 best_score = score
-                ant.plot_uv(arms, score)
+                ant.plot_uv(ARGS.outfile, arms, score)
         
         print("Best score: {}".format(best_score))
         ant.print(arm0, arm120, arm240)
