@@ -58,11 +58,12 @@ def constrain(x, lower, upper):
     clip_lower = tf.math.softplus((x-lower)*sharpness)/sharpness + lower
     return upper - tf.math.softplus((-clip_lower + upper)*sharpness)/sharpness
 
-def penalize(duv, limit=0.2):
+def penalize(duv2, limit=0.2):
     sharpness = 50
+    duv = tf.sqrt(duv2)
     clip_lower = tf.math.softplus((limit - duv)*sharpness)/sharpness
-    return clip_lower/limit
-
+    return (clip_lower/limit)**2
+    
 def global_f(x):
     '''
         A function suitable for optimizing using a global minimizer. This will
