@@ -25,9 +25,9 @@ def polar_to_rectangular(r, theta):
     return x,y,z
 
 
-def init(radius_lower, spacing, radius_limit):
+def init(radius_lower, spacing, radius_limit, ant):
     '''
-        Define the globals needed by our minimization functoin
+        Define the globals needed by our minimization function
     '''
     global l, m, n_minus_1, p2j, theta, pixel_areas, radius, radius_min, min_spacing
     
@@ -64,29 +64,14 @@ def penalize(duv2, limit=0.2):
     clip_lower = tf.math.softplus((limit - duv)*sharpness)/sharpness
     return (clip_lower/limit)**2
 
-def penalty(x):
-
-    _x = x_constrained * tf.sin(theta)
-    _y = x_constrained * tf.cos(theta)
-    _z = tf.zeros_like(x)
-    
-    num_ant = x.shape[0]
-
-    penalty = 1
-    for i in range(num_ant):
-        for j in range(i+1, num_ant):
-            u = _x[i] - _x[j]
-            v = _y[i] - _y[j]
-            w = _z[i] - _z[j]
-            
-            duv = (u**2 + v**2 + w**2)
-            penalty += penalize(duv, min_spacing)
-            
 
 def global_f(x):
     '''
         A function suitable for optimizing using a global minimizer. This will
-        return the condition number of the telescope operator
+        return the condition number of the telescope operator, as well as an array
+        penalty if the antennas are close to each other.
+        
+        The input is a vector or radial positions
     '''
     
     global l, m, n_minus_1, p2j, theta, pixel_areas, radius, radius_min, min_spacing
@@ -127,8 +112,30 @@ def fu_minimize():
     penalty, score = global_f(x_opt)
     return penalty*score
 
-def array_from_json(json):
-    ret = YAntennaArray(N, radius, res_arcmin, fov_degrees)
+
+
+def sort_arms(arms):
+    arm0, arm120, arm240 = arms
+    #arm0 = np.sort(arm0)
+    #arm120 = np.sort(arm120)
+    #arm240 = np.sort(arm240)
+    return arm0, arm120, arm240
+
+def array_to_dict(ret, x):
+    arms = np.split(x, 3)
+    arm0, arm120, arm240 = sort_arms(arms)
+
+    ret['arm0'] = arm0.tolist()
+    ret['arm120'] = arm120.tolist()
+    ret['arm240'] = arm240.tolist()
+    
+def dict_to_array(ret):
+    arm0 = np.array(ret['arm0'])
+    arm120 = np.array(ret['arm120'])
+    arm240 = np.array(ret['arm240'])
+    
+    return np.concatenate((arm0, arm120, arm240), axis=0)
+    
     
 class YAntennaArray:
     '''
@@ -186,12 +193,6 @@ class YAntennaArray:
         array_disko = disko.DiSkO.from_ant_pos(ant_pos, frequencies[0])
         return array_disko
     
-    def sort_arms(self, arms):
-        arm0, arm120, arm240 = arms
-#         arm0 = np.sort(arm0)
-#         arm120 = np.sort(arm120)
-#         arm240 = np.sort(arm240)
-        return arm0, arm120, arm240
     
     def plot_uv(self, filename, arms, penalty, score):
         
@@ -229,7 +230,7 @@ class YAntennaArray:
         ret['npix'] = self.fov.npix
 
         
-        arm0, arm120, arm240 = self.sort_arms(arms)
+        arm0, arm120, arm240 = sort_arms(arms)
 
         ret['arm0'] = arm0.tolist()
         ret['arm120'] = arm120.tolist()
@@ -243,7 +244,7 @@ class YAntennaArray:
     
     def print(self, arms):
         
-        arm0, arm120, arm240 = self.sort_arms(arms)
+        arm0, arm120, arm240 = sort_arms(arms)
 
         arm0 = np.array2string(arm0, formatter={'float_kind':lambda x: "%.3f" % x})
         arm120 = np.array2string(arm120, formatter={'float_kind':lambda x: "%.3f" % x})
@@ -309,7 +310,7 @@ if __name__=="__main__":
     best_score = 1e49
     
     # Set up global variables for the tf function
-    init(radius_min, ARGS.spacing, radius)
+    init(radius_min, ARGS.spacing, radius, ant)
     
     
     if ARGS.initial is not None:
