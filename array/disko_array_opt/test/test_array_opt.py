@@ -17,35 +17,37 @@ class TestArrayOpt(unittest.TestCase):
                             fov_degrees=fov,
                             spacing=spacing)
         radius_min = 0.1
-        array_opt.init(radius_lower=radius_min, 
-                    spacing = spacing,
-                    radius_limit=radius, ant=cls.ant)
+        array_opt.init(radius_lower=radius_min, ant=cls.ant)
 
 
                     
     def test_dict_loadsave(self):
         x_opt = np.random.uniform(0, 2.5, 24)
-        score, penalty = array_opt.global_f(x_opt)
+        penalty, cond = array_opt.global_f(x_opt)
         
         ret = {}
         array_opt.array_to_dict(ret, x_opt)
         
         x2 = array_opt.dict_to_array(ret)
-        score1, penalty1 = array_opt.global_f(x2)
+        penalty1, cond1 = array_opt.global_f(x2)
         
         self.assertAlmostEqual(penalty, penalty1)
-        self.assertAlmostEqual(score, score1)
+        self.assertAlmostEqual(cond.numpy(), cond1.numpy())
         
     def test_json_loadsave(self):
         x_opt = np.random.uniform(0, 2.5, 24)
-        score, penalty = array_opt.global_f(x_opt)
+        penalty, cond = array_opt.global_f(x_opt)
         
-        self.ant.to_json(filename='test', x=x_opt, penalty=penalty.numpy(), score=score.numpy())
+        self.ant.to_json(filename='test', x_constrained=x_opt,
+                        x_opt=x_opt, penalty=penalty.numpy(), cond=cond.numpy())
         
         ant2 = array_opt.YAntennaArray.from_json('test.json')
-        self.assertAlmostEqual(score.numpy(), ant2.condition_number)
-        self.assertAlmostEqual(penalty.numpy(), ant2.penalty)
 
-        score2, penalty2 = array_opt.global_f(ant2.x)
+        # Now recompute the penalty and condition number from the saved array
+        penalty2, cond2 = array_opt.global_f(ant2.x)
+        self.assertTrue(np.allclose(x_opt, ant2.x))
+        
         self.assertAlmostEqual(penalty.numpy(), penalty2.numpy())
-        self.assertAlmostEqual(score.numpy(), score2.numpy())
+        self.assertAlmostEqual(cond.numpy(), cond2.numpy())
+
+#     def test_

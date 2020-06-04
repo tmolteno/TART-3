@@ -25,7 +25,7 @@ def polar_to_rectangular(r, theta):
     return x,y,z
 
 
-def init(radius_lower, spacing, radius_limit, ant):
+def init(radius_lower, ant):
     '''
         Define the globals needed by our minimization function
     '''
@@ -41,8 +41,8 @@ def init(radius_lower, spacing, radius_limit, ant):
 
     num_ant = 24
     num_arms = 3
-    radius = tf.constant(radius_limit, dtype=tf.float64)
-    min_spacing = tf.constant(spacing, dtype=tf.float64)
+    radius = tf.constant(ant.radius, dtype=tf.float64)
+    min_spacing = tf.constant(ant.spacing, dtype=tf.float64)
     radius_min = tf.constant(radius_lower, dtype=tf.float64)
     
     p2j = tf.constant(2.0*np.pi*1.0j * freq / C)
@@ -102,23 +102,23 @@ def global_f(x):
     gamma = tf.stack(rows, axis=0)
 
     s = tf.linalg.svd(gamma, full_matrices=False, compute_uv=False)
-    score = (s[0] / s[275])
-    print("C/N={}  penalty={}".format(score, penalty))
-    return penalty, score
+    cond = (s[0] / s[275])
+    print("C/N={}  penalty={}".format(cond, penalty))
+    return penalty, cond
 
-#Function without input
+#Function without input to be used for the minimizer
 def fu_minimize():
     tf.debugging.check_numerics(x_opt, message="x is buggered")
-    penalty, score = global_f(x_opt)
-    return penalty*score
+    penalty, cond = global_f(x_opt)
+    return penalty*cond
 
 
 
 def sort_arms(arms):
     arm0, arm120, arm240 = arms
-    #arm0 = np.sort(arm0)
-    #arm120 = np.sort(arm120)
-    #arm240 = np.sort(arm240)
+    arm0 = np.sort(arm0)
+    arm120 = np.sort(arm120)
+    arm240 = np.sort(arm240)
     return arm0, arm120, arm240
 
 def array_to_dict(ret, x):
@@ -175,14 +175,14 @@ class YAntennaArray:
         cls.arms = np.array([data['arm0'], data['arm120'], data['arm240']]).flatten()
         cls.condition_number = data['condition_number']
         cls.penalty = data['penalty']
-        cls.x = dict_to_array(data)
+        cls.x = np.array(data['x_opt'])
         return cls
 
-    def to_json(self, filename, x, penalty, score):
+    def to_json(self, filename, x_constrained, x_opt, penalty, cond):
         ret = {}
-        ret['condition_number'] = score
+        ret['condition_number'] = cond
         ret['penalty'] = penalty
-        ret['N'] = x.shape[0]
+        ret['N'] = x_opt.shape[0]
         ret['radius'] = self.radius
         ret['spacing'] = self.spacing
         ret['frequency'] = self.frequency
@@ -190,7 +190,9 @@ class YAntennaArray:
         ret['res_arcmin'] = self.res_arcmin
         ret['npix'] = self.fov.npix
 
-        array_to_dict(ret, x)
+        ret['x_opt'] = x_opt.tolist()
+
+        array_to_dict(ret, x_constrained)
         
         #arm0, arm120, arm240 = sort_arms(arms)
 
@@ -235,13 +237,16 @@ class YAntennaArray:
         return array_disko
 
     
-    def plot_uv(self, filename, x, penalty, score):
+    def get_arms(self, x):
+        return np.split(x,3)
         
-        arms = np.split(x, 3)
+    def plot_uv(self, filename, x, penalty, cond):
+        
+        arms = self.get_arms(x)
         self.ax1.clear()
         self.ax1.set_aspect('equal', adjustable='box')
         dsko = self.get_disko(arms)
-        self.ax1.set_title("U-V cond={:.3g}".format(score))
+        self.ax1.set_title("U-V cond={:.3g}".format(cond))
         self.ax1.plot(dsko.u_arr, dsko.v_arr, '.')
         self.ax1.plot(-dsko.u_arr, -dsko.v_arr, '.')
         self.ax1.grid(True)
@@ -263,8 +268,9 @@ class YAntennaArray:
             
             
     
-    def print(self, arms):
+    def print(self, x):
         
+        arms = self.get_arms(x)
         arm0, arm120, arm240 = sort_arms(arms)
 
         arm0 = np.array2string(arm0, formatter={'float_kind':lambda x: "%.3f" % x})
@@ -324,41 +330,43 @@ if __name__=="__main__":
     radius_min = ARGS.radius_min
     N = ARGS.nant
     
-    ant = YAntennaArray(N=8, radius=radius, 
-                        res_arcmin=ARGS.arcmin,
-                        fov_degrees=ARGS.fov,
-                        spacing=ARGS.spacing)
     best_score = 1e49
     
-    # Set up global variables for the tf function
-    init(radius_min, ARGS.spacing, radius, ant)
-    
-    
     if ARGS.initial is not None:
-        with open(ARGS.initial, 'r') as f:
-            data = json.load(f)
-        arms = np.array([data['arm0'], data['arm120'], data['arm240']]).flatten()
-        x_opt = tf.Variable(arms, dtype=tf.float64)
-        penalty, score = global_f(x_opt)
-        print("Loading from JSON file: {}, score={}, penalty={}".format(ARGS.initial, score, penalty))
+        ant = YAntennaArray.from_json(ARGS.initial)        
+        # Set up global variables for the tf function
+        init(radius_min, ant)
+        x_opt = tf.Variable(ant.x, dtype=tf.float64)
+        penalty, cond = global_f(x_opt)
+        print("Loading from JSON file: {}, cond={}, penalty={}".format(ARGS.initial, cond, penalty))
         print("array = {}".format(x_opt.numpy()))
+        
+
     else:
+        ant = YAntennaArray(N=8, radius=radius, 
+                            res_arcmin=ARGS.arcmin,
+                            fov_degrees=ARGS.fov,
+                            spacing=ARGS.spacing)
+        
+        # Set up global variables for the tf function
+        init(radius_min, ant)
+    
         x_opt = tf.Variable(tf.random_uniform_initializer(minval=radius_min, 
                             maxval=radius)(shape=(24,),
                             dtype=tf.float64))
     opt = tf.keras.optimizers.RMSprop(learning_rate=ARGS.learning_rate)
     for i in range(ARGS.iter):
         opt.minimize(fu_minimize, var_list=[x_opt])
-        penalty, score = global_f(x_opt)
+        penalty, cond = global_f(x_opt)
         
-        y = (penalty*score).numpy()
+        y = (penalty*cond).numpy()
         print("score = {:6.3g}".format(y))
         #print (opt.get_gradients(y, [x_opt]))
         if (y < best_score):
             x_constrained = constrain(x_opt, radius_min, radius).numpy()
-            ant.print(arms)
-            ant.plot_uv(ARGS.outfile, x_constrained, penalty.numpy(), score.numpy())
-            ant.to_json(ARGS.outfile, x_constrained, penalty.numpy(), score.numpy())
+            ant.print(x_constrained)
+            ant.plot_uv(ARGS.outfile, x_constrained, penalty.numpy(), cond.numpy())
+            ant.to_json(ARGS.outfile, x_constrained, x_opt.numpy(), penalty.numpy(), cond.numpy())
             best_score = y
                 
 
@@ -369,7 +377,7 @@ if __name__=="__main__":
             arm240 = np.random.uniform(0, radius, 8)
             arms = [arm0, arm120, arm240]
             
-            score = ant.score(arms)
+            cond = ant.get_score(arms)
             x = np.array(arms).flatten()
             score2 = global_f(x)
             print(score, score2)
