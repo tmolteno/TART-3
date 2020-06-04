@@ -40,8 +40,12 @@ class TestArrayOpt(unittest.TestCase):
         x_opt = np.random.uniform(0, 2.5, 24)
         score, penalty = array_opt.global_f(x_opt)
         
-        self.ant.plot_uv(filename='test', x=x_opt, penalty=penalty.numpy(), score=score.numpy())
+        self.ant.to_json(filename='test', x=x_opt, penalty=penalty.numpy(), score=score.numpy())
         
         ant2 = array_opt.YAntennaArray.from_json('test.json')
-        
-        self.assertAlmostEqual(score.numpy(), ant2.score)
+        self.assertAlmostEqual(score.numpy(), ant2.condition_number)
+        self.assertAlmostEqual(penalty.numpy(), ant2.penalty)
+
+        score2, penalty2 = array_opt.global_f(ant2.x)
+        self.assertAlmostEqual(penalty.numpy(), penalty2.numpy())
+        self.assertAlmostEqual(score.numpy(), score2.numpy())

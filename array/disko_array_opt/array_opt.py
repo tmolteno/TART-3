@@ -175,9 +175,34 @@ class YAntennaArray:
         cls.arms = np.array([data['arm0'], data['arm120'], data['arm240']]).flatten()
         cls.condition_number = data['condition_number']
         cls.penalty = data['penalty']
+        cls.x = dict_to_array(data)
         return cls
 
-    def score(self, arms):
+    def to_json(self, filename, x, penalty, score):
+        ret = {}
+        ret['condition_number'] = score
+        ret['penalty'] = penalty
+        ret['N'] = x.shape[0]
+        ret['radius'] = self.radius
+        ret['spacing'] = self.spacing
+        ret['frequency'] = self.frequency
+        ret['fov_degrees'] = self.fov_degrees
+        ret['res_arcmin'] = self.res_arcmin
+        ret['npix'] = self.fov.npix
+
+        array_to_dict(ret, x)
+        
+        #arm0, arm120, arm240 = sort_arms(arms)
+
+        #ret['arm0'] = arm0.tolist()
+        #ret['arm120'] = arm120.tolist()
+        #ret['arm240'] = arm240.tolist()
+
+        fname = filename + '.json'
+        with open(fname, 'w') as outfile:
+            json.dump(ret, outfile, sort_keys=True, indent=4)
+
+    def get_score(self, arms):
         # Create telescope operator
         
         dsko = self.get_disko(arms)
@@ -208,7 +233,7 @@ class YAntennaArray:
                 
         array_disko = disko.DiSkO.from_ant_pos(ant_pos, frequencies[0])
         return array_disko
-    
+
     
     def plot_uv(self, filename, x, penalty, score):
         
@@ -235,27 +260,6 @@ class YAntennaArray:
         
         plt.pause(0.1)
         
-        ret = {}
-        ret['condition_number'] = score
-        ret['penalty'] = penalty
-        ret['N'] = x.shape[0]
-        ret['radius'] = self.radius
-        ret['frequency'] = self.frequency
-        ret['fov_degrees'] = self.fov_degrees
-        ret['res_arcmin'] = self.res_arcmin
-        ret['npix'] = self.fov.npix
-
-        array_to_dict(ret, x)
-        
-        #arm0, arm120, arm240 = sort_arms(arms)
-
-        #ret['arm0'] = arm0.tolist()
-        #ret['arm120'] = arm120.tolist()
-        #ret['arm240'] = arm240.tolist()
-
-        fname = filename + '.json'
-        with open(fname, 'w') as outfile:
-            json.dump(ret, outfile, sort_keys=True, indent=4)
             
             
     
@@ -354,6 +358,7 @@ if __name__=="__main__":
             x_constrained = constrain(x_opt, radius_min, radius).numpy()
             ant.print(arms)
             ant.plot_uv(ARGS.outfile, x_constrained, penalty.numpy(), score.numpy())
+            ant.to_json(ARGS.outfile, x_constrained, penalty.numpy(), score.numpy())
             best_score = y
                 
 
