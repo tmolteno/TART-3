@@ -26,7 +26,7 @@ class TestArrayOpt(unittest.TestCase):
         penalty, cond = array_opt.global_f(x_opt)
         
         ret = {}
-        array_opt.array_to_dict(ret, x_opt)
+        array_opt.array_to_dict(ret, x_opt, x_opt)
         
         x2 = array_opt.dict_to_array(ret)
         penalty1, cond1 = array_opt.global_f(x2)

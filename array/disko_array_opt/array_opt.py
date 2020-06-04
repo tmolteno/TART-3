@@ -121,20 +121,18 @@ def sort_arms(arms):
     arm240 = np.sort(arm240)
     return arm0, arm120, arm240
 
-def array_to_dict(ret, x):
-    arms = np.split(x, 3)
+def array_to_dict(ret, x_constrained, x_opt):
+    arms = np.split(x_constrained, 3)
     arm0, arm120, arm240 = sort_arms(arms)
 
     ret['arm0'] = arm0.tolist()
     ret['arm120'] = arm120.tolist()
     ret['arm240'] = arm240.tolist()
     
-def dict_to_array(ret):
-    arm0 = np.array(ret['arm0'])
-    arm120 = np.array(ret['arm120'])
-    arm240 = np.array(ret['arm240'])
+    ret['x_opt'] = x_opt.tolist()
     
-    return np.concatenate((arm0, arm120, arm240), axis=0)
+def dict_to_array(ret):
+    return np.array(ret['x_opt'])
     
 
 
@@ -175,7 +173,7 @@ class YAntennaArray:
         cls.arms = np.array([data['arm0'], data['arm120'], data['arm240']]).flatten()
         cls.condition_number = data['condition_number']
         cls.penalty = data['penalty']
-        cls.x = np.array(data['x_opt'])
+        cls.x = dict_to_array(data)
         return cls
 
     def to_json(self, filename, x_constrained, x_opt, penalty, cond):
@@ -190,9 +188,7 @@ class YAntennaArray:
         ret['res_arcmin'] = self.res_arcmin
         ret['npix'] = self.fov.npix
 
-        ret['x_opt'] = x_opt.tolist()
-
-        array_to_dict(ret, x_constrained)
+        array_to_dict(ret, x_constrained, x_opt)
         
         #arm0, arm120, arm240 = sort_arms(arms)
 
@@ -281,6 +277,72 @@ class YAntennaArray:
         print("   Arm 120: {}".format(arm120))
         print("   Arm 240: {}".format(arm240))
 
+        
+        
+def run_optimization(radius, radius_min, N, arcmin, 
+                    fov, spacing, initial, 
+                    learning_rate, iter, outfile):
+    global x_opt
+    best_score = 1e49
+    
+    if initial is not None:
+        ant = YAntennaArray.from_json(ARGS.initial)        
+        # Set up global variables for the tf function
+        init(radius_min, ant)
+        x_opt = tf.Variable(ant.x, dtype=tf.float64)
+        penalty, cond = global_f(x_opt)
+        print("Loading from JSON file: {}, cond={}, penalty={}".format(ARGS.initial, cond, penalty))
+        print("array = {}".format(x_opt.numpy()))
+        
+    else:
+        ant = YAntennaArray(N=8, radius=radius, 
+                            res_arcmin=arcmin,
+                            fov_degrees=fov,
+                            spacing=spacing)
+        
+        # Set up global variables for the tf function
+        init(radius_min, ant)
+    
+        x_opt = tf.Variable(tf.random_uniform_initializer(minval=radius_min, 
+                            maxval=radius)(shape=(24,),
+                            dtype=tf.float64))
+    opt = tf.keras.optimizers.RMSprop(learning_rate=learning_rate)
+    for i in range(iter):
+        opt.minimize(fu_minimize, var_list=[x_opt])
+        penalty, cond = global_f(x_opt)
+        
+        y = (penalty*cond).numpy()
+        print("score = {:6.3g}".format(y))
+        #print (opt.get_gradients(y, [x_opt]))
+        if (y < best_score):
+            x_constrained = constrain(x_opt, radius_min, radius).numpy()
+            ant.print(x_constrained)
+            ant.plot_uv(outfile, x_constrained, penalty.numpy(), cond.numpy())
+            ant.to_json(outfile, x_constrained, x_opt.numpy(), penalty.numpy(), cond.numpy())
+            best_score = y
+                
+# 
+#     if False:
+#         for i in range(ARGS.iter):
+#             arm0 = np.random.uniform(0, radius, 8)
+#             arm120 = np.random.uniform(0, radius, 8)
+#             arm240 = np.random.uniform(0, radius, 8)
+#             arms = [arm0, arm120, arm240]
+#             
+#             cond = ant.get_score(arms)
+#             x = np.array(arms).flatten()
+#             score2 = global_f(x)
+#             print(score, score2)
+#             
+#             if (score < best_score):
+#                 print("Iteration {} New best score {}".format(i, score))
+#                 ant.print(arm0, arm120, arm240)
+#                 best_score = score
+#                 ant.plot_uv(ARGS.outfile, arms, score)
+#         
+#         print("Best score: {}".format(best_score))
+#         ant.print(arm0, arm120, arm240)
+
 if __name__=="__main__":
     
     parser = argparse.ArgumentParser(description='DiSkO Array: Optimize an array layout using the singular values of the array operator', 
@@ -325,68 +387,11 @@ if __name__=="__main__":
     logger.addHandler(console)
 
 
-
-    radius = ARGS.radius
-    radius_min = ARGS.radius_min
-    N = ARGS.nant
+    run_optimization(radius = ARGS.radius,
+        radius_min = ARGS.radius_min,
+        N = ARGS.nant,
+        arcmin = ARGS.arcmin, fov=ARGS.fov, spacing=ARGS.spacing,
+        initial = ARGS.initial, learning_rate = ARGS.learning_rate,
+        iter = ARGS.iter,
+        outfile = ARGS.outfile)
     
-    best_score = 1e49
-    
-    if ARGS.initial is not None:
-        ant = YAntennaArray.from_json(ARGS.initial)        
-        # Set up global variables for the tf function
-        init(radius_min, ant)
-        x_opt = tf.Variable(ant.x, dtype=tf.float64)
-        penalty, cond = global_f(x_opt)
-        print("Loading from JSON file: {}, cond={}, penalty={}".format(ARGS.initial, cond, penalty))
-        print("array = {}".format(x_opt.numpy()))
-        
-
-    else:
-        ant = YAntennaArray(N=8, radius=radius, 
-                            res_arcmin=ARGS.arcmin,
-                            fov_degrees=ARGS.fov,
-                            spacing=ARGS.spacing)
-        
-        # Set up global variables for the tf function
-        init(radius_min, ant)
-    
-        x_opt = tf.Variable(tf.random_uniform_initializer(minval=radius_min, 
-                            maxval=radius)(shape=(24,),
-                            dtype=tf.float64))
-    opt = tf.keras.optimizers.RMSprop(learning_rate=ARGS.learning_rate)
-    for i in range(ARGS.iter):
-        opt.minimize(fu_minimize, var_list=[x_opt])
-        penalty, cond = global_f(x_opt)
-        
-        y = (penalty*cond).numpy()
-        print("score = {:6.3g}".format(y))
-        #print (opt.get_gradients(y, [x_opt]))
-        if (y < best_score):
-            x_constrained = constrain(x_opt, radius_min, radius).numpy()
-            ant.print(x_constrained)
-            ant.plot_uv(ARGS.outfile, x_constrained, penalty.numpy(), cond.numpy())
-            ant.to_json(ARGS.outfile, x_constrained, x_opt.numpy(), penalty.numpy(), cond.numpy())
-            best_score = y
-                
-
-    if False:
-        for i in range(ARGS.iter):
-            arm0 = np.random.uniform(0, radius, 8)
-            arm120 = np.random.uniform(0, radius, 8)
-            arm240 = np.random.uniform(0, radius, 8)
-            arms = [arm0, arm120, arm240]
-            
-            cond = ant.get_score(arms)
-            x = np.array(arms).flatten()
-            score2 = global_f(x)
-            print(score, score2)
-            
-            if (score < best_score):
-                print("Iteration {} New best score {}".format(i, score))
-                ant.print(arm0, arm120, arm240)
-                best_score = score
-                ant.plot_uv(ARGS.outfile, arms, score)
-        
-        print("Best score: {}".format(best_score))
-        ant.print(arm0, arm120, arm240)
