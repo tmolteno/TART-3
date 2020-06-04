@@ -62,7 +62,7 @@ def penalize(duv2, limit=0.2):
     sharpness = 50
     duv = tf.sqrt(duv2)
     clip_lower = tf.math.softplus((limit - duv)*sharpness)/sharpness
-    return (clip_lower/limit)**2
+    return 10*(clip_lower/limit)**2
 
 
 def global_f(x):
