@@ -1,2 +1,5 @@
 .ipynb_checkpoints
 *.log
+test.json
+test.pdf
+__pycache__

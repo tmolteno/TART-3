@@ -153,13 +153,16 @@ class YAntennaArray:
         self.fov = disko.HealpixSubSphere.from_resolution(resolution=res_arcmin, 
                                       theta = np.radians(0.0), phi=0.0, 
                                       radius=np.radians(fov_degrees/2))
+        self.fig = None
+        
+    def init_plot(self):
         self.fig = plt.figure(figsize=(8,4))
         self.ax1 = self.fig.add_subplot(1,2,1, adjustable='box', aspect=1)
         self.ax2 = self.fig.add_subplot(1,2,2, adjustable='box', aspect=1)
 
         #self.fig, (self.ax1, self.ax2) = plt.subplots(1, 2)
         #self.fig.suptitle('Optimizer Outpu')
-    
+
     @classmethod
     def from_json(cls, filename):
         with open(filename, 'r') as f:
@@ -170,7 +173,7 @@ class YAntennaArray:
                             data['res_arcmin'],
                             data['fov_degrees'],
                             data['spacing'])
-        cls.arms = np.array([data['arm0'], data['arm120'], data['arm240']]).flatten()
+        cls.arms = np.array([data['arm0'], data['arm120'], data['arm240']])
         cls.condition_number = data['condition_number']
         cls.penalty = data['penalty']
         cls.x = dict_to_array(data)
@@ -237,6 +240,8 @@ class YAntennaArray:
         return np.split(x,3)
         
     def plot_uv(self, filename, x, penalty, cond):
+        if self.fig is None:
+            self.init_plot()
         
         arms = self.get_arms(x)
         self.ax1.clear()
