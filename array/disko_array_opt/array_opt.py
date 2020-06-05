@@ -290,27 +290,26 @@ def run_optimization(radius, radius_min, N, arcmin,
     global x_opt
     best_score = 1e49
     
+    ant = YAntennaArray(N=8, radius=radius, 
+                        res_arcmin=arcmin,
+                        fov_degrees=fov,
+                        spacing=spacing)
+    
+    # Set up global variables for the tf function
+    init(radius_min, ant)
+
     if initial is not None:
-        ant = YAntennaArray.from_json(ARGS.initial)        
-        # Set up global variables for the tf function
-        init(radius_min, ant)
-        x_opt = tf.Variable(ant.x, dtype=tf.float64)
-        penalty, cond = global_f(x_opt)
-        print("Loading from JSON file: {}, cond={}, penalty={}".format(ARGS.initial, cond, penalty))
-        print("array = {}".format(x_opt.numpy()))
-        
+        with open(initial, 'r') as f:
+            data = json.load(f)
+            
+        x_initial = dict_to_array(data)
+        x_opt = tf.Variable(x_initial, dtype=tf.float64)        
     else:
-        ant = YAntennaArray(N=8, radius=radius, 
-                            res_arcmin=arcmin,
-                            fov_degrees=fov,
-                            spacing=spacing)
-        
-        # Set up global variables for the tf function
-        init(radius_min, ant)
     
         x_opt = tf.Variable(tf.random_uniform_initializer(minval=radius_min, 
-                            maxval=radius)(shape=(24,),
-                            dtype=tf.float64))
+                        maxval=radius)(shape=(24,),
+                        dtype=tf.float64))
+
     opt = tf.keras.optimizers.RMSprop(learning_rate=learning_rate)
     for i in range(iter):
         opt.minimize(fu_minimize, var_list=[x_opt])
