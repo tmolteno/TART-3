@@ -310,7 +310,7 @@ def run_optimization(radius, radius_min, N, arcmin,
                         maxval=radius)(shape=(24,),
                         dtype=tf.float64))
 
-    opt = tf.keras.optimizers.RMSprop(learning_rate=learning_rate)
+    opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     for i in range(iter):
         opt.minimize(fu_minimize, var_list=[x_opt])
         penalty, cond = global_f(x_opt)
