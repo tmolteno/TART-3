@@ -36,6 +36,7 @@
     "npix": 5056,
     "penalty": 1.1306482851433681,
     "radius": 2.5,
+    "radius_min": 0.1,
     "res_arcmin": 180.0,
     "spacing": 0.15,
     "x_opt": [

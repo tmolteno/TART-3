@@ -113,7 +113,7 @@ def get_ant_pos(x):
 def tf_minimize_function():
     global l, m, n_minus_1, p2j, theta, pixel_areas, radius, radius_min, min_spacing
 
-
+    global penalty, cond
 
     if False:
         tf.debugging.check_numerics(x_opt, message="x is buggered")
@@ -153,9 +153,10 @@ class YAntennaArray:
         Each arm has N antennas. In the case of the tart, it will be N=8
         
     '''
-    def __init__(self, N, radius, res_arcmin, fov_degrees, spacing):
+    def __init__(self, N, radius, radius_min, res_arcmin, fov_degrees, spacing):
         self.N = N
         self.radius = radius
+        self.radius_min = radius_min
         self.spacing = spacing
         self.frequency = 1.57542e9
         self.fov_degrees = fov_degrees
@@ -181,6 +182,7 @@ class YAntennaArray:
             
         cls = YAntennaArray(data['N'], 
                             data['radius'],
+                            data['radius_min'],
                             data['res_arcmin'],
                             data['fov_degrees'],
                             data['spacing'])
@@ -196,6 +198,7 @@ class YAntennaArray:
         ret['penalty'] = penalty
         ret['N'] = x_opt.shape[0]
         ret['radius'] = self.radius
+        ret['radius_min'] = self.radius_min
         ret['spacing'] = self.spacing
         ret['frequency'] = self.frequency
         ret['fov_degrees'] = self.fov_degrees
@@ -301,7 +304,9 @@ def run_optimization(radius, radius_min, N, arcmin,
     global x_opt
     best_score = 1e49
     
-    ant = YAntennaArray(N=8, radius=radius, 
+    ant = YAntennaArray(N=8, 
+                        radius=radius, 
+                        radius_min=radius_min, 
                         res_arcmin=arcmin,
                         fov_degrees=fov,
                         spacing=spacing)
@@ -324,9 +329,9 @@ def run_optimization(radius, radius_min, N, arcmin,
     opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     for i in range(iter):
         opt.minimize(tf_minimize_function, var_list=[x_opt])
-        print(opt.variables())
-        _x, _y, _z = get_ant_pos(x_opt)
-        penalty, cond = global_f(_x, _y, _z)
+        #print(opt.variables())
+        #_x, _y, _z = get_ant_pos(x_opt)
+        #penalty, cond = global_f(_x, _y, _z)
         
         y = (penalty*cond).numpy()
         print("score = {:6.3g}".format(y))
