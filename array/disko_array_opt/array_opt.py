@@ -301,7 +301,7 @@ class YAntennaArray:
 def run_optimization(radius, radius_min, N, arcmin, 
                     fov, spacing, initial, 
                     learning_rate, iter, outfile):
-    global x_opt
+    global x_opt, penalty, cond
     best_score = 1e49
     
     ant = YAntennaArray(N=8, 
@@ -313,6 +313,11 @@ def run_optimization(radius, radius_min, N, arcmin,
     
     # Set up global variables for the tf function
     init(radius_min, ant)
+    
+    history = {}
+    history['cond'] = []
+    history['penalty'] = []
+    history['score'] = []
 
     if initial is not None:
         with open(initial, 'r') as f:
@@ -326,14 +331,19 @@ def run_optimization(radius, radius_min, N, arcmin,
                         maxval=radius)(shape=(24,),
                         dtype=tf.float64))
 
-    opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+    opt = tf.keras.optimizers.Nadam(learning_rate=learning_rate)
     for i in range(iter):
         opt.minimize(tf_minimize_function, var_list=[x_opt])
-        #print(opt.variables())
-        #_x, _y, _z = get_ant_pos(x_opt)
-        #penalty, cond = global_f(_x, _y, _z)
-        
+        # penalty, cond are stored in global variables to avoid recalculating 
+        # them using:
+        #     _x, _y, _z = get_ant_pos(x_opt)
+        #     penalty, cond = global_f(_x, _y, _z)
         y = (penalty*cond).numpy()
+        
+        history['cond'].append(cond.numpy())
+        history['penalty'].append(penalty.numpy())
+        history['score'].append(y)
+        
         print("score = {:6.3g}".format(y))
         #print (opt.get_gradients(y, [x_opt]))
         if (y < best_score):
@@ -342,6 +352,9 @@ def run_optimization(radius, radius_min, N, arcmin,
             ant.plot_uv(outfile, x_constrained, penalty.numpy(), cond.numpy())
             ant.to_json(outfile, x_constrained, x_opt.numpy(), penalty.numpy(), cond.numpy())
             best_score = y
+                
+        with open('optimization_history.json', 'w') as f:
+            json.dump(history, f, sort_keys=True, indent=4)
                 
 # 
 #     if False:
