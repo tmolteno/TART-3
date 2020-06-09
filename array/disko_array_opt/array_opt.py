@@ -300,7 +300,8 @@ class YAntennaArray:
         
 def run_optimization(radius, radius_min, N, arcmin, 
                     fov, spacing, initial, 
-                    learning_rate, iter, outfile):
+                    learning_rate, iterations, 
+                    optimizer, outfile):
     global x_opt, penalty, cond
     best_score = 1e49
     
@@ -318,6 +319,8 @@ def run_optimization(radius, radius_min, N, arcmin,
     history['cond'] = []
     history['penalty'] = []
     history['score'] = []
+    history['optimizer'] = optimizer
+    history['learning_rate'] = learning_rate
 
     if initial is not None:
         with open(initial, 'r') as f:
@@ -331,8 +334,16 @@ def run_optimization(radius, radius_min, N, arcmin,
                         maxval=radius)(shape=(24,),
                         dtype=tf.float64))
 
-    opt = tf.keras.optimizers.Nadam(learning_rate=learning_rate)
-    for i in range(iter):
+    if optimizer == 'RMSprop':
+        opt = tf.keras.optimizers.RMSprop(learning_rate=learning_rate)
+    elif optimizer == 'Adam':
+        opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+    elif optimizer == 'Nadam':
+        opt = tf.keras.optimizers.Nadam(learning_rate=learning_rate)
+    else:
+        raise RuntimeError('Unknown optimizer {}'.format(optimizer))
+
+    for i in range(iterations):
         opt.minimize(tf_minimize_function, var_list=[x_opt])
         # penalty, cond are stored in global variables to avoid recalculating 
         # them using:
@@ -353,12 +364,12 @@ def run_optimization(radius, radius_min, N, arcmin,
             ant.to_json(outfile, x_constrained, x_opt.numpy(), penalty.numpy(), cond.numpy())
             best_score = y
                 
-        with open('optimization_history.json', 'w') as f:
+        with open(outfile + '_history.json', 'w') as f:
             json.dump(history, f, sort_keys=True, indent=4)
                 
 # 
 #     if False:
-#         for i in range(ARGS.iter):
+#         for i in range(ARGS.iterations):
 #             arm0 = np.random.uniform(0, radius, 8)
 #             arm120 = np.random.uniform(0, radius, 8)
 #             arm240 = np.random.uniform(0, radius, 8)
@@ -396,6 +407,8 @@ if __name__=="__main__":
     
     parser.add_argument('--initial', required=False, default=None, help="Start the optimization from the positions specified in the JSON file")
 
+    parser.add_argument('--optimizer', required=False, default="RMSprop", help="Use the specified optimzer. Available are 'Adam', RMSprop, Nadam")
+
     parser.add_argument('--outfile', required=False, default="optimized_array", help="Write the optimization results to the specified JSON file")
 
     parser.add_argument('--learning-rate', type=float, default=0.02, help="Optimizer learning rate.")
@@ -427,6 +440,6 @@ if __name__=="__main__":
         N = ARGS.nant,
         arcmin = ARGS.arcmin, fov=ARGS.fov, spacing=ARGS.spacing,
         initial = ARGS.initial, learning_rate = ARGS.learning_rate,
-        iter = ARGS.iter,
+        iterations = ARGS.iter, optimizer=ARGS.optimizer,
         outfile = ARGS.outfile)
     
