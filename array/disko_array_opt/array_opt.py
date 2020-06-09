@@ -65,7 +65,8 @@ def penalize(duv2, limit=0.2):
     return 10*(clip_lower/limit)**2
 
 
-def global_f(_x, _y, _z):
+@tf.function
+def global_f(_x, _y, _z, l, m, n_minus_1, p2j, pixel_areas, min_spacing):
     '''
         A function suitable for optimizing using a global minimizer. This will
         return the condition number of the telescope operator, as well as an array
@@ -74,8 +75,6 @@ def global_f(_x, _y, _z):
         The input is a vector or radial positions
     '''
     
-    global l, m, n_minus_1, p2j, pixel_areas, min_spacing
-
     num_ant = _x.shape[0]
     
     rows = []
@@ -97,7 +96,6 @@ def global_f(_x, _y, _z):
 
     s = tf.linalg.svd(gamma, full_matrices=False, compute_uv=False)
     cond = (s[0] / s[275])
-    print("C/N={}  penalty={}".format(cond, penalty))
     return penalty, cond
 
 def get_ant_pos(x):
@@ -120,7 +118,7 @@ def tf_minimize_function():
         
     _x, _y, _z = get_ant_pos(x_opt)
     
-    penalty, cond = global_f(_x, _y, _z)
+    penalty, cond = global_f(_x, _y, _z, l, m, n_minus_1, p2j, pixel_areas, min_spacing)
     return penalty*cond
 
 
@@ -349,19 +347,22 @@ def run_optimization(radius, radius_min, N, arcmin,
         # them using:
         #     _x, _y, _z = get_ant_pos(x_opt)
         #     penalty, cond = global_f(_x, _y, _z)
-        y = (penalty*cond).numpy()
+        penalty = penalty.numpy()
+        cond = cond.numpy()
         
-        history['cond'].append(cond.numpy())
-        history['penalty'].append(penalty.numpy())
+        y = penalty*cond
+        
+        history['cond'].append(cond)
+        history['penalty'].append(penalty)
         history['score'].append(y)
         
-        print("score = {:6.3g}".format(y))
+        print("cond: {:6.3g}, pen: {:6.3g}, score: {:6.3g}".format(cond, penalty,y))
         #print (opt.get_gradients(y, [x_opt]))
         if (y < best_score):
             x_constrained = constrain(x_opt, radius_min, radius).numpy()
             ant.print(x_constrained)
-            ant.plot_uv(outfile, x_constrained, penalty.numpy(), cond.numpy())
-            ant.to_json(outfile, x_constrained, x_opt.numpy(), penalty.numpy(), cond.numpy())
+            ant.plot_uv(outfile, x_constrained, penalty, cond)
+            ant.to_json(outfile, x_constrained, x_opt.numpy(), penalty, cond)
             best_score = y
                 
         with open(outfile + '_history.json', 'w') as f:
