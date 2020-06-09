@@ -65,7 +65,7 @@ def penalize(duv2, limit=0.2):
     return 10*(clip_lower/limit)**2
 
 
-def global_f(x):
+def global_f(_x, _y, _z):
     '''
         A function suitable for optimizing using a global minimizer. This will
         return the condition number of the telescope operator, as well as an array
@@ -74,15 +74,9 @@ def global_f(x):
         The input is a vector or radial positions
     '''
     
-    global l, m, n_minus_1, p2j, theta, pixel_areas, radius, radius_min, min_spacing
+    global l, m, n_minus_1, p2j, pixel_areas, min_spacing
 
-    x_constrained = constrain(x, lower=radius_min, upper=radius)
-
-    _x = x_constrained * tf.sin(theta)
-    _y = x_constrained * tf.cos(theta)
-    _z = tf.zeros_like(x)
-    
-    num_ant = x.shape[0]
+    num_ant = _x.shape[0]
     
     rows = []
     penalty = 1
@@ -106,10 +100,27 @@ def global_f(x):
     print("C/N={}  penalty={}".format(cond, penalty))
     return penalty, cond
 
-#Function without input to be used for the minimizer
-def fu_minimize():
-    tf.debugging.check_numerics(x_opt, message="x is buggered")
-    penalty, cond = global_f(x_opt)
+def get_ant_pos(x):
+    global theta, radius, radius_min
+    x_constrained = constrain(x, lower=radius_min, upper=radius)
+
+    _x = x_constrained * tf.sin(theta)
+    _y = x_constrained * tf.cos(theta)
+    _z = tf.zeros_like(x)
+    return _x, _y, _z
+
+#Function without input to be used for the minimizer. The variable is called x_opt
+def tf_minimize_function():
+    global l, m, n_minus_1, p2j, theta, pixel_areas, radius, radius_min, min_spacing
+
+
+
+    if False:
+        tf.debugging.check_numerics(x_opt, message="x is buggered")
+        
+    _x, _y, _z = get_ant_pos(x_opt)
+    
+    penalty, cond = global_f(_x, _y, _z)
     return penalty*cond
 
 
@@ -312,8 +323,10 @@ def run_optimization(radius, radius_min, N, arcmin,
 
     opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     for i in range(iter):
-        opt.minimize(fu_minimize, var_list=[x_opt])
-        penalty, cond = global_f(x_opt)
+        opt.minimize(tf_minimize_function, var_list=[x_opt])
+        print(opt.variables())
+        _x, _y, _z = get_ant_pos(x_opt)
+        penalty, cond = global_f(_x, _y, _z)
         
         y = (penalty*cond).numpy()
         print("score = {:6.3g}".format(y))
