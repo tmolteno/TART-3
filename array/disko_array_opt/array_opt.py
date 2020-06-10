@@ -339,6 +339,10 @@ def run_optimization(radius, radius_min, N, arcmin,
         opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     elif optimizer == 'Nadam':
         opt = tf.keras.optimizers.Nadam(learning_rate=learning_rate)
+    elif optimizer == 'Adamax':
+        opt = tf.keras.optimizers.Adamax(learning_rate=learning_rate)
+    elif optimizer == 'Adagrad':
+        opt = tf.keras.optimizers.Adagrad(learning_rate=learning_rate)
     else:
         raise RuntimeError('Unknown optimizer {}'.format(optimizer))
 
@@ -357,7 +361,7 @@ def run_optimization(radius, radius_min, N, arcmin,
         history['penalty'].append(penalty)
         history['score'].append(y)
         
-        print("cond: {:6.3g}, pen: {:6.3g}, score: {:6.3g}".format(cond, penalty,y))
+        print("{:04.1f}% cond: {:6.3g}, pen: {:6.3g}, score: {:6.3g}".format(100.0*i/iterations, cond, penalty, y))
         #print (opt.get_gradients(y, [x_opt]))
         if (y < best_score):
             x_constrained = constrain(x_opt, radius_min, radius).numpy()
