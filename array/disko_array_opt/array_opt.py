@@ -52,7 +52,8 @@ def init(radius_lower, ant):
 
     n_s = l.shape[0]
     pixel_areas = tf.constant(1.0 / np.sqrt(n_s), dtype=tf.complex128)
-    
+    return  l, m, n_minus_1, p2j, theta, pixel_areas, radius, radius_min, min_spacing
+
 def constrain(x, lower, upper):
     sharpness = 5
     clip_lower = tf.math.softplus((x-lower)*sharpness)/sharpness + lower
