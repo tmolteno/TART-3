@@ -12,11 +12,12 @@ graph:
 	tensorboard --logdir logs/func
 
 OPTIMIZER=RMSprop
+LEARNING=0.1
 comparison:
-	python3 array_opt.py --iter=10000 --fov=160 --arcmin=180 --radius=2.5 --learning-rate=0.02 --optimizer ${OPTIMIZER} --outfile ${OPTIMIZER}
+	python3 array_opt.py --iter=10000 --fov=160 --arcmin=180 --radius=2.5 --learning-rate=${LEARNING} --optimizer ${OPTIMIZER} --outfile ${OPTIMIZER}_lr${LEARNING}
 
 run_all:
-# 	make comparison OPTIMIZER=RMSprop
+	make comparison OPTIMIZER=RMSprop
 	make comparison OPTIMIZER=Adam
 	make comparison OPTIMIZER=Nadam
 	make comparison OPTIMIZER=Adamax
