@@ -336,7 +336,7 @@ def run_optimization(radius, radius_min, N, arcmin,
     if optimizer == 'RMSprop':
         opt = tf.keras.optimizers.RMSprop(learning_rate=learning_rate)
     elif optimizer == 'Adam':
-        opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+        opt = tf.keras.optimizers.Adam(learning_rate=learning_rate, amsgrad=True)
     elif optimizer == 'Nadam':
         opt = tf.keras.optimizers.Nadam(learning_rate=learning_rate)
     elif optimizer == 'Adamax':
