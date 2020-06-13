@@ -1,3 +1,4 @@
+# Display the tensorflow graph for the SVD computation
 import tensorflow as tf
 from datetime import datetime
 import array_opt
