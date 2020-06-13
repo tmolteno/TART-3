@@ -15,7 +15,7 @@ for path in paths:
     optimizer = data['optimizer']
     y = np.array(data['cond'])
     
-    label = "{} {}".format(optimizer, lr)
+    label = "{} lr={}".format(optimizer, lr)
     
     if (optimizer == "RMSprop"):
         marker = '.'
@@ -25,6 +25,8 @@ for path in paths:
         marker = 'v'
     elif (optimizer == "Adamax"):
         marker = '^'
+    elif optimizer == 'Adagrad':
+        marker = '*'
     else:
         marker = '.'
     if True:
@@ -33,9 +35,10 @@ for path in paths:
     else:
         plt.plot(y, marker, label=label)
         plt.ylabel('cond(A)')
-        plt.ylim((0,100))
+        plt.ylim((0,10000))
    
 plt.legend()
+plt.title("Optimization History of Condition Number")
 plt.xlabel('Iteration')
 plt.grid()
 plt.savefig('optimization_history.pdf')
