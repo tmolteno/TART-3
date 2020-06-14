@@ -361,7 +361,7 @@ def run_optimization(radius, radius_min, N, arcmin,
         history['penalty'].append(penalty)
         history['score'].append(y)
         
-        print("{:04.1f}% cond: {:6.3g}, pen: {:6.3g}, score: {:6.3g}".format(100.0*i/iterations, cond, penalty, y))
+        print("{:04.1f}% cond: {:6.4g}, pen: {:6.4g}, score: {:6.4g}".format(100.0*i/iterations, cond, penalty, y))
         #print (opt.get_gradients(y, [x_opt]))
         if (y < best_score):
             x_constrained = constrain(x_opt, radius_min, radius).numpy()

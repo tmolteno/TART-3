@@ -32,6 +32,7 @@ for path in paths:
     if True:
         plt.semilogy(y, marker, label=label)
         plt.ylabel('log(cond(A))')
+        plt.ylim((1,10000))
     else:
         plt.plot(y, marker, label=label)
         plt.ylabel('cond(A)')
