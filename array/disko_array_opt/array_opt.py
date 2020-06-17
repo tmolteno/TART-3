@@ -63,7 +63,7 @@ def penalize(duv2, limit=0.2):
     sharpness = 50
     duv = tf.sqrt(duv2)
     clip_lower = tf.math.softplus((limit - duv)*sharpness)/sharpness
-    return 10*(clip_lower/limit)**2
+    return 50*(clip_lower/limit)**2
 
 
 @tf.function
@@ -336,7 +336,7 @@ def run_optimization(radius, radius_min, N, arcmin,
     if optimizer == 'RMSprop':
         opt = tf.keras.optimizers.RMSprop(learning_rate=learning_rate)
     elif optimizer == 'Adam':
-        opt = tf.keras.optimizers.Adam(learning_rate=learning_rate, amsgrad=True)
+        opt = tf.keras.optimizers.Adam(learning_rate=learning_rate)
     elif optimizer == 'Nadam':
         opt = tf.keras.optimizers.Nadam(learning_rate=learning_rate)
     elif optimizer == 'Adamax':
