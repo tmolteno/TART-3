@@ -30,7 +30,8 @@ install:
 	sudo pip3 install disko --upgrade
 	sudo pip3 install tensorflow --upgrade
 
-SUPER_IN=RMSprop_lr0.1.json
+#SUPER_IN=RMSprop_lr0.1.json
+SUPER_IN=super_out.json
 super:
 	cp ${SUPER_IN} loop_in.json 
 	for i in 1 2 3 4 ; do \
