@@ -96,8 +96,14 @@ def global_f(_x, _y, _z, l, m, n_minus_1, p2j, pixel_areas, min_spacing):
     gamma = tf.stack(rows, axis=0)
 
     s = tf.linalg.svd(gamma, full_matrices=False, compute_uv=False)
+    
+    # Von Neumann Entropy of the Moore-Penrose inverse
+    # If A=U\Sigma V^{*} is the singular value decomposition of A, 
+    # then A^{+}=V\Sigma ^{+}U^{*}
+    # where \SIgma^+ is formed by the inverse of the singular values.
+    entropy = -tf.math.reduce_sum(tf.math.log(s) * tf.math.reciprocal(s))
     cond = (s[0] / s[275])
-    return penalty, cond
+    return penalty, entropy, cond
 
 def get_ant_pos(x):
     global theta, radius, radius_min
@@ -112,15 +118,15 @@ def get_ant_pos(x):
 def tf_minimize_function():
     global l, m, n_minus_1, p2j, theta, pixel_areas, radius, radius_min, min_spacing
 
-    global penalty, cond
+    global penalty, entropy, cond
 
     if False:
         tf.debugging.check_numerics(x_opt, message="x is buggered")
         
     _x, _y, _z = get_ant_pos(x_opt)
     
-    penalty, cond = global_f(_x, _y, _z, l, m, n_minus_1, p2j, pixel_areas, min_spacing)
-    return penalty*cond
+    penalty, entropy, cond = global_f(_x, _y, _z, l, m, n_minus_1, p2j, pixel_areas, min_spacing)
+    return penalty + entropy
 
 
 
@@ -191,9 +197,10 @@ class YAntennaArray:
         cls.x = dict_to_array(data)
         return cls
 
-    def to_json(self, filename, x_constrained, x_opt, penalty, cond):
+    def to_json(self, filename, x_constrained, x_opt, penalty, entropy, cond):
         ret = {}
         ret['condition_number'] = cond
+        ret['entropy'] = entropy
         ret['penalty'] = penalty
         ret['N'] = x_opt.shape[0]
         ret['radius'] = self.radius
@@ -252,7 +259,7 @@ class YAntennaArray:
     def get_arms(self, x):
         return np.split(x,3)
         
-    def plot_uv(self, filename, x, penalty, cond):
+    def plot_uv(self, filename, x, penalty, entropy, cond):
         if self.fig is None:
             self.init_plot()
         
@@ -260,7 +267,7 @@ class YAntennaArray:
         self.ax1.clear()
         self.ax1.set_aspect('equal', adjustable='box')
         dsko = self.get_disko(arms)
-        self.ax1.set_title("U-V cond={:.3g}".format(cond))
+        self.ax1.set_title("U-V S={:.3g}, C={:.3g}".format(entropy, cond))
         self.ax1.plot(dsko.u_arr, dsko.v_arr, '.')
         self.ax1.plot(-dsko.u_arr, -dsko.v_arr, '.')
         self.ax1.grid(True)
@@ -301,7 +308,7 @@ def run_optimization(radius, radius_min, N, arcmin,
                     fov, spacing, initial, 
                     learning_rate, iterations, 
                     optimizer, outfile):
-    global x_opt, penalty, cond
+    global x_opt, penalty, entropy, cond
     best_score = 1e49
     
     ant = YAntennaArray(N=8, 
@@ -316,6 +323,7 @@ def run_optimization(radius, radius_min, N, arcmin,
     
     history = {}
     history['cond'] = []
+    history['entropy'] = []
     history['penalty'] = []
     history['score'] = []
     history['optimizer'] = optimizer
@@ -353,21 +361,23 @@ def run_optimization(radius, radius_min, N, arcmin,
         #     _x, _y, _z = get_ant_pos(x_opt)
         #     penalty, cond = global_f(_x, _y, _z)
         penalty = penalty.numpy()
+        entropy = entropy.numpy()
         cond = cond.numpy()
         
-        y = penalty*cond
+        y = penalty*entropy
         
         history['cond'].append(cond)
+        history['entropy'].append(entropy)
         history['penalty'].append(penalty)
         history['score'].append(y)
         
-        print("{:04.1f}% cond: {:6.4g}, pen: {:6.4g}, score: {:6.4g}".format(100.0*i/iterations, cond, penalty, y))
+        print("{:04.1f} cond: {:6.4g}, e={:04.1f}, pen: {:6.4g}, score: {:6.4g}".format(100.0*i/iterations, cond, entropy, penalty, y))
         #print (opt.get_gradients(y, [x_opt]))
         if (y < best_score):
             x_constrained = constrain(x_opt, radius_min, radius).numpy()
             ant.print(x_constrained)
-            ant.plot_uv(outfile, x_constrained, penalty, cond)
-            ant.to_json(outfile, x_constrained, x_opt.numpy(), penalty, cond)
+            ant.plot_uv(outfile, x_constrained, penalty, entropy, cond)
+            ant.to_json(outfile, x_constrained, x_opt.numpy(), penalty, entropy, cond)
             best_score = y
                 
         with open(outfile + '_history.json', 'w') as f:
@@ -410,6 +420,7 @@ if __name__=="__main__":
     parser.add_argument('--spacing', type=float, default=0.15, help="Minimum antenna spacing.")
 
     parser.add_argument('--fov', type=float, default=180.0, help="Field of view in degrees")
+    #parser.add_argument('--trace', action=store_true, help="Use the trace of the singular values as the optimization criterion")
     
     parser.add_argument('--initial', required=False, default=None, help="Start the optimization from the positions specified in the JSON file")
 

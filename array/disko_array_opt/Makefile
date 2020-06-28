@@ -1,7 +1,7 @@
 OPTS=--fov 160 --radius-min 0.1 --radius 2.5 --arcmin 180
 
 all:
-	python3 array_opt.py --iter=10000 ${OPTS} --learning-rate=0.05
+	python3 array_opt.py --iter=10000 ${OPTS} --learning-rate=0.1
 
 .PHONY: test
 
