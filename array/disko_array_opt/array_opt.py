@@ -114,6 +114,19 @@ def get_ant_pos(x):
     _z = tf.zeros_like(x)
     return _x, _y, _z
 
+def combine_score(p, e, c):
+    ''' Combine the penalty, entropy and condition number into the final score.
+       
+        Parameters: 
+            p: penalty
+            e: entropy
+            c: condition number
+            
+        Returns:
+            The combined optimization criterion.
+    '''
+    return p + e
+
 #Function without input to be used for the minimizer. The variable is called x_opt
 def tf_minimize_function():
     global l, m, n_minus_1, p2j, theta, pixel_areas, radius, radius_min, min_spacing
@@ -126,7 +139,7 @@ def tf_minimize_function():
     _x, _y, _z = get_ant_pos(x_opt)
     
     penalty, entropy, cond = global_f(_x, _y, _z, l, m, n_minus_1, p2j, pixel_areas, min_spacing)
-    return penalty + entropy
+    return combine_score(penalty, entropy, cond)
 
 
 
@@ -364,7 +377,7 @@ def run_optimization(radius, radius_min, N, arcmin,
         entropy = entropy.numpy()
         cond = cond.numpy()
         
-        y = penalty*entropy
+        y = combine_score(penalty, entropy, cond)
         
         history['cond'].append(cond)
         history['entropy'].append(entropy)
