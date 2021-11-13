@@ -25,11 +25,11 @@ def polar_to_rectangular(r, theta):
     return x,y,z
 
 
-def init(radius_lower, ant):
+def init(narms, nants, radius_lower, ant):
     '''
         Define the globals needed by our minimization function
     '''
-    global l, m, n_minus_1, p2j, theta, pixel_areas, radius, radius_min, min_spacing
+    global l, m, n_minus_1, p2j, theta, pixel_areas, radius, radius_min, min_spacing, num_arms, arm_degrees, arm_angles, ants_per_arm,  N_smallest
     
     l = tf.constant(ant.fov.l)
     m = tf.constant(ant.fov.m)
@@ -38,17 +38,33 @@ def init(radius_lower, ant):
     freq = 1.57542e9
     C = 2.99793e8
     
+    num_ant = nants
+    num_arms = narms
 
-    num_ant = 24
-    num_arms = 3
+    N_smallest = (num_ant*(num_ant - 1) // 2) - 1
+    arm_indices = np.array_split(range(num_ant), num_arms)
+
+    ants_per_arm = np.array([s.shape[0] for s in arm_indices])
+
+
     radius = tf.constant(ant.radius, dtype=tf.float64)
     min_spacing = tf.constant(ant.spacing, dtype=tf.float64)
     radius_min = tf.constant(radius_lower, dtype=tf.float64)
     
     p2j = tf.constant(2.0*np.pi*1.0j * freq / C)
 
-    arm_angles = [0,np.radians(120),np.radians(240)]
-    theta = tf.constant(np.array([[a,]*8 for a in arm_angles]).flatten())
+    arm_degrees = np.linspace(0,  360,  num_arms, endpoint=False)
+    arm_angles = np.radians(arm_degrees)
+
+    print(f"Arm Angles {arm_angles}")
+    print(f"Arm Nant {ants_per_arm}")
+    arm_thetas = [[a]*n for a, n in zip(arm_angles, ants_per_arm)]
+    arm_thetas = [x for sublist in arm_thetas for x in sublist]
+    print(f"{arm_thetas}")
+    theta = tf.constant(np.array(arm_thetas).flatten())
+
+    #arm_angles = [0,np.radians(120),np.radians(240)]
+    #theta = tf.constant(np.array([[a,]*8 for a in arm_angles]).flatten())
 
     n_s = l.shape[0]
     pixel_areas = tf.constant(1.0 / np.sqrt(n_s), dtype=tf.complex128)
@@ -59,11 +75,17 @@ def constrain(x, lower, upper):
     clip_lower = tf.math.softplus((x-lower)*sharpness)/sharpness + lower
     return upper - tf.math.softplus((-clip_lower + upper)*sharpness)/sharpness
 
-def penalize(duv2, limit=0.2):
-    sharpness = 50
-    duv = tf.sqrt(duv2)
+#def penalize(duv2, limit=0.2):
+    #sharpness = 50
+    #duv = tf.sqrt(duv2)
+    #clip_lower = tf.math.softplus((limit - duv)*sharpness)/sharpness
+    #return 50*(clip_lower/limit)**2
+def penalize(duv, limit=0.2):
+    sharpness = 40
     clip_lower = tf.math.softplus((limit - duv)*sharpness)/sharpness
-    return 50*(clip_lower/limit)**2
+    ret = 3* clip_lower/limit
+    ret = ret*ret / duv
+    return ret
 
 
 @tf.function
@@ -79,14 +101,14 @@ def global_f(_x, _y, _z, l, m, n_minus_1, p2j, pixel_areas, min_spacing):
     num_ant = _x.shape[0]
     
     rows = []
-    penalty = 1
+    penalty = 0
     for i in range(num_ant):
         for j in range(i+1, num_ant):
             u = _x[i] - _x[j]
             v = _y[i] - _y[j]
             w = _z[i] - _z[j]
             
-            duv = (u**2 + v**2 + w**2)
+            duv = tf.sqrt(u**2 + v**2 + w**2)
             penalty += penalize(duv, min_spacing)
             
             exponent = -p2j*tf.cast(u*l + v*m + w*n_minus_1, tf.complex128)
@@ -102,7 +124,7 @@ def global_f(_x, _y, _z, l, m, n_minus_1, p2j, pixel_areas, min_spacing):
     # then A^{+}=V\Sigma ^{+}U^{*}
     # where \SIgma^+ is formed by the inverse of the singular values.
     entropy = -tf.math.reduce_sum(tf.math.log(s) * tf.math.reciprocal(s))
-    cond = (s[0] / s[275])
+    cond = (s[0] / s[N_smallest])
     return penalty, entropy, cond
 
 def get_ant_pos(x):
@@ -144,13 +166,11 @@ def tf_minimize_function():
 
 
 def sort_arms(arms):
-    arm0, arm120, arm240 = arms
-    arm0 = np.sort(arm0)
-    arm120 = np.sort(arm120)
-    arm240 = np.sort(arm240)
-    return arm0, arm120, arm240
+    return [np.sort(a) for a in arms]
 
 def array_to_dict(ret, x_constrained, x_opt):
+
+
     arms = np.split(x_constrained, 3)
     arm0, arm120, arm240 = sort_arms(arms)
 
@@ -171,8 +191,9 @@ class YAntennaArray:
         Each arm has N antennas. In the case of the tart, it will be N=8
         
     '''
-    def __init__(self, N, radius, radius_min, res_arcmin, fov_degrees, spacing):
-        self.N = N
+    def __init__(self, nants, narms, radius, radius_min, res_arcmin, fov_degrees, spacing):
+        self.N = nants
+        self.num_arms = narms
         self.radius = radius
         self.radius_min = radius_min
         self.spacing = spacing
@@ -186,7 +207,7 @@ class YAntennaArray:
         self.fig = None
         
     def init_plot(self):
-        self.fig = plt.figure(figsize=(8,4))
+        self.fig = plt.figure(figsize=(12,6))
         self.ax1 = self.fig.add_subplot(1,2,1, adjustable='box', aspect=1)
         self.ax2 = self.fig.add_subplot(1,2,2, adjustable='box', aspect=1)
 
@@ -198,12 +219,13 @@ class YAntennaArray:
         with open(filename, 'r') as f:
             data = json.load(f)
             
-        cls = YAntennaArray(data['N'], 
-                            data['radius'],
-                            data['radius_min'],
-                            data['res_arcmin'],
-                            data['fov_degrees'],
-                            data['spacing'])
+        cls = YAntennaArray(nants = data['N'],
+                            narms = data['num_arms'],
+                            radius = data['radius'],
+                            radius_min = data['radius_min'],
+                            res_arcmin = data['res_arcmin'],
+                            fov_degrees = data['fov_degrees'],
+                            spacing = data['spacing'])
         cls.arms = np.array([data['arm0'], data['arm120'], data['arm240']])
         cls.condition_number = data['condition_number']
         cls.penalty = data['penalty']
@@ -216,6 +238,7 @@ class YAntennaArray:
         ret['entropy'] = entropy
         ret['penalty'] = penalty
         ret['N'] = x_opt.shape[0]
+        ret['num_arms'] = self.num_arms
         ret['radius'] = self.radius
         ret['radius_min'] = self.radius_min
         ret['spacing'] = self.spacing
@@ -224,7 +247,16 @@ class YAntennaArray:
         ret['res_arcmin'] = self.res_arcmin
         ret['npix'] = self.fov.npix
 
-        array_to_dict(ret, x_constrained, x_opt)
+        ret['arm_degrees'] = arm_degrees.tolist()
+
+        arms = self.get_arms(x_constrained)
+
+        sorted_arms = sort_arms(arms)
+        arm_array = [a.tolist() for a in sorted_arms]
+        ret["arms"] = arm_array
+
+
+        #array_to_dict(ret, x_constrained, x_opt)
         
         #arm0, arm120, arm240 = sort_arms(arms)
 
@@ -249,15 +281,16 @@ class YAntennaArray:
         return score
 
     def get_ant_pos(self, arms):
-        arm0, arm120, arm240 = arms
-        x0,y0,z0 = polar_to_rectangular(r=arm0, theta=0)
-        x120,y120,z120 = polar_to_rectangular(r=arm120, theta=np.radians(120))
-        x240,y240,z240 = polar_to_rectangular(r=arm240, theta=np.radians(240))
-        x = np.hstack((x0, x120, x240,))
-        y = np.hstack((y0, y120, y240,))
-        z = np.hstack((z0, z120, z240,))
+        ant_pos = np.hstack([polar_to_rectangular(r=r, theta=a) for r, a in zip(arms, arm_angles)]).T
+        #arm0, arm120, arm240 = arms
+        #x0,y0,z0 = polar_to_rectangular(r=arm0, theta=0)
+        #x120,y120,z120 = polar_to_rectangular(r=arm120, theta=np.radians(120))
+        #x240,y240,z240 = polar_to_rectangular(r=arm240, theta=np.radians(240))
+        #x = np.hstack((x0, x120, x240,))
+        #y = np.hstack((y0, y120, y240,))
+        #z = np.hstack((z0, z120, z240,))
         
-        ant_pos = np.array([x,y,z]).T
+        #ant_pos = np.array([x,y,z]).T
         return ant_pos
 
     def get_disko(self, arms):
@@ -270,12 +303,15 @@ class YAntennaArray:
 
     
     def get_arms(self, x):
-        return np.split(x,3)
+        return np.array_split(x,  self.num_arms)
+        #return np.split(x,3)
         
     def plot_uv(self, filename, x, penalty, entropy, cond):
         if self.fig is None:
             self.init_plot()
         
+        lim = self.radius*1.1
+
         arms = self.get_arms(x)
         self.ax1.clear()
         self.ax1.set_aspect('equal', adjustable='box')
@@ -283,48 +319,63 @@ class YAntennaArray:
         self.ax1.set_title("U-V S={:.3g}, C={:.3g}".format(entropy, cond))
         self.ax1.plot(dsko.u_arr, dsko.v_arr, '.')
         self.ax1.plot(-dsko.u_arr, -dsko.v_arr, '.')
+        self.ax1.set_ylim(-2*radius, 2*radius)
+        self.ax1.set_xlim(-2*radius, 2*radius)
+        self.ax1.set_xlabel('u (m)')
+        self.ax1.set_ylabel('v (m)')
         self.ax1.grid(True)
         
         ant_pos = self.get_ant_pos(arms)
 
         self.ax2.clear()
         self.ax2.set_aspect('equal', adjustable='box')
-        self.ax2.set_title("Array layout. penalty={:.3g}".format(penalty))
+        self.ax2.set_title("Array layout. penalty={:.3f}".format(penalty))
         self.ax2.plot(ant_pos[:,0], ant_pos[:,1], 'x')
         self.ax2.grid(True)
         # circles with colors from default color cycle
         for a in ant_pos:
             self.ax2.add_patch(plt.Circle([a[0], a[1]], radius=self.spacing/2, color='black'))
-        self.fig.savefig(filename + '.pdf')
-        
+        self.ax2.set_ylim(-lim, lim)
+        self.ax2.set_xlim(-lim, lim)
+        self.ax2.set_xlabel('x (m)')
+        self.ax2.set_ylabel('y (m)')
+
+        self.fig.tight_layout()
+        self.fig.savefig(f"{filename}.pdf")
+        self.fig.savefig(f"{filename}.png")
+
         plt.pause(0.1)
         
             
             
     
     def print(self, x):
-        
-        arms = self.get_arms(x)
-        arm0, arm120, arm240 = sort_arms(arms)
+        sorted_arms = sort_arms(self.get_arms(x))
+        for a, d  in zip(sorted_arms, arm_degrees):
+            s = np.array2string(a, formatter={'float_kind':lambda x: "%.3f" % x})
+            print(f"    Arm {d}: {s}")
 
-        arm0 = np.array2string(arm0, formatter={'float_kind':lambda x: "%.3f" % x})
-        arm120 = np.array2string(arm120, formatter={'float_kind':lambda x: "%.3f" % x})
-        arm240 = np.array2string(arm240, formatter={'float_kind':lambda x: "%.3f" % x})
+        #arms = self.get_arms(x)
+        #arm0, arm120, arm240 = sort_arms(arms)
 
-        print("     Arm 0: {}".format(arm0))
-        print("   Arm 120: {}".format(arm120))
-        print("   Arm 240: {}".format(arm240))
+        #arm0 = np.array2string(arm0, formatter={'float_kind':lambda x: "%.3f" % x})
+        #arm120 = np.array2string(arm120, formatter={'float_kind':lambda x: "%.3f" % x})
+        #arm240 = np.array2string(arm240, formatter={'float_kind':lambda x: "%.3f" % x})
+
+        #print("     Arm 0: {}".format(arm0))
+        #print("   Arm 120: {}".format(arm120))
+        #print("   Arm 240: {}".format(arm240))
 
         
         
-def run_optimization(radius, radius_min, N, arcmin, 
+def run_optimization(radius, radius_min, nants, narms, arcmin,
                     fov, spacing, initial, 
                     learning_rate, iterations, 
                     optimizer, outfile):
     global x_opt, penalty, entropy, cond
     best_score = 1e49
     
-    ant = YAntennaArray(N=8, 
+    ant = YAntennaArray(nants=nants, narms=narms,
                         radius=radius, 
                         radius_min=radius_min, 
                         res_arcmin=arcmin,
@@ -332,7 +383,7 @@ def run_optimization(radius, radius_min, N, arcmin,
                         spacing=spacing)
     
     # Set up global variables for the tf function
-    init(radius_min, ant)
+    init(nants=nants, narms=narms, radius_lower=radius_min, ant=ant)
     
     history = {}
     history['cond'] = []
@@ -351,7 +402,7 @@ def run_optimization(radius, radius_min, N, arcmin,
     else:
     
         x_opt = tf.Variable(tf.random_uniform_initializer(minval=radius_min, 
-                        maxval=radius)(shape=(24,),
+                        maxval=radius)(shape=(nants,),
                         dtype=tf.float64))
 
     if optimizer == 'RMSprop':
@@ -424,12 +475,12 @@ if __name__=="__main__":
                                     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('--iter', type=int, default=100, help="Number of iterations.")
-    parser.add_argument('--nant', type=int, default=8, help="Number of antennas per arm.")
+    parser.add_argument('--nant', type=int, default=24, help="Number of antennas per arm.")
     parser.add_argument('--narm', type=int, default=3, help="Number of arms.")
 
     parser.add_argument('--arcmin', type=float, default=120, help="Resolution of the sky in arc minutes.")
     parser.add_argument('--radius', type=float, default=2.0, help="Length of each arm in meters.")
-    parser.add_argument('--radius-min', type=float, default=0.1, help="Minimum antenna position along each arm in meters.")
+    parser.add_argument('--radius-min', type=float, default=0.15, help="Minimum antenna position along each arm in meters.")
     parser.add_argument('--spacing', type=float, default=0.15, help="Minimum antenna spacing.")
 
     parser.add_argument('--fov', type=float, default=180.0, help="Field of view in degrees")
@@ -467,7 +518,7 @@ if __name__=="__main__":
 
     run_optimization(radius = ARGS.radius,
         radius_min = ARGS.radius_min,
-        N = ARGS.nant,
+        nants = ARGS.nant, narms=ARGS.narm,
         arcmin = ARGS.arcmin, fov=ARGS.fov, spacing=ARGS.spacing,
         initial = ARGS.initial, learning_rate = ARGS.learning_rate,
         iterations = ARGS.iter, optimizer=ARGS.optimizer,
