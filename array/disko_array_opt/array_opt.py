@@ -56,11 +56,11 @@ def init(narms, nants, radius_lower, ant):
     arm_degrees = np.linspace(0,  360,  num_arms, endpoint=False)
     arm_angles = np.radians(arm_degrees)
 
-    print(f"Arm Angles {arm_angles}")
+    print(f"Arm Angles {arm_degrees} degrees")
     print(f"Arm Nant {ants_per_arm}")
     arm_thetas = [[a]*n for a, n in zip(arm_angles, ants_per_arm)]
     arm_thetas = [x for sublist in arm_thetas for x in sublist]
-    print(f"{arm_thetas}")
+
     theta = tf.constant(np.array(arm_thetas).flatten())
 
     #arm_angles = [0,np.radians(120),np.radians(240)]
@@ -147,7 +147,7 @@ def combine_score(p, e, c):
         Returns:
             The combined optimization criterion.
     '''
-    return p + e
+    return p + c
 
 #Function without input to be used for the minimizer. The variable is called x_opt
 def tf_minimize_function():
@@ -254,15 +254,7 @@ class YAntennaArray:
         sorted_arms = sort_arms(arms)
         arm_array = [a.tolist() for a in sorted_arms]
         ret["arms"] = arm_array
-
-
-        #array_to_dict(ret, x_constrained, x_opt)
-        
-        #arm0, arm120, arm240 = sort_arms(arms)
-
-        #ret['arm0'] = arm0.tolist()
-        #ret['arm120'] = arm120.tolist()
-        #ret['arm240'] = arm240.tolist()
+        ret['x_opt'] = x_opt.tolist()
 
         fname = filename + '.json'
         with open(fname, 'w') as outfile:
@@ -282,15 +274,6 @@ class YAntennaArray:
 
     def get_ant_pos(self, arms):
         ant_pos = np.hstack([polar_to_rectangular(r=r, theta=a) for r, a in zip(arms, arm_angles)]).T
-        #arm0, arm120, arm240 = arms
-        #x0,y0,z0 = polar_to_rectangular(r=arm0, theta=0)
-        #x120,y120,z120 = polar_to_rectangular(r=arm120, theta=np.radians(120))
-        #x240,y240,z240 = polar_to_rectangular(r=arm240, theta=np.radians(240))
-        #x = np.hstack((x0, x120, x240,))
-        #y = np.hstack((y0, y120, y240,))
-        #z = np.hstack((z0, z120, z240,))
-        
-        #ant_pos = np.array([x,y,z]).T
         return ant_pos
 
     def get_disko(self, arms):
@@ -355,18 +338,6 @@ class YAntennaArray:
             s = np.array2string(a, formatter={'float_kind':lambda x: "%.3f" % x})
             print(f"    Arm {d}: {s}")
 
-        #arms = self.get_arms(x)
-        #arm0, arm120, arm240 = sort_arms(arms)
-
-        #arm0 = np.array2string(arm0, formatter={'float_kind':lambda x: "%.3f" % x})
-        #arm120 = np.array2string(arm120, formatter={'float_kind':lambda x: "%.3f" % x})
-        #arm240 = np.array2string(arm240, formatter={'float_kind':lambda x: "%.3f" % x})
-
-        #print("     Arm 0: {}".format(arm0))
-        #print("   Arm 120: {}".format(arm120))
-        #print("   Arm 240: {}".format(arm240))
-
-        
         
 def run_optimization(radius, radius_min, nants, narms, arcmin,
                     fov, spacing, initial, 
@@ -394,14 +365,15 @@ def run_optimization(radius, radius_min, nants, narms, arcmin,
     history['learning_rate'] = learning_rate
 
     if initial is not None:
+        print(f"Starting from file {initial}")
         with open(initial, 'r') as f:
             data = json.load(f)
             
         x_initial = dict_to_array(data)
         x_opt = tf.Variable(x_initial, dtype=tf.float64)        
     else:
-    
-        x_opt = tf.Variable(tf.random_uniform_initializer(minval=radius_min, 
+        print(f"Starting from random initial condition")
+        x_opt = tf.Variable(tf.random_uniform_initializer(minval=radius_min,
                         maxval=radius)(shape=(nants,),
                         dtype=tf.float64))
 
