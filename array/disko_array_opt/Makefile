@@ -1,8 +1,9 @@
 OPTIMIZER=RMSprop
 LEARNING=0.1
 NARM=5
+RADIUS=2.5
 
-OPTS=--narm ${NARM} --nant 24 --fov 170 --radius-min 0.15 --radius 2.2 --arcmin 180
+OPTS=--narm ${NARM} --nant 24 --fov 170 --radius-min 0.15 --radius ${RADIUS} --arcmin 180
 
 all:
 	python3 array_opt.py --iter=10000 ${OPTS} --learning-rate=${LEARNING} --optimizer ${OPTIMIZER}
