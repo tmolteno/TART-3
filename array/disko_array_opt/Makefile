@@ -1,7 +1,14 @@
-OPTS=--narm 5 --nant 24 --fov 160 --radius-min 0.15 --radius 2.2 --arcmin 180
+OPTIMIZER=RMSprop
+LEARNING=0.1
+NARM=5
+
+OPTS=--narm ${NARM} --nant 24 --fov 170 --radius-min 0.15 --radius 2.2 --arcmin 180
 
 all:
-	python3 array_opt.py --iter=10000 ${OPTS} --learning-rate=0.02
+	python3 array_opt.py --iter=10000 ${OPTS} --learning-rate=${LEARNING} --optimizer ${OPTIMIZER}
+
+restart:
+	python3 array_opt.py --iter=10000 ${OPTS} --learning-rate=${LEARNING} --optimizer ${OPTIMIZER} --initial optimized_array.json
 
 .PHONY: test
 
@@ -13,8 +20,6 @@ graph:
 	python3 display_graph.py
 	tensorboard --logdir logs/func
 
-OPTIMIZER=RMSprop
-LEARNING=0.1
 comparison:
 	python3 array_opt.py --iter=10000 ${OPTS} --learning-rate=${LEARNING} --optimizer ${OPTIMIZER} --outfile ${OPTIMIZER}_lr${LEARNING}
 
